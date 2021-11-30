@@ -68,17 +68,16 @@ made the hover box inherit width from parent, added some animations and grid lay
 --14/10/21
 installed the repo in my windows laptop. currently working on setting up env variables to check on an fix for my current job
 
+--30/11/21
+yes, massive gap. TL-DR i've been busy with other stuff, including trying to move this repo into both github and my new laptop, because my old linux partition got bworked. I've tried moving it into windows but live reload doesn't work inside docker on windows without doing some extra steps, steps which i was not willing to learn since i wanted to move to linux anyways
+
 TODO:
-0- check why the live reload no longer works
-    https://github.com/docker/for-win/issues/9426
-    https://docs.docker.com/desktop/windows/wsl/
-    https://docs.microsoft.com/en-us/windows/wsl/about
-    apparently there's a linux subsistem that needs to get all of the files from the repo in order for this to work
+0- finish moving the repo into the linux VM to avoid having to put up with windows VM thingy, all because live reload doesn't work :D
 1- make the white boxes slide into the intro page, revealing the text and the signature
 2- apply clip-paths on those white boxes to make em look wack
 
 DONE:
-1? WHY DO I HAVE TO TYPE SUDO ALL THE FUCKING TIME JESUS CHRIST FUCK
+1? WHY DO I HAVE TO TYPE SUDO ALL THE TIME JESUS CHRIST
 1- https://askubuntu.com/questions/477551/how-can-i-use-docker-without-sudo
 # portfolio
 # portfolio
