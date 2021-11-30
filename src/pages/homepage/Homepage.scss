@@ -1,0 +1,117 @@
+.homepage {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  scroll-padding-top: 7vh;
+  scroll-behavior: smooth;
+  .homepage-header {
+    position: sticky;
+    line-height: 7vh;
+    width: 100%;
+    top: 0;
+    background-color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 1;
+    a,
+    h1 {
+      margin: 0 2rem;
+      padding: 0;
+      outline: none;
+    }
+    h1 {
+      margin-right: auto;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      transition: outline-offset 0.1s ease;
+      padding: 0 1rem;
+      &:hover,
+      &:focus,
+      &:focus-visible {
+        outline: 1px solid black;
+        outline-offset: -0.25rem;
+      }
+      &:active {
+        outline-offset: -0.5rem;
+        background-color: hsl(195, 50%, 95%);
+      }
+    }
+  }
+  .homepage-section {
+    min-height: 100vh;
+    scroll-snap-align: start;
+    background-color: hsl(5, 7%, 67%);
+    &.intro {
+      background-color: hsl(330, 10%, 4%);
+      display: grid;
+      padding: 2rem;
+      grid-template-areas: ". . signature" "intro-title intro-title ." ". paragraph paragraph";
+      grid-template-columns: min-content 1fr min-content;
+      grid-template-rows: 40vh max-content 1fr;
+      .text-discover {
+        color: #0b090a;
+        background-color: transparent;
+        z-index: 2;
+        position: relative;
+        width: max-content;
+        margin: 0;
+        padding: 0 2rem;
+        &::before {
+          content: "";
+          width: 100%;
+          height: 100%;
+          background-color: white;
+          z-index: -1;
+          position: absolute;
+        }
+      }
+
+      .intro-title {
+        grid-area: intro-title;
+        font-size: 3rem;
+        height: 5rem;
+        line-height: 5rem;
+        &::before {
+          transform: translateX(-150%);
+          animation: slide-from-left 1s linear;
+          animation-fill-mode: forwards;
+        }
+      }
+
+      .signature {
+        grid-area: signature;
+        height: 40vh;
+        path {
+          stroke-dasharray: 661;
+          stroke-dashoffset: 661;
+          animation: signature 2.5s ease;
+          animation-fill-mode: forwards;
+        }
+      }
+    }
+    &.who-am-i {
+      background-color: hsl(206, 14%, 10%);
+      color: white;
+    }
+    &.my-projects {
+      background-color: hsl(359, 77%, 56%);
+    }
+  }
+}
+
+@keyframes signature {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes slide-from-left {
+  to {
+    transform: translateX(0px);
+  }
+}
