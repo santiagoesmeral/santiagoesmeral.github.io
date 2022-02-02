@@ -2,5 +2,48 @@ html,
 body,
 #root,
 .App {
-  overflow: hidden;
+  scroll-behavior: smooth;
+  position: relative;
+  font-family: "Futura W01", helvetica, san-serif;
+
+  --header-height: 4rem;
+}
+
+.special-link {
+  color: inherit;
+  transition: outline-offset 0.1s ease;
+  padding: 0.5rem;
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    outline: 1px solid white;
+    outline-offset: -0.25rem;
+    color: white;
+  }
+  &:active {
+    outline-offset: -0.5rem;
+    outline: 1px solid white;
+    color: white;
+  }
+}
+
+.special-button {
+  color: inherit;
+  transition: outline-offset 0.1s ease;
+  padding: 1rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    outline: 1px solid white;
+    outline-offset: -0.25rem;
+    color: white;
+  }
+  &:active {
+    outline-offset: -0.5rem;
+    outline: 1px solid white;
+    color: white;
+  }
 }

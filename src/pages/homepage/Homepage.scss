@@ -1,117 +1,121 @@
 .homepage {
-  height: 100vh;
-  width: 100vw;
+  background-color: #2b2a33;
+  height: calc(100vh - var(--header-height));
+  /*
+    this needs to be slightly above the center rather than straight
+    in the middle. Thus, we dont use grid to align it in the center,
+    even if it'd be simpler.
+  */
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.homepage-content {
   display: flex;
   flex-direction: column;
-  overflow: auto;
-  scroll-padding-top: 7vh;
-  scroll-behavior: smooth;
-  .homepage-header {
-    position: sticky;
-    line-height: 7vh;
-    width: 100%;
-    top: 0;
-    background-color: white;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    z-index: 1;
-    a,
-    h1 {
-      margin: 0 2rem;
-      padding: 0;
-      outline: none;
-    }
-    h1 {
-      margin-right: auto;
-    }
-    a {
-      text-decoration: none;
-      color: black;
-      font-weight: bold;
-      transition: outline-offset 0.1s ease;
-      padding: 0 1rem;
-      &:hover,
-      &:focus,
-      &:focus-visible {
-        outline: 1px solid black;
-        outline-offset: -0.25rem;
-      }
-      &:active {
-        outline-offset: -0.5rem;
-        background-color: hsl(195, 50%, 95%);
-      }
-    }
+  align-items: center;
+  padding-top: 20vh;
+  width: 80vw;
+  max-width: 50rem;
+}
+
+.homepage-title {
+  color: #9898a0;
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.homepage-search-form {
+  margin-bottom: 2rem;
+  width: 100%;
+  /* 
+    position: relative to allow us to make the submit button absolute and move it
+    relative to this box rather than the document 
+  */
+  position: relative;
+}
+
+.homepage-searchbar {
+  /*
+  how to add icon on background (doesnt work): 
+  background: rgba(66, 65, 77, 1)
+    url(moz-extension://27196980-0a49-4485-9145-136deea99286/favicon.ico) 16px
+    center no-repeat;
+  */
+  background-color: rgba(66, 65, 77, 1);
+  width: 100%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+  border: 1px solid transparent;
+  border-radius: 2rem;
+  color: #9898a0;
+  box-sizing: border-box;
+  transition: 0.1s ease;
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    background-color: rgb(89, 88, 104);
+    color: white;
   }
-  .homepage-section {
-    min-height: 100vh;
-    scroll-snap-align: start;
-    background-color: hsl(5, 7%, 67%);
-    &.intro {
-      background-color: hsl(330, 10%, 4%);
-      display: grid;
-      padding: 2rem;
-      grid-template-areas: ". . signature" "intro-title intro-title ." ". paragraph paragraph";
-      grid-template-columns: min-content 1fr min-content;
-      grid-template-rows: 40vh max-content 1fr;
-      .text-discover {
-        color: #0b090a;
-        background-color: transparent;
-        z-index: 2;
-        position: relative;
-        width: max-content;
-        margin: 0;
-        padding: 0 2rem;
-        &::before {
-          content: "";
-          width: 100%;
-          height: 100%;
-          background-color: white;
-          z-index: -1;
-          position: absolute;
-        }
-      }
-
-      .intro-title {
-        grid-area: intro-title;
-        font-size: 3rem;
-        height: 5rem;
-        line-height: 5rem;
-        &::before {
-          transform: translateX(-150%);
-          animation: slide-from-left 1s linear;
-          animation-fill-mode: forwards;
-        }
-      }
-
-      .signature {
-        grid-area: signature;
-        height: 40vh;
-        path {
-          stroke-dasharray: 661;
-          stroke-dashoffset: 661;
-          animation: signature 2.5s ease;
-          animation-fill-mode: forwards;
-        }
-      }
-    }
-    &.who-am-i {
-      background-color: hsl(206, 14%, 10%);
-      color: white;
-    }
-    &.my-projects {
-      background-color: hsl(359, 77%, 56%);
-    }
+}
+.homepage-search-submit {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid transparent;
+  background-color: transparent;
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: 0.1s ease;
+  svg {
+    color: #2b2a33;
+    width: inherit;
+    height: inherit;
   }
 }
 
-@keyframes signature {
-  to {
-    stroke-dashoffset: 0;
+.homepage-searchbar:focus + .homepage-search-submit,
+.homepage-searchbar:focus-visible + .homepage-search-submit,
+.homepage-searchbar:hover + .homepage-search-submit,
+.homepage-search-submit:hover {
+  border-radius: 0.5rem;
+  svg {
+    color: #9898a0;
   }
 }
-@keyframes slide-from-left {
-  to {
-    transform: translateX(0px);
+
+.homepage-list-of-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.homepage-link-card {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  border-radius: 0.5rem;
+  padding: 0.1rem;
+}
+
+.homepage-link-button {
+  padding: 2rem;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  background-color: rgba(66, 65, 77, 1);
+  color: #9898a0;
+  transition: 0.1s ease;
+  cursor: pointer;
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    background-color: rgb(89, 88, 104);
+    color: white;
   }
 }

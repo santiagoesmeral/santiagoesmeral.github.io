@@ -1,0 +1,14 @@
+.signature {
+  path {
+    stroke-dasharray: 661;
+    stroke-dashoffset: 661;
+    animation: signature 2.5s ease;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes signature {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
