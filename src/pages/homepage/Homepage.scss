@@ -1,5 +1,5 @@
 .homepage {
-  background-color: #2b2a33;
+  background-color: var(--bg-color);
   height: calc(100vh - var(--header-height));
   /*
     this needs to be slightly above the center rather than straight
@@ -18,12 +18,6 @@
   padding-top: 20vh;
   width: 80vw;
   max-width: 50rem;
-}
-
-.homepage-title {
-  color: #9898a0;
-  font-size: 4rem;
-  margin-bottom: 1rem;
 }
 
 .homepage-search-form {

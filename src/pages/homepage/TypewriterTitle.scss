@@ -1,0 +1,70 @@
+.typewriter {
+  color: #9898a0;
+  font-size: clamp(1rem, 3vw + 1rem, 4rem);
+  margin-bottom: 1rem;
+  --string-length: 12;
+  --typewriter-speed: 5s;
+  position: relative;
+  font-family: monospace;
+  width: max-content;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  &:before {
+    background: var(--bg-color);
+    animation: Typewriter var(--typewriter-speed) steps(var(--string-length)) 1s
+      forwards;
+  }
+  &:after {
+    width: 0.125em;
+    animation: Typewriter var(--typewriter-speed) steps(var(--string-length)) 1s
+        forwards,
+      blink 1s steps(1) infinite;
+  }
+}
+
+.typewriter.typewriter-delete:before,
+.typewriter.typewriter-delete:after {
+  left: 100%;
+}
+
+.typewriter.typewriter-delete:before {
+  animation: Typewriter-delete calc(var(--typewriter-speed) / 2)
+    steps(var(--string-length)) forwards;
+}
+
+.typewriter.typewriter-delete:after {
+  animation: Typewriter-delete calc(var(--typewriter-speed) / 2)
+      steps(var(--string-length)) forwards,
+    blink 1s steps(1) infinite;
+}
+
+@keyframes Typewriter {
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes Typewriter-delete {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0;
+  }
+}
+
+@keyframes blink {
+  0% {
+    background-color: #9898a0;
+  }
+  50% {
+    background-color: transparent;
+  }
+}

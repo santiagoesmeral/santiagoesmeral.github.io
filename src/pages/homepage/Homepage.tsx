@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Search, CaretRight, Heart } from "../../images";
-
 import "./Homepage.scss";
+import TypewriterTitle from "./TypewriterTitle";
 
 export default function Homepage() {
   const [searchValue, setSearchValue] = useState("");
@@ -53,7 +53,7 @@ export default function Homepage() {
   return (
     <div className="homepage">
       <section className="homepage-content">
-        <h1 className="homepage-title">Hello world!</h1>
+        <TypewriterTitle title="I love you zvet <3" />
         <form
           method="get"
           id="ddgSearch"
