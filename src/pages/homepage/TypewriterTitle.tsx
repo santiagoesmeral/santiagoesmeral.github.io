@@ -7,11 +7,20 @@ export interface TypewriterCSSInterface extends React.CSSProperties {
   "--typewriter-speed": string;
 }
 
+interface TypewriterProps {
+  titleList: string[];
+  priorityTitle?: string;
+}
+
 export default function TypewriterTitle({
-  title = "ERROR: title not found :c",
-}) {
+  titleList = ["ERROR: title not found :c"],
+  priorityTitle = "",
+}: TypewriterProps) {
+  const [currentTitle, setCurrentTitle] = useState(titleList[0]);
   const [isDeletingText, setIsDeletingText] = useState(false);
-  let typewriterSpeed = Math.min(Math.max(4, title.length / 2), 6);
+
+  let typewriterSpeed = 4;
+  // let typewriterSpeed = Math.min(Math.max(4, currentTitle.length / 2), 6);
 
   useEffect(() => {
     const textTransition = () => {
@@ -22,20 +31,20 @@ export default function TypewriterTitle({
       setTimeout(textTransition, (typewriterSpeed / 2) * 1000);
     } else {
       setTimeout(textTransition, (typewriterSpeed + 2) * 1000);
+      setCurrentTitle(titleList[Math.floor(Math.random() * titleList.length)]);
     }
   }, [isDeletingText]);
   return (
     <h1
       className={"typewriter " + (isDeletingText ? "typewriter-delete" : "")}
-      onClick={() => setIsDeletingText(!isDeletingText)}
       style={
         {
-          "--string-length": title.length,
+          "--string-length": currentTitle.length,
           "--typewriter-speed": `${typewriterSpeed}s`,
         } as TypewriterCSSInterface
       }
     >
-      {title}
+      {currentTitle}
     </h1>
   );
 }
