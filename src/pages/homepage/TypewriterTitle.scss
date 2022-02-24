@@ -1,12 +1,13 @@
 .typewriter {
   color: #9898a0;
-  font-size: clamp(1rem, 3vw + 1rem, 4rem);
-  margin-bottom: 1rem;
+  font-size: clamp(0.5rem, 3vw + 1rem, 4rem);
   --string-length: 12;
   --typewriter-speed: 5s;
+  --typewriter-pause: 1s;
   position: relative;
   font-family: monospace;
   width: max-content;
+  height: clamp(1.5rem, 4vw + 1rem, 5rem);
   &:before,
   &:after {
     content: "";
@@ -18,13 +19,13 @@
   }
   &:before {
     background: var(--bg-color);
-    animation: Typewriter var(--typewriter-speed) steps(var(--string-length)) 1s
-      forwards;
+    animation: Typewriter var(--typewriter-speed) steps(var(--string-length))
+      var(--typewriter-pause) forwards;
   }
   &:after {
     width: 0.125em;
-    animation: Typewriter var(--typewriter-speed) steps(var(--string-length)) 1s
-        forwards,
+    animation: Typewriter var(--typewriter-speed) steps(var(--string-length))
+        var(--typewriter-pause) forwards,
       blink 1s steps(1) infinite;
   }
 }

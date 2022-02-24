@@ -54,6 +54,15 @@
   2- you CANNOT use pseudoelements on inputs
   todo: move this part into react. Maybe make the button interactive while you're at it, have it be the search button. Why not!, and change the icon between a search icon while its empty, and an arrow while you can search
 
+- 11/2/22
+  rather than doing the useful part, i added the title that changes! currently need to figure out how to make the priority text work
+  so that when the user types i love you, the animation stops and restarts, and the I love you Zvet <3 appears.
+  And once the user stops typing, the I love you Zvet <3 gets deleted and the animation resumes
+
+- 24/2/22
+  finally got around finishing the title bit, gave it a fixed height.
+  Decided to also rework the priority message title to a priority queue title. Also added some nice hover 3d translation on the buttons!
+
 # TODO:
 
 - **change the link cards into actual <a> tags, add urls to youtube.**
@@ -63,13 +72,13 @@
 
 - **make the searchbar work**
 
-  - see if duckduckgo has a searchbar plugin
-  - see if browsers have a way of redirecting the input into the searchbar
-  - add a submit button, and prob a form
-  - find a way of triggering the submit button onEnter if the input is selected
-  - find a way to make a search from url parameters into duckduckgo
+  - see if duckduckgo has a searchbar plugin --done, no plugin
+  - see if browsers have a way of redirecting the input into the searchbar --nope, security issue
+  - add a submit button, and prob a form --done!
+  - find a way of triggering the submit button onEnter if the input is selected --done too
+  - find a way to make a search from url parameters into duckduckgo --aint happening, and i am not going to create a google login for this either so c'est la vie
 
-- **make the title have some typewriter effect text, and add some easter eggs into it while making it rotate text periodically**
+- **make the title have some typewriter effect text, and add some easter eggs into it while making it rotate text periodically** --DONE
 
 - **add an about-me bio page**
 

@@ -40,19 +40,27 @@ const TEMPListOfObjectsForLinksList = [
 
 export default function Homepage() {
   const [searchValue, setSearchValue] = useState("");
-  const [titleList, setTitleList] = useState([
+  const [priorityTitleQueue, setPriorityTitleQueue] = useState([
     "Welcome to my page!",
+  ]);
+  const [defaultTitleList, setdefaultTitleList] = useState([
     "Hello world!",
-    "I hope you have a fantastic day.",
+    "Have a great day!",
     "Did you brush your teeth?",
-    "I really hope StackOverflow doesnt go down today...",
     "☜(⌒▽⌒)☞",
     "ʕ·͡ᴥ·ʔ",
-    "※(^o^)/※",
-    "It's ok to be mediocre.",
-    "Love yourself, before you can love others.",
-    "Dont look at death with fear, but as reminder to cherish what you have.",
+    "※(^o^)※",
+    "ʕっ•ᴥ•ʔっ ♥",
+    "Do you like Minecraft?",
+    "I like Mangoes",
+    "Lorem ipsum n stuff",
   ]);
+
+  const popPriorityTitleQueue = () => {
+    const aux = priorityTitleQueue[0];
+    setPriorityTitleQueue(priorityTitleQueue.slice(1));
+    return aux;
+  };
 
   const searchbarIcon = () => {
     if (searchValue.toLowerCase() === "i love you") {
@@ -64,12 +72,27 @@ export default function Homepage() {
     return <Search />;
   };
 
-  useEffect(() => {}, [searchValue]);
+  useEffect(() => {
+    if (searchValue.toLowerCase() === "i love you") {
+      setPriorityTitleQueue(["I love you Zvet <3", ...priorityTitleQueue]);
+    }
+    if (searchValue.toLowerCase() === "c'est la vie") {
+      setPriorityTitleQueue(["Oui, c'est la vie eh?", ...priorityTitleQueue]);
+    }
+    if (searchValue.toLowerCase() === "un dos tres cuatro") {
+      setPriorityTitleQueue(["Cinco seis siete ocho!", ...priorityTitleQueue]);
+    }
+  }, [searchValue]);
 
   return (
     <div className="homepage">
       <section className="homepage-content">
-        <TypewriterTitle titleList={titleList} priorityTitle={""} />
+        <TypewriterTitle
+          defaultTitleList={defaultTitleList}
+          priorityTitleQueue={priorityTitleQueue}
+          popPriorityTitleQueue={popPriorityTitleQueue}
+          className="homepage-title"
+        />
         <form
           method="get"
           id="ddgSearch"

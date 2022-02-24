@@ -11,6 +11,11 @@
   justify-content: center;
 }
 
+.homepage-title {
+  align-self: flex-start;
+  margin-bottom: 1rem;
+}
+
 .homepage-content {
   display: flex;
   flex-direction: column;
@@ -111,5 +116,14 @@
   &:focus-visible {
     background-color: rgb(89, 88, 104);
     color: white;
+    transform: translate3d(0px, -4px, 0px);
+  }
+  /*
+    Note: this will only work on clicks. Cant make it work easily onEnter
+    https://stackoverflow.com/questions/32467397/how-to-trigger-the-active-pseudoclass-on-keyboard-enter-press-using-only-cs
+    i could try to make it work, but i've decided the added complexity isnt worth it.
+  */
+  &:active {
+    transform: translate3d(0px, 0px, 0px);
   }
 }
