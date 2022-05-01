@@ -8,6 +8,13 @@ body,
 
   --header-height: 4rem;
   --bg-color: #2b2a33;
+
+  --focus-color: #00b4d8;
+}
+
+*:focus,
+*:focus-visible {
+  outline: 2px solid var(--focus-color);
 }
 
 .special-link {

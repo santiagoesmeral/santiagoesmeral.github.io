@@ -5,35 +5,43 @@ import TypewriterTitle from "./TypewriterTitle";
 
 const TEMPListOfObjectsForLinksList = [
   {
-    content: "A",
+    content: "Youtube",
+    url: "",
     id: "1",
   },
   {
-    content: "B",
+    content: "Github",
+    url: "https://github.com/",
     id: "2",
   },
   {
-    content: "C",
+    content: "Outlook",
+    url: "https://outlook.live.com",
     id: "3",
   },
   {
-    content: "D",
+    content: "Gmail",
+    url: "https://mail.google.com",
     id: "4",
   },
   {
-    content: "E",
+    content: "Google Keep",
+    url: "https://keep.google.com/",
     id: "5",
   },
   {
-    content: "F",
+    content: "Google Drive",
+    url: "https://drive.google.com",
     id: "6",
   },
   {
-    content: "G",
+    content: "Google Maps",
+    url: "maps.google.com",
     id: "7",
   },
   {
-    content: "H",
+    content: "Deepl",
+    url: "https://www.deepl.com",
     id: "8",
   },
 ];
@@ -43,7 +51,8 @@ export default function Homepage() {
   const [priorityTitleQueue, setPriorityTitleQueue] = useState([
     "Welcome to my page!",
   ]);
-  const [defaultTitleList, setdefaultTitleList] = useState([
+
+  const defaultTitleList = [
     "Hello world!",
     "Have a great day!",
     "Did you brush your teeth?",
@@ -54,7 +63,7 @@ export default function Homepage() {
     "Do you like Minecraft?",
     "I like Mangoes",
     "Lorem ipsum n stuff",
-  ]);
+  ];
 
   const popPriorityTitleQueue = () => {
     const aux = priorityTitleQueue[0];
@@ -122,7 +131,9 @@ export default function Homepage() {
           {TEMPListOfObjectsForLinksList.map((item) => {
             return (
               <li className="homepage-link-card" key={item.id}>
-                <button className="homepage-link-button">{item.content}</button>
+                <a className="homepage-link" href={item.url || "#"}>
+                  {item.content}
+                </a>
               </li>
             );
           })}
