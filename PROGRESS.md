@@ -1,3 +1,28 @@
+# TODO:
+
+- **change the link cards into actual <a> tags, add urls to youtube.** - done
+
+  - see if its possible to get an icon somewhere
+
+- **Add an "about me" page**
+  -add graphics about my skills
+  -add a little bio
+  -add contact channels
+
+- **Add a link to my github page**
+
+- **Add a link to my LinkedIn page**
+
+- Add a small popup cheatsheet with all the !commands for ddg when user has the searchbar focused
+
+# personal FAQ for when i forget stuff:
+
+1? WHY DO I HAVE TO TYPE SUDO ALL THE TIME JESUS CHRIST
+1- https://askubuntu.com/questions/477551/how-can-i-use-docker-without-sudo
+
+2? WHY DOES STICKY NOT WORK AAAAAAA
+2- sticky needs to have A- all parentS (plural) to have overflow visible, and needs a top/right/left/bottom property defined, usually top: 0;
+
 # CURRENT STATUS:
 
 - prior to 25/8/21
@@ -63,61 +88,5 @@
   finally got around finishing the title bit, gave it a fixed height.
   Decided to also rework the priority message title to a priority queue title. Also added some nice hover 3d translation on the buttons!
 
-# TODO:
-
-- **change the link cards into actual <a> tags, add urls to youtube.**
-
-  - see if its possible to get an icon somewhere
-  - later on, save this on a database somewhere and pull them dynamically.
-
-- **make the searchbar work**
-
-  - see if duckduckgo has a searchbar plugin --done, no plugin
-  - see if browsers have a way of redirecting the input into the searchbar --nope, security issue
-  - add a submit button, and prob a form --done!
-  - find a way of triggering the submit button onEnter if the input is selected --done too
-  - find a way to make a search from url parameters into duckduckgo --aint happening, and i am not going to create a google login for this either so c'est la vie
-
-- **make the title have some typewriter effect text, and add some easter eggs into it while making it rotate text periodically** --DONE
-
-- **add an about-me bio page**
-
-- **add a sudoku somewhere (good luck with that chief lmao)**
-
-- **add todo (locally hosted in cache if possible?)**
-
-  - if you add a database and users, make it per-user
-
-- **add a translation dropdown**
-
-  - see if deepl or some other service offers a dynamic translation API
-  - check that it works with right-to-left scripts like arabic
-  - remember to change the search locale for the searchbar
-
-- **add mobile responsive design**
-
-- check manifest.json and robots.txt in public
-
-- **create backend and database, store links n stuff there**
-
-  - add a way for me to log in and change things around
-    - maybe add the ability for multiple users and store their sets of links around
-
-- **add "add, delete and modify" links**
-
-- **add a service worker? at least look into it**
-- **try to make this a progressive web app (PWA)**
-
-- **maybe look into react-native**
-
-# DONE:
-
-1? WHY DO I HAVE TO TYPE SUDO ALL THE TIME JESUS CHRIST
-1- https://askubuntu.com/questions/477551/how-can-i-use-docker-without-sudo
-
-2? WHY DOES STICKY NOT WORK AAAAAAA
-2- sticky needs to have A- all parentS (plural) to have overflow visible, and needs a top/right/left/bottom property defined, usually top: 0;
-
-```
-
-```
+- 1/5/22
+  long time no see! basically i've been focusing a lot on my gf. I'll probably need to have this app working, at least a very basic prototype, minimum viable product, whatever you wanna call it. So i've decided to just focus on getting some basic URL links in the page, imma try to add icons later or something. I've also decided to just add an about me page, use the other 2 links in the header for my github and linkedin, and c'est tout. I can add more stuff later
