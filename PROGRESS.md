@@ -1,19 +1,30 @@
 # TODO:
 
-- **change the link cards into actual <a> tags, add urls to youtube.** - done
+- **add title="" to html elements (built in on hover)**
+- **re-do the typewriter to allow for responsive design**
+  - https://dev.to/afif/a-scalable-css-only-typewriter-effect-2opn
+- **add a small popup cheatsheet with all the !commands for ddg when user has the searchbar focused**
+- **change flexbox into grid using auto-fit** -https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/
+- **add socials (linkedin, github)**
+- **add keyboard shortcuts to external links (i.e.: pressing 1 redirects to youtube)**
+  -add keyboard icons to the links
+- **disable animations if the user's settings request it**
+- **add translation into spanish, french, portuguese and italian**
+  -see if there is any good api's for translating all this stuff
+- **add link to downloadable CV**
+  - update CV
+  - find somewhere to host it
+- **make external links expand when hovered or focused** -https://css-tricks.com/expandable-sections-within-a-css-grid/ something like that
+- **add link to icon providers in the bottom of the screen or something**
 
-  - see if its possible to get an icon somewhere
+# TO DESIGN
 
-- **Add an "about me" page**
-  -add graphics about my skills
-  -add a little bio
-  -add contact channels
-
-- **Add a link to my github page**
-
-- **Add a link to my LinkedIn page**
-
-- Add a small popup cheatsheet with all the !commands for ddg when user has the searchbar focused
+- **make a cool background**
+- **make the webpage responsive**
+- **make the webpage mobile friendly**
+- **make the webpage ARIA compatible**
+- **make the webpage SSO optimized**
+- **make the webpage downloadable like twitter**
 
 # personal FAQ for when i forget stuff:
 
@@ -90,3 +101,7 @@
 
 - 1/5/22
   long time no see! basically i've been focusing a lot on my gf. I'll probably need to have this app working, at least a very basic prototype, minimum viable product, whatever you wanna call it. So i've decided to just focus on getting some basic URL links in the page, imma try to add icons later or something. I've also decided to just add an about me page, use the other 2 links in the header for my github and linkedin, and c'est tout. I can add more stuff later
+
+- 4/6/22
+  deja vu, long time no see again. I need to finish this ASAP.
+  I've updated the goals for the page, and i reworked the links. Now they work, and there's even some nice icons!

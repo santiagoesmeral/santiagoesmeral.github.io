@@ -1,48 +1,78 @@
-import React, { useEffect, useState } from "react";
-import { Search, CaretRight, Heart } from "../../images";
-import "./Homepage.scss";
+import { useEffect, useState } from "react";
+import {
+  Search,
+  Heart,
+  DuckDuckGoLogo,
+  GithubLogo,
+  GmailLogo,
+  YoutubeLogo,
+  GoogleKeepLogo,
+  GoogleMapsLogo,
+  GoogleDriveLogo,
+  MicrosoftOutlookLogo,
+  DeeplLogo,
+} from "../../images";
 import TypewriterTitle from "./TypewriterTitle";
+import "./Homepage.scss";
 
+/* 
+  TODO: move all this crap to a new component 
+*/
+export interface LinkPseudoelementVarStyle extends React.CSSProperties {
+  "--pseudoelem-content": string;
+}
+
+/*
+ * This can potentially come from a backend in the future
+ */
 const TEMPListOfObjectsForLinksList = [
   {
     content: "Youtube",
-    url: "",
+    url: "https://www.youtube.com",
     id: "1",
+    icon: <YoutubeLogo />,
   },
   {
     content: "Github",
     url: "https://github.com/",
     id: "2",
+    icon: <GithubLogo />,
   },
   {
     content: "Outlook",
     url: "https://outlook.live.com",
     id: "3",
+    icon: <MicrosoftOutlookLogo />,
   },
   {
     content: "Gmail",
     url: "https://mail.google.com",
     id: "4",
+    icon: <GmailLogo />,
   },
   {
     content: "Google Keep",
     url: "https://keep.google.com/",
     id: "5",
+    icon: <GoogleKeepLogo />,
   },
   {
     content: "Google Drive",
     url: "https://drive.google.com",
     id: "6",
+    icon: <GoogleDriveLogo />,
   },
   {
     content: "Google Maps",
     url: "maps.google.com",
     id: "7",
+    icon: <GoogleMapsLogo />,
   },
   {
     content: "Deepl",
     url: "https://www.deepl.com",
     id: "8",
+    icon: <DeeplLogo />,
   },
 ];
 
@@ -52,6 +82,10 @@ export default function Homepage() {
     "Welcome to my page!",
   ]);
 
+  /* 
+    ? Not sure if i should move the title logic elsewhere
+    It should probably stay here given the fact that events in other components in the homepage can alter the priority queue of text 
+  */
   const defaultTitleList = [
     "Hello world!",
     "Have a great day!",
@@ -71,16 +105,6 @@ export default function Homepage() {
     return aux;
   };
 
-  const searchbarIcon = () => {
-    if (searchValue.toLowerCase() === "i love you") {
-      return <Heart />;
-    }
-    if (searchValue.length > 0) {
-      return <CaretRight />;
-    }
-    return <Search />;
-  };
-
   useEffect(() => {
     if (searchValue.toLowerCase() === "i love you") {
       setPriorityTitleQueue(["I love you Zvet <3", ...priorityTitleQueue]);
@@ -92,6 +116,16 @@ export default function Homepage() {
       setPriorityTitleQueue(["Cinco seis siete ocho!", ...priorityTitleQueue]);
     }
   }, [searchValue]);
+
+  const searchbarIcon = () => {
+    if (searchValue.toLowerCase() === "i love you") {
+      return <Heart />;
+    }
+    if (searchValue.length > 0) {
+      return <Search />;
+    }
+    return <DuckDuckGoLogo />;
+  };
 
   return (
     <div className="homepage">
@@ -131,8 +165,13 @@ export default function Homepage() {
           {TEMPListOfObjectsForLinksList.map((item) => {
             return (
               <li className="homepage-link-card" key={item.id}>
-                <a className="homepage-link" href={item.url || "#"}>
-                  {item.content}
+                <a
+                  className="homepage-link"
+                  href={item.url || "#"}
+                  data-pseudoelem-content={item.content}
+                  title={item.content}
+                >
+                  {item.icon}
                 </a>
               </li>
             );

@@ -99,32 +99,58 @@
 
 .homepage-link-card {
   margin: 0.5rem;
-}
-
-.homepage-link {
-  display: inline-block;
-  padding: 1rem;
-  border: 1px solid transparent;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  background-color: rgba(66, 65, 77, 1);
-  color: #9898a0;
-  transition: 0.1s ease;
-  text-decoration: none;
-  cursor: pointer;
+  .homepage-link {
+    --pseudoelem-content: "";
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    height: 3rem;
+    padding: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    background-color: rgba(66, 65, 77, 1);
+    color: #9898a0;
+    transition: 0.1s ease;
+    text-decoration: none;
+    cursor: pointer;
+    svg {
+      height: inherit;
+      aspect-ratio: 1;
+    }
+    &::after {
+      content: attr(data-pseudoelem-content);
+      position: absolute;
+      font-size: 0;
+      color: white;
+      left: 0;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
   &:hover,
   &:focus,
-  &:focus-visible {
-    background-color: rgb(89, 88, 104);
-    color: white;
-    transform: translate3d(0px, -0.5rem, 0px);
-  }
-  /*
-    Note: this will only work on clicks. Cant make it work easily onEnter
-    https://stackoverflow.com/questions/32467397/how-to-trigger-the-active-pseudoclass-on-keyboard-enter-press-using-only-cs
-    i could try to make it work, but i've decided the added complexity isnt worth it.
-  */
-  &:active {
-    transform: translate3d(0px, 0px, 0px);
+  &:focus-visible,
+  &:focus-within {
+    .homepage-link {
+      background-color: rgb(89, 88, 104);
+      color: white;
+      transform: translate3d(0px, -0.5rem, 0px);
+      padding: 0.5rem 1rem 1.5rem 1rem;
+      &::after {
+        font-size: 0.8rem;
+      }
+      /*
+      Note: this will only work on clicks. Cant make it work easily onEnter
+      https://stackoverflow.com/questions/32467397/how-to-trigger-the-active-pseudoclass-on-keyboard-enter-press-using-only-cs
+      i could try to make it work, but i've decided the added complexity isnt worth it.
+      */
+      &:active {
+        transform: translate3d(0px, 0px, 0px);
+      }
+    }
   }
 }
