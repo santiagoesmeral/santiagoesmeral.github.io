@@ -14,13 +14,7 @@ import {
 } from "../../images";
 import TypewriterTitle from "./TypewriterTitle";
 import "./Homepage.scss";
-
-/* 
-  TODO: move all this crap to a new component 
-*/
-export interface LinkPseudoelementVarStyle extends React.CSSProperties {
-  "--pseudoelem-content": string;
-}
+import HomepageLinkCard from "./HomepageLinkCard";
 
 /*
  * This can potentially come from a backend in the future
@@ -152,11 +146,13 @@ export default function Homepage() {
             id="skip-navigation-target"
             placeholder="Search on DuckDuckGo"
             aria-label="Search on DuckDuckGo"
+            title="Search on DuckDuckGo"
           />
           <button
             type="submit"
             className="homepage-search-submit"
             disabled={searchValue.length === 0}
+            title="Search on DuckDuckGo (Submit button)"
           >
             {searchbarIcon()}
           </button>
@@ -164,16 +160,12 @@ export default function Homepage() {
         <ul className="homepage-list-of-links">
           {TEMPListOfObjectsForLinksList.map((item) => {
             return (
-              <li className="homepage-link-card" key={item.id}>
-                <a
-                  className="homepage-link"
-                  href={item.url || "#"}
-                  data-pseudoelem-content={item.content}
-                  title={item.content}
-                >
-                  {item.icon}
-                </a>
-              </li>
+              <HomepageLinkCard
+                id={item.id}
+                icon={item.icon}
+                content={item.content}
+                url={item.url}
+              />
             );
           })}
         </ul>

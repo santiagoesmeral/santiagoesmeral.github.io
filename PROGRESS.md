@@ -1,10 +1,8 @@
 # TODO:
 
-- **add title="" to html elements (built in on hover)**
 - **re-do the typewriter to allow for responsive design**
   - https://dev.to/afif/a-scalable-css-only-typewriter-effect-2opn
 - **add a small popup cheatsheet with all the !commands for ddg when user has the searchbar focused**
-- **change flexbox into grid using auto-fit** -https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/
 - **add socials (linkedin, github)**
 - **add keyboard shortcuts to external links (i.e.: pressing 1 redirects to youtube)**
   -add keyboard icons to the links
@@ -16,6 +14,13 @@
   - find somewhere to host it
 - **make external links expand when hovered or focused** -https://css-tricks.com/expandable-sections-within-a-css-grid/ something like that
 - **add link to icon providers in the bottom of the screen or something**
+  -change icons so we only depend on one library
+- **update all libraries**
+
+-possible things that may need doing:
+
+- **change flexbox into grid using auto-fit** -https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/
+  -so far, with the given style of card, unnecesary
 
 # TO DESIGN
 
