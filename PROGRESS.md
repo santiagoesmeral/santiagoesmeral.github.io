@@ -1,18 +1,18 @@
 # TODO:
 
-- **re-do the typewriter to allow for responsive design**
-  - https://dev.to/afif/a-scalable-css-only-typewriter-effect-2opn
+- **fix bug in typewriter (read todo)**
 - **add a small popup cheatsheet with all the !commands for ddg when user has the searchbar focused**
 - **add socials (linkedin, github)**
+- **add about me page**
+  use this fucking thing in the hire me section: https://dev.to/afif/a-scalable-css-only-typewriter-effect-2opn (multiline text)
 - **add keyboard shortcuts to external links (i.e.: pressing 1 redirects to youtube)**
-  -add keyboard icons to the links
+  -add keyboard icons to the links, like this https://dev.to/afif/the-css-scrabble-writer-the-next-gen-typewriter-fbi
 - **disable animations if the user's settings request it**
 - **add translation into spanish, french, portuguese and italian**
   -see if there is any good api's for translating all this stuff
 - **add link to downloadable CV**
   - update CV
   - find somewhere to host it
-- **make external links expand when hovered or focused** -https://css-tricks.com/expandable-sections-within-a-css-grid/ something like that
 - **add link to icon providers in the bottom of the screen or something**
   -change icons so we only depend on one library
 - **update all libraries**

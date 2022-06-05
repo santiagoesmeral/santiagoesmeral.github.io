@@ -7,9 +7,9 @@
   line-height: calc(var(--header-height) - 0.1rem);
   padding: 0 1rem;
 
-  background-color: #202020;
-  color: #9898a0;
-  border-bottom: 0.1rem solid #9898a0;
+  background-color: var(--header-color);
+  color: var(--text-color);
+  border-bottom: 0.1rem solid var(--text-color);
 
   display: flex;
   flex-direction: row;

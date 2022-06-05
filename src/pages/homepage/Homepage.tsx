@@ -82,7 +82,7 @@ export default function Homepage() {
   */
   const defaultTitleList = [
     "Hello world!",
-    "Have a great day!",
+    "I hope you have a great day!",
     "Did you brush your teeth?",
     "☜(⌒▽⌒)☞",
     "ʕ·͡ᴥ·ʔ",
@@ -91,6 +91,8 @@ export default function Homepage() {
     "Do you like Minecraft?",
     "I like Mangoes",
     "Lorem ipsum n stuff",
+    "Hey, wake up, this is a dream",
+    "it literally took me a week to get this title as it is right now.",
   ];
 
   const popPriorityTitleQueue = () => {

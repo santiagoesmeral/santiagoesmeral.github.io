@@ -1,71 +1,54 @@
+.typewriter-container {
+  width: 100%;
+}
+/*
+  Thanks to Temani Afif (https://dev.to/afif/a-multi-line-css-only-typewriter-effect-3op3)
+*/
 .typewriter {
-  color: #9898a0;
-  font-size: clamp(0.5rem, 3vw + 1rem, 4rem);
-  --string-length: 12;
-  --typewriter-speed: 5s;
-  --typewriter-pause: 1s;
-  position: relative;
+  color: transparent;
   font-family: monospace;
-  width: max-content;
-  height: clamp(1.5rem, 4vw + 1rem, 5rem);
-  &:before,
-  &:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+  font-size: clamp(0.5rem, 3vw + 1rem, 4rem);
+  background: linear-gradient(-90deg, var(--text-color) 1px, transparent 0) 0 0,
+    linear-gradient(var(--text-color) 0 0) 0 0;
+  background-size: calc(var(--string-length) * 1ch) 200%;
+  -webkit-background-clip: padding-box, text;
+  background-clip: padding-box, text;
+  padding: 0 2px; //important to allow the caret to exist
+  background-repeat: no-repeat;
+  animation: caret 1s steps(1) infinite,
+    typeText calc(var(--string-length) * 0.1s) steps(var(--string-length))
+      forwards;
+  &.typewriter-delete {
+    animation: caret 1s steps(1) infinite,
+      deleteText calc(var(--string-length) * 0.1s) steps(var(--string-length))
+        forwards;
   }
-  &:before {
-    background: var(--bg-color);
-    animation: Typewriter var(--typewriter-speed) steps(var(--string-length))
-      var(--typewriter-pause) forwards;
-  }
-  &:after {
-    width: 0.125em;
-    animation: Typewriter var(--typewriter-speed) steps(var(--string-length))
-        var(--typewriter-pause) forwards,
-      blink 1s steps(1) infinite;
+  &::after {
+    content: " ";
+    display: inline-block;
   }
 }
 
-.typewriter.typewriter-delete:before,
-.typewriter.typewriter-delete:after {
-  left: 100%;
-}
-
-.typewriter.typewriter-delete:before {
-  animation: Typewriter-delete calc(var(--typewriter-speed) / 2)
-    steps(var(--string-length)) forwards;
-}
-
-.typewriter.typewriter-delete:after {
-  animation: Typewriter-delete calc(var(--typewriter-speed) / 2)
-      steps(var(--string-length)) forwards,
-    blink 1s steps(1) infinite;
-}
-
-@keyframes Typewriter {
-  to {
-    left: 100%;
-  }
-}
-
-@keyframes Typewriter-delete {
+@keyframes typeText {
   from {
-    left: 100%;
+    background-size: 0 200%;
   }
   to {
-    left: 0;
+    background-size: calc(100% - 1px) 200%;
   }
 }
 
-@keyframes blink {
-  0% {
-    background-color: #9898a0;
+@keyframes deleteText {
+  from {
+    background-size: calc(100% - 1px) 200%;
   }
+  to {
+    background-size: 1px 200%;
+  }
+}
+
+@keyframes caret {
   50% {
-    background-color: transparent;
+    background-position: 0 -100%, 0 0;
   }
 }
