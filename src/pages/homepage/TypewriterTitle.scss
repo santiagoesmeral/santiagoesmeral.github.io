@@ -1,31 +1,44 @@
 .typewriter-container {
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
 /*
   Thanks to Temani Afif (https://dev.to/afif/a-multi-line-css-only-typewriter-effect-3op3)
+
+  something is being buggy. Even with the timer being equal to the steps, so 1s per step, it still looks off in large texts. wtf!
 */
+
+/*
+@font-face {
+  font-family: "Unifont";
+  font-style: medium;
+  font-weight: 400;
+  src: url('https://mirror.its.dal.ca/gnu/unifont/unifont-13.0.03/unifont-13.0.03.ttf' format('truetype'));
+}
+*/
+
 .typewriter {
+  margin: 0;
+  padding: 0;
   color: transparent;
-  font-family: monospace;
+  font-family: "Unifont", monospace;
   font-size: clamp(0.5rem, 3vw + 1rem, 4rem);
-  background: linear-gradient(-90deg, var(--text-color) 1px, transparent 0) 0 0,
+  // font-size: 4rem;
+  background: linear-gradient(-90deg, var(--text-color) 0.1rem, transparent 0) 0
+      0,
     linear-gradient(var(--text-color) 0 0) 0 0;
+
   background-size: calc(var(--string-length) * 1ch) 200%;
   -webkit-background-clip: padding-box, text;
   background-clip: padding-box, text;
-  padding: 0 2px; //important to allow the caret to exist
+  // padding: 0 0.1rem; //important to allow the caret to exist
   background-repeat: no-repeat;
-  animation: caret 1s steps(1) infinite,
-    typeText calc(var(--string-length) * 0.1s) steps(var(--string-length))
-      forwards;
+  animation: caret 0.8s steps(1) infinite,
+    typeText var(--typewriter-time) steps(var(--string-length)) forwards;
   &.typewriter-delete {
-    animation: caret 1s steps(1) infinite,
-      deleteText calc(var(--string-length) * 0.1s) steps(var(--string-length))
-        forwards;
-  }
-  &::after {
-    content: " ";
-    display: inline-block;
+    animation: caret 0.8s steps(1) infinite,
+      deleteText var(--typewriter-time) steps(var(--string-length)) forwards;
   }
 }
 
@@ -33,17 +46,11 @@
   from {
     background-size: 0 200%;
   }
-  to {
-    background-size: calc(100% - 1px) 200%;
-  }
 }
 
 @keyframes deleteText {
-  from {
-    background-size: calc(100% - 1px) 200%;
-  }
   to {
-    background-size: 1px 200%;
+    background-size: 0 200%;
   }
 }
 

@@ -13,64 +13,64 @@ interface TypewriterProps {
   popPriorityTitleQueue: Function;
   className?: string;
 }
-/*
-  TODO: There's a bug in this: the timeout is being set before the new text gets set on state, so,
-  if the length of the texts in the list is: [20, 40, 30]
-  then what happens is that the 40 char text uses a timeout calculated with the length of the 20 char text when typing. 
-  Same between the 30 char text and the 40 one. 
 
-  This only happens when typing the text, not when deleting
-*/
 export default function TypewriterTitle({
   defaultTitleList = ["ERROR: title not found :c"],
   priorityTitleQueue = [],
   popPriorityTitleQueue,
   className,
 }: TypewriterProps) {
-  const [currentTitle, setCurrentTitle] = useState(
-    "whats up boi, really long text coming up."
-  );
+  const [currentTitle, setCurrentTitle] = useState("");
   const [isDeletingText, setIsDeletingText] = useState(false);
 
-  // values in seconds. 0.3s per character, and one extra character cus bugs
-  let typewriterCharactersPerSecondModifier = 0.1;
-  let typewriterTime =
-    currentTitle.length * typewriterCharactersPerSecondModifier;
-  let typewriterSecondsOfPauseAfterAnimation = 2;
+  //values in seconds
+  let typewriterCharactersPerSecondModifier = 0.05;
+  let typewriterpause = 2; //pause after animation
+
+  const calcTypewriterTime = (string: string) => {
+    console.log("This was called!");
+    console.log(currentTitle.length);
+    console.log(string.length);
+    console.log(string.length * typewriterCharactersPerSecondModifier);
+
+    return string.length * typewriterCharactersPerSecondModifier;
+  };
+
+  const textTransition = () => {
+    setIsDeletingText(!isDeletingText);
+  };
 
   useEffect(() => {
-    const textTransition = () => {
-      setIsDeletingText(!isDeletingText);
-    };
     let currentTimeout;
-    /* we cant use setInterval() because the amount of time to wait after deleting text is different than the amount of time to wait after writing text */
+    // could probably change it to use setTimeout, but i like the idea of being able to change the time of deleting vs typing individually
     if (isDeletingText) {
       currentTimeout = setTimeout(
         textTransition,
-        (typewriterTime + typewriterSecondsOfPauseAfterAnimation) * 1000
+        (calcTypewriterTime(currentTitle) + typewriterpause) * 1000
       );
     } else {
+      /*
+        There was a bug where the timeout duration was being calculated before the text was being set, and thus it was using the previous text's length.
+        So we cant use the current title's value, and instead we need to calculate it based on the upcoming title length
+      */
+      let futureTitle: string;
       if (priorityTitleQueue.length > 0) {
-        setCurrentTitle(popPriorityTitleQueue());
+        futureTitle = popPriorityTitleQueue();
       } else {
-        setCurrentTitle(
-          defaultTitleList[Math.floor(Math.random() * defaultTitleList.length)]
-        );
+        futureTitle =
+          defaultTitleList[Math.floor(Math.random() * defaultTitleList.length)];
       }
+
+      setCurrentTitle(futureTitle);
       currentTimeout = setTimeout(
         textTransition,
-        (typewriterTime + typewriterSecondsOfPauseAfterAnimation) * 1000
+        (calcTypewriterTime(futureTitle) + typewriterpause) * 1000
       );
     }
   }, [isDeletingText]);
 
-  console.log(typewriterTime);
-
   return (
-    <h1
-      className="typewriter-container"
-      onClick={() => setIsDeletingText(!isDeletingText)}
-    >
+    <div className={className + " typewriter-container"}>
       <span
         className={
           className +
@@ -80,12 +80,12 @@ export default function TypewriterTitle({
         style={
           {
             "--string-length": currentTitle.length,
-            "--typewriter-time": `${typewriterTime}s`,
+            "--typewriter-time": `${calcTypewriterTime(currentTitle)}s`,
           } as TypewriterCSSInterface
         }
       >
         {currentTitle}
       </span>
-    </h1>
+    </div>
   );
 }

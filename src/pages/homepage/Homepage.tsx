@@ -79,20 +79,25 @@ export default function Homepage() {
   /* 
     ? Not sure if i should move the title logic elsewhere
     It should probably stay here given the fact that events in other components in the homepage can alter the priority queue of text 
-  */
+
+    here are all the cool texts i couldnt put in the defaultTitleList because true monospace fonts are hard
+    "☜(⌒▽⌒)☞",
+    "※(^o^)※",
+    "ʕっ•ᴥ•ʔっ ♥",
+    "ʕ·͡ᴥ·ʔ",
+    */
+
   const defaultTitleList = [
     "Hello world!",
     "I hope you have a great day!",
     "Did you brush your teeth?",
-    "☜(⌒▽⌒)☞",
-    "ʕ·͡ᴥ·ʔ",
-    "※(^o^)※",
-    "ʕっ•ᴥ•ʔっ ♥",
-    "Do you like Minecraft?",
-    "I like Mangoes",
+    "Cats or dogs?",
+    "What did the fox say?",
+    "PEBKAC",
     "Lorem ipsum n stuff",
     "Hey, wake up, this is a dream",
-    "it literally took me a week to get this title as it is right now.",
+    "It took over a week to get this title to work...",
+    "I wanted to put emojis, but turns out there are no monospace emoji/japanese character fonts ",
   ];
 
   const popPriorityTitleQueue = () => {
