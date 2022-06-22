@@ -113,3 +113,18 @@
 - 4/6/22
   deja vu, long time no see again. I need to finish this ASAP.
   I've updated the goals for the page, and i reworked the links. Now they work, and there's even some nice icons!
+
+- 22/6/22
+  i am sure i worked at some point in between the last update and this. But i dont remember.
+  In any case: the title works! kinda. No emojis. but it works! and i am now using a font which i find really cool: Unifont
+  I may change the page to have an 8bit vibe in the future.
+  For now though, big problem: given the fact that we dont know the height of the typewriter title (by design), it will be impossible to put it at the top without it screwing up the layout of the page with long texts... or so i think.
+  I need to research if its possible to have font size scale with container width. If it is possible, then we should be able to fit the text neatly into a Xvw by Xvh box and call it a day.
+  Besides that, we only have 4 options: on the side like a decor, at the bottom, weirdly floating around with position absolute (think minecraft homepage text), or no text at all.
+  I tried the weirdly floating one, but this particular type of typewriter is very much not happy with changes in parent display status
+
+  So, for the next few days: research into scaling font size with container width. If you can, then go back to what you had. If you cant, then re-design the page
+  Alternative option: calculate the width of the text before its gonna be displayed, and if its longer than the width of the parent (Aka causes overflow and a second paragraph), skip it. ← this might be the most sensible option
+  https://stackoverflow.com/questions/16056591/font-scaling-based-on-width-of-container
+  https://css-tricks.com/fitting-text-to-a-container/
+  https://css-tricks.com/viewport-sized-typography/
