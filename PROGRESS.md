@@ -3,7 +3,7 @@
 - **fix bug in typewriter (read todo)**
   - find a better monospace font that allows japanese chars and emojis
 - **lift title mid-air and dont let it move around the position of the other elems while it changes size**
-  - maybe change layout to grid?
+  - read 22/6/22 update for more details
 - **add a small popup cheatsheet with all the !commands for ddg when user has the searchbar focused**
 - **add socials (linkedin, github)**
 - **add about me page**
