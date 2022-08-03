@@ -1,38 +1,23 @@
 # TODO:
 
-- **fix bug in typewriter (read todo)**
-  - find a better monospace font that allows japanese chars and emojis
-- **lift title mid-air and dont let it move around the position of the other elems while it changes size**
-  - read 22/6/22 update for more details
-- **add a small popup cheatsheet with all the !commands for ddg when user has the searchbar focused**
 - **add socials (linkedin, github)**
 - **add about me page**
   use this fucking thing in the hire me section: https://dev.to/afif/a-scalable-css-only-typewriter-effect-2opn (multiline text)
+- **add link to downloadable CV**
+  - update CV
+  - find somewhere to host it (already have it on microsoft office online)
+- **add link to icon providers in the bottom of the screen or something**
+  -change icons so we only depend on one library. Or less if even possible. I hate copyright
+- **update all libraries** (done, but check again in the future)
+
+# NICE TO HAVE:
+
+- **add a small popup cheatsheet with all the !commands for ddg when user has the searchbar focused**
 - **add keyboard shortcuts to external links (i.e.: pressing 1 redirects to youtube)**
   -add keyboard icons to the links, like this https://dev.to/afif/the-css-scrabble-writer-the-next-gen-typewriter-fbi
 - **disable animations if the user's settings request it**
 - **add translation into spanish, french, portuguese and italian**
   -see if there is any good api's for translating all this stuff
-- **add link to downloadable CV**
-  - update CV
-  - find somewhere to host it
-- **add link to icon providers in the bottom of the screen or something**
-  -change icons so we only depend on one library
-- **update all libraries**
-
--possible things that may need doing:
-
-- **change flexbox into grid using auto-fit** -https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/
-  -so far, with the given style of card, unnecesary
-
-# TO DESIGN
-
-- **make a cool background**
-- **make the webpage responsive**
-- **make the webpage mobile friendly**
-- **make the webpage ARIA compatible**
-- **make the webpage SSO optimized**
-- **make the webpage downloadable like twitter**
 
 # personal FAQ for when i forget stuff:
 
