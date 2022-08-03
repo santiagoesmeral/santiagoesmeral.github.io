@@ -128,3 +128,10 @@
   https://stackoverflow.com/questions/16056591/font-scaling-based-on-width-of-container
   https://css-tricks.com/fitting-text-to-a-container/
   https://css-tricks.com/viewport-sized-typography/
+
+- 2/8/22
+  yes, 2 months since the last update. C'est la vie
+  In any case: i re-did for the nth time the layout of the page, and changed it to look more retro.
+  I am actually quite happy with how it looks like on this first iteration, and unlike previous designs, i know exactly what to do with the typewriter text for mobiles (either move it down or remove it)
+
+  there are multiple nice-to-haves that i could try having here, but for now i'll leave it be. I'll instead start making the new page for my CV-esque page

@@ -1,37 +1,31 @@
 .homepage {
   background-color: var(--bg-color);
   height: calc(100vh - var(--header-height));
-  /*
-    this needs to be slightly above the center rather than straight
-    in the middle. Thus, we dont use grid to align it in the center,
-    even if it'd be simpler.
-  */
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  box-sizing: border-box; //makes padding and margin respect the height, rather than the hei
+  display: grid;
+  grid-template-areas: "searchbar text" "links text";
+  grid-template-columns: 40vw 1fr;
+  padding: 5vw;
+  gap: 2rem;
+  grid-template-rows: min-content 1fr;
 }
 
 .homepage-title {
-  margin-bottom: 1rem;
-}
-
-.homepage-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 20vh;
-  width: 80vw;
-  max-width: 50rem;
+  grid-area: text;
+  outline: 0.5rem solid var(--text-color-opaque);
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .homepage-search-form {
-  margin-bottom: 2rem;
   width: 100%;
+  grid-area: searchbar;
   /* 
-    position: relative to allow us to make the submit button absolute and move it
+    position relative to allow us to make the submit button absolute and move it
     relative to this box rather than the document 
   */
   position: relative;
+  font-family: var(--font-family-retro);
 }
 
 .homepage-searchbar {
@@ -46,46 +40,56 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   padding: 1rem;
   border: 1px solid transparent;
-  border-radius: 2rem;
-  color: #9898a0;
+  outline: 0.5rem solid var(--text-color-opaque);
+  color: var(--text-color-opaque);
+  font-size: 2rem;
   box-sizing: border-box;
   transition: 0.1s ease;
+  font-family: var(--font-family-retro);
   &:hover,
   &:focus,
-  &:focus-visible {
-    background-color: rgb(89, 88, 104);
-    color: white;
+  &:focus-visible,
+  &:focus-within {
+    color: var(--text-color);
+    outline-color: var(--text-color);
   }
 }
 .homepage-search-submit {
-  width: 2rem;
-  height: 2rem;
+  --square-size: 3rem;
+  width: var(--square-size);
+  height: var(--square-size);
   border: 1px solid transparent;
   background-color: transparent;
   border-radius: 50%;
   position: absolute;
-  top: 0.5rem;
-  right: 1rem;
+  box-sizing: border-box;
+  top: calc(
+    var(--square-size) / 3
+  ); // yes, i did the var mostly just for this... unnecesary
+  right: calc(var(--square-size) / 3);
   margin: 0;
   padding: 0;
-  cursor: pointer;
+  pointer-events: none;
   transition: 0.1s ease;
   display: grid;
   align-content: center;
-  padding-right: 1rem;
   svg {
     color: #9898a0;
     width: inherit;
     height: inherit;
+    filter: grayscale(30%); //original color is a little too strong
   }
 }
 
 .homepage-list-of-links {
+  grid-area: links;
   list-style: none;
   display: flex;
   margin: 0;
   padding: 0;
   flex-wrap: wrap;
   width: 100%;
-  justify-content: space-between;
+  height: min-content;
+  justify-content: flex-start;
+  gap: 3rem;
 }

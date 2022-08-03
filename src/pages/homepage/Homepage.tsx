@@ -129,54 +129,52 @@ export default function Homepage() {
   };
 
   return (
-    <div className="homepage">
-      <section className="homepage-content">
-        <TypewriterTitle
-          defaultTitleList={defaultTitleList}
-          priorityTitleQueue={priorityTitleQueue}
-          popPriorityTitleQueue={popPriorityTitleQueue}
-          className="homepage-title"
+    <section className="homepage">
+      <form
+        method="get"
+        id="ddgSearch"
+        action="https://duckduckgo.com/"
+        className="homepage-search-form"
+        autoComplete="off"
+      >
+        <input
+          type="text"
+          name="q"
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+          className="homepage-searchbar"
+          id="skip-navigation-target"
+          placeholder="Search on DuckDuckGo"
+          aria-label="Search on DuckDuckGo"
+          title="Search on DuckDuckGo"
         />
-        <form
-          method="get"
-          id="ddgSearch"
-          action="https://duckduckgo.com/"
-          className="homepage-search-form"
-          autoComplete="off"
+        <button
+          type="submit"
+          className="homepage-search-submit"
+          disabled={searchValue.length === 0}
+          title="Search on DuckDuckGo (Submit button)"
         >
-          <input
-            type="text"
-            name="q"
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-            className="homepage-searchbar"
-            id="skip-navigation-target"
-            placeholder="Search on DuckDuckGo"
-            aria-label="Search on DuckDuckGo"
-            title="Search on DuckDuckGo"
-          />
-          <button
-            type="submit"
-            className="homepage-search-submit"
-            disabled={searchValue.length === 0}
-            title="Search on DuckDuckGo (Submit button)"
-          >
-            {searchbarIcon()}
-          </button>
-        </form>
-        <ul className="homepage-list-of-links">
-          {TEMPListOfObjectsForLinksList.map((item) => {
-            return (
-              <HomepageLinkCard
-                id={item.id}
-                icon={item.icon}
-                content={item.content}
-                url={item.url}
-              />
-            );
-          })}
-        </ul>
-      </section>
-    </div>
+          {searchbarIcon()}
+        </button>
+      </form>
+      <ul className="homepage-list-of-links">
+        {TEMPListOfObjectsForLinksList.map((item) => {
+          return (
+            <HomepageLinkCard
+              id={item.id}
+              icon={item.icon}
+              content={item.content}
+              url={item.url}
+            />
+          );
+        })}
+      </ul>
+      <TypewriterTitle
+        defaultTitleList={defaultTitleList}
+        priorityTitleQueue={priorityTitleQueue}
+        popPriorityTitleQueue={popPriorityTitleQueue}
+        className="homepage-title"
+      />
+    </section>
   );
 }

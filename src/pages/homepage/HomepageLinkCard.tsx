@@ -15,9 +15,9 @@ export default function HomepageLinkCard({
   icon,
 }: HomepageLinkCardPropObject) {
   return (
-    <li className="homepage-link-card" key={id}>
+    <li className="homepage-link-card-container" key={id}>
       <a
-        className="homepage-link"
+        className="homepage-link-card"
         href={url}
         data-pseudoelem-content={content}
         title={content}

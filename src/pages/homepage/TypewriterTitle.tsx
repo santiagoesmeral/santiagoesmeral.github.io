@@ -72,11 +72,7 @@ export default function TypewriterTitle({
   return (
     <div className={className + " typewriter-container"}>
       <span
-        className={
-          className +
-          " typewriter " +
-          (isDeletingText ? "typewriter-delete" : "")
-        }
+        className={"typewriter " + (isDeletingText ? "typewriter-delete" : "")}
         style={
           {
             "--string-length": currentTitle.length,

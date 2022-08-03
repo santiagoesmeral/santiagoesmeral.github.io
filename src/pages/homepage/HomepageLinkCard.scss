@@ -1,6 +1,6 @@
-.homepage-link-card {
-  margin: 0.5rem;
-  .homepage-link {
+.homepage-link-card-container {
+  font-family: var(--font-family-retro);
+  .homepage-link-card {
     --pseudoelem-content: "";
     display: inline-flex;
     position: relative;
@@ -8,10 +8,10 @@
     height: 3rem;
     padding: 1rem;
     border: 1px solid transparent;
-    border-radius: 0.5rem;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     background-color: rgba(66, 65, 77, 1);
-    color: #9898a0;
+    outline: 0.5rem solid var(--text-color-opaque);
+    color: var(--text-color-opaque);
     transition: 0.1s ease;
     text-decoration: none;
     cursor: pointer;
@@ -23,7 +23,7 @@
       content: attr(data-pseudoelem-content);
       position: absolute;
       font-size: 0;
-      color: white;
+      color: var(--text-color);
       left: 0;
       text-align: center;
       width: 100%;
@@ -36,10 +36,10 @@
   &:focus,
   &:focus-visible,
   &:focus-within {
-    .homepage-link {
-      background-color: rgb(89, 88, 104);
-      color: white;
+    .homepage-link-card {
+      color: var(--text-color);
       transform: translate3d(0px, -0.5rem, 0px);
+      outline-color: var(--text-color);
       padding: 0.5rem 1rem 1.5rem 1rem;
       &::after {
         font-size: 0.8rem;

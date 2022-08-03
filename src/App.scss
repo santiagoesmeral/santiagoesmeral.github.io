@@ -10,16 +10,23 @@ body,
   --header-color: #202020;
   --bg-color: #2b2a33;
   --text-color: #9898a0;
+  --text-color-opaque: #9898a078;
 
   --focus-color: #00b4d8;
+
+  --font-family-retro: "Unifont", monospace;
 }
 
+/*
+in hindsight, probably a bad idea
 *:focus,
 *:focus-visible {
   outline: 2px solid var(--focus-color);
 }
+*/
 
 .special-link {
+  // move to header?
   color: inherit;
   transition: outline-offset 0.1s ease;
   padding: 0.5rem;
@@ -38,6 +45,7 @@ body,
 }
 
 .special-button {
+  // move to header?
   color: inherit;
   transition: outline-offset 0.1s ease;
   padding: 1rem;
