@@ -20,6 +20,10 @@ export default function TypewriterTitle({
   popPriorityTitleQueue,
   className,
 }: TypewriterProps) {
+  //TODO: check if and where it makes sense to implement useMemo/useCalback
+  //TODO: make the caret bigger, like in a console
+  //TODO: se if its possible to fix the caret sometimes disappearing in the waiting periods
+  //TODO: possibly make the background black, give it more of a console asthetic.
   const [currentTitle, setCurrentTitle] = useState("");
   const [isDeletingText, setIsDeletingText] = useState(false);
 
@@ -28,11 +32,6 @@ export default function TypewriterTitle({
   let typewriterpause = 2; //pause after animation
 
   const calcTypewriterTime = (string: string) => {
-    console.log("This was called!");
-    console.log(currentTitle.length);
-    console.log(string.length);
-    console.log(string.length * typewriterCharactersPerSecondModifier);
-
     return string.length * typewriterCharactersPerSecondModifier;
   };
 
@@ -41,7 +40,8 @@ export default function TypewriterTitle({
   };
 
   useEffect(() => {
-    let currentTimeout;
+    //TODO: fix ESLint errors here
+    let currentTimeout: NodeJS.Timeout;
     // could probably change it to use setTimeout, but i like the idea of being able to change the time of deleting vs typing individually
     if (isDeletingText) {
       currentTimeout = setTimeout(
@@ -67,6 +67,9 @@ export default function TypewriterTitle({
         (calcTypewriterTime(futureTitle) + typewriterpause) * 1000
       );
     }
+    return () => {
+      clearTimeout(currentTimeout);
+    };
   }, [isDeletingText]);
 
   return (

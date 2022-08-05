@@ -95,9 +95,10 @@ export default function Homepage() {
     "What did the fox say?",
     "PEBKAC",
     "Lorem ipsum n stuff",
-    "Hey, wake up, this is a dream",
+    "psst... hey, wake up, this is a dream",
     "It took over a week to get this title to work...",
-    "I wanted to put emojis, but turns out there are no monospace emoji/japanese character fonts ",
+    "I wanted to put emojis, but turns out there are no monospace emoji/japanese character fonts :c",
+    "The cake is a lie",
   ];
 
   const popPriorityTitleQueue = () => {
@@ -162,6 +163,7 @@ export default function Homepage() {
           return (
             <HomepageLinkCard
               id={item.id}
+              key={"external-link-" + item.id}
               icon={item.icon}
               content={item.content}
               url={item.url}
