@@ -1,6 +1,6 @@
 # Welcome!
 
-This is my test repo, and also my portfolio. I want to make this repo as clean as i can possibly make it, as easy to understand, yet also i'll use it as my testing grounds for anything i may want to try out as far as frontend goes. For now its pretty barren, so yeah, i'll make it prettier as time goes on don't worry!
+This is my test repo, and also my portfolio. I want to make this repo as clean as i can possibly make it, as easy to understand, yet also i'll use it as my testing grounds for anything i may want to try out as far as frontend goes. I've decided to make a basic homepage, with some interesting features like the typewriter dynamic text and other things. WIP!
 
 # COMMANDS!
 
