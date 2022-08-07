@@ -84,6 +84,7 @@
 .homepage-list-of-links {
   grid-area: links;
   list-style: none;
+  /* TODO: change it to use a dynamic grid with autofit, so it aligns perfectly with the searchbar, if possible */
   display: flex;
   margin: 0;
   padding: 0;

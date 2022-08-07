@@ -18,11 +18,21 @@ export default function Header() {
         Skip Navigation
       </button>
       <nav className="header-nav">
-        <a id="link-1" href="/about_me" className="special-link">
+        <a
+          id="link-1"
+          href="/about_me"
+          className="special-link"
+          title="About Me"
+        >
           About Me
         </a>
-        <a id="link-2" href="/" className="special-link">
-          Link 2
+        <a
+          id="link-2"
+          href="https://github.com/santiagoesmeral"
+          className="special-link"
+          title="Santiago Esmeral's Github profile"
+        >
+          My Github Profile
         </a>
         <a id="link-3" href="/" className="special-link">
           Link 3
