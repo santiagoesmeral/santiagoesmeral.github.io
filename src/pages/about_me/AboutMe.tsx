@@ -1,5 +1,21 @@
 import "./AboutMe.scss";
 export default function AboutMe() {
+  /*
+    TODO: rework bad semantics 
+    Sections (https://www.w3schools.com/TAgs/tag_section.asp) arent meant to display the entire content on a page.
+    Rather, they are menat to divide sections of a document. 
+    
+    An appropiate use of the section tag would be to, instead, do the following
+    
+    <div>
+      <section>
+        <h1>
+        <p>
+      </section>
+    </div>
+
+    the problem: idk what to replace the div with, yet. 
+  */
   return (
     <section className="about-me">
       <h1>Hello! I am Santiago Esmeral</h1>
