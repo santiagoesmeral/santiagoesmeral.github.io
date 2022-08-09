@@ -67,27 +67,6 @@ export default function AboutMe() {
         Typescript, SCSS, Redux and TailwindCSS (even if i dont recomend the
         later 2) I also know about web accesibility and a bit of SEO.
       </p>
-
-      <h2>My Experience, in a nutshell</h2>
-      <p>
-        I began working in JPMorgan Chase in an internship, where i learned the
-        basics of javascript, reactjs and web development in general. My
-        internship lasted for a year and half. In JPMorgan, i worked in both
-        maintenance and updating old proyects, as well as creating and
-        maintaining an entire app from scratch. Unfortunately, due to the global
-        pandemic, many job positions previously open were closed down, including
-        that of my entire team. And so, i found a job in Eulas, a software
-        factory under Minutentag. In Eulas, i worked in two projects. In the
-        first one, i worked on creating and improving already existing
-        components which were going to be reused across the application. In the
-        second one, i worked as a contractor for an ecommerce website,
-        implementing a shipping interface for purchases Then, i began working on
-        smaller projects as a Freelancer. Some of the projects i've worked on
-        include implementing login systems and visualization tools in an
-        advertisement analytics apps and implementing react v18 code in an
-        angularJS (yes, the old version) for a slow transition to updating the
-        app
-      </p>
     </section>
   );
 }

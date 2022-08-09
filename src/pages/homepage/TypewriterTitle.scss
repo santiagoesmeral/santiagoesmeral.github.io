@@ -2,6 +2,7 @@
   width: 100%;
   margin: 0;
   padding: 0;
+  background-color: black;
 }
 /*
   Thanks to Temani Afif (https://dev.to/afif/a-multi-line-css-only-typewriter-effect-3op3)
@@ -10,12 +11,17 @@
 .typewriter {
   margin: 0;
   padding: 0;
+  --hacker-green-color: #5dc337;
   color: transparent;
   font-family: "Unifont", monospace;
   font-size: clamp(0.5rem, 3vw + 1rem, 4rem);
-  background: linear-gradient(-90deg, var(--text-color) 0.1rem, transparent 0) 0
-      0,
-    linear-gradient(var(--text-color-opaque) 0 0) 0 0;
+  background: linear-gradient(
+        -90deg,
+        var(--hacker-green-color) 0.1rem,
+        transparent 0
+      )
+      0 0,
+    linear-gradient(var(--hacker-green-color) 0 0) 0 0;
 
   background-size: calc(var(--string-length) * 1ch) 200%;
   -webkit-background-clip: padding-box, text;
