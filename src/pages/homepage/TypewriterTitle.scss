@@ -6,6 +6,9 @@
 }
 /*
   Thanks to Temani Afif (https://dev.to/afif/a-multi-line-css-only-typewriter-effect-3op3)
+
+  In hindsight, considering i am using scss, i would probably use this library instead: https://github.com/brandonmcconnell/typed.css
+  But i'm going to try to make it work with my implementation 
 */
 
 .typewriter {
@@ -14,7 +17,7 @@
   --hacker-green-color: #5dc337;
   color: transparent;
   font-family: "Unifont", monospace;
-  font-size: clamp(0.5rem, 3vw + 1rem, 4rem);
+  font-size: 3rem;
   background: linear-gradient(
         -90deg,
         var(--hacker-green-color) 0.1rem,

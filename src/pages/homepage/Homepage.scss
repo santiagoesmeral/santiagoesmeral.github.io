@@ -65,7 +65,7 @@
   box-sizing: border-box;
   top: calc(
     var(--square-size) / 3
-  ); // yes, i did the var mostly just for this... unnecesary
+  ); // yes, i did the var mostly just for this calc... unnecesary
   right: calc(var(--square-size) / 3);
   margin: 0;
   padding: 0;
