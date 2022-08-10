@@ -92,11 +92,11 @@
   grid-area: fun-box;
 
   height: 100%;
-  color: var(--text-color-opaque);
+  color: transparent;
   display: grid;
   align-content: center;
   justify-content: center;
-  transition: 1s ease;
+  transition: 0.8s ease;
   outline: 1px solid transparent;
   &:hover {
     outline-color: white;
