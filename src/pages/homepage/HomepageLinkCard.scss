@@ -1,5 +1,4 @@
 .homepage-link-card-container {
-  font-family: var(--font-family-retro);
   .homepage-link-card {
     --pseudoelem-content: "";
     display: inline-flex;
@@ -9,9 +8,9 @@
     padding: 1rem;
     border: 1px solid transparent;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    background-color: rgba(66, 65, 77, 1);
-    outline: 0.5rem solid var(--text-color-opaque);
-    color: var(--text-color-opaque);
+    background-color: var(--header-color);
+    outline: 0.1rem solid var(--text-color);
+    color: var(--text-color);
     transition: 0.1s ease;
     text-decoration: none;
     cursor: pointer;
@@ -37,9 +36,8 @@
   &:focus-visible,
   &:focus-within {
     .homepage-link-card {
-      color: var(--text-color);
+      outline-width: 0.5rem;
       transform: translate3d(0px, -0.5rem, 0px);
-      outline-color: var(--text-color);
       padding: 0.5rem 1rem 1.5rem 1rem;
       &::after {
         font-size: 0.8rem;

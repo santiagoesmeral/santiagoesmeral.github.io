@@ -9,6 +9,7 @@
 
   background-color: var(--header-color);
   color: var(--text-color);
+
   border-bottom: 0.1rem solid var(--text-color);
 
   display: flex;
@@ -17,16 +18,13 @@
   justify-content: space-between;
 }
 
-.header-title {
-  margin: 0 1rem 0 0;
-  min-width: fit-content;
-}
-
-.header .special-button {
+.header .header-button {
   min-width: fit-content;
   opacity: 0;
   cursor: default;
   pointer-events: none;
+  font-size: 1rem;
+  font-family: var(--font-family-retro);
   &:focus,
   &:focus-visible {
     opacity: 1;
@@ -43,7 +41,50 @@
   line-height: 3rem;
 }
 
-.header-nav a {
+.header-link,
+.header-title {
+  color: inherit;
   min-width: fit-content;
   padding: 0 0.5rem;
+  font-size: 1.5rem;
+  transition: outline-offset 0.1s ease;
+  padding: 0.5rem;
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    outline: 1px solid white;
+    outline-offset: -0.25rem;
+    color: white;
+  }
+  &:active {
+    outline-offset: -0.5rem;
+    outline: 1px solid white;
+    color: white;
+  }
+}
+
+.header-title {
+  font-size: 3rem;
+  text-decoration: none;
+}
+
+.header-button {
+  color: inherit;
+  transition: outline-offset 0.1s ease;
+  padding: 1rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    outline: 1px solid white;
+    outline-offset: -0.25rem;
+    color: white;
+  }
+  &:active {
+    outline-offset: -0.5rem;
+    outline: 1px solid white;
+    color: white;
+  }
 }

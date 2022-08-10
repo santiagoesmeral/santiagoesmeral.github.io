@@ -3,45 +3,35 @@
   height: calc(100vh - var(--header-height));
   box-sizing: border-box; //makes padding and margin respect the height, rather than the hei
   display: grid;
-  grid-template-areas: "searchbar text" "links text";
-  grid-template-columns: 40vw 1fr;
+  grid-template-areas: "searchbar searchbar" "links .";
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: min-content 1fr;
   padding: 5vw;
   gap: 2rem;
-  grid-template-rows: min-content 1fr;
-}
-
-.homepage-title {
-  grid-area: text;
-  outline: 0.5rem solid var(--text-color-opaque);
-  padding: 1rem;
-  box-sizing: border-box;
 }
 
 .homepage-search-form {
-  width: 100%;
+  width: 50%;
   grid-area: searchbar;
   /* 
     position relative to allow us to make the submit button absolute and move it
     relative to this box rather than the document 
   */
   position: relative;
-  font-family: var(--font-family-retro);
+  transition: 0.5s ease;
+  &:focus-within {
+    width: 100%;
+  }
 }
 
 .homepage-searchbar {
-  /*
-  how to add icon on background (doesnt work): 
-  background: rgba(66, 65, 77, 1)
-    url(moz-extension://27196980-0a49-4485-9145-136deea99286/favicon.ico) 16px
-    center no-repeat;
-  */
-  background-color: rgba(66, 65, 77, 1);
+  background-color: var(--header-color);
   width: 100%;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   padding: 1rem 4.5rem 1rem 1rem;
   border: 1px solid transparent;
-  outline: 0.5rem solid var(--text-color-opaque);
-  color: var(--text-color-opaque);
+  outline: 0.1rem solid var(--text-color);
+  color: var(--text-color);
   font-size: 2rem;
   box-sizing: border-box;
   transition: 0.1s ease;
@@ -50,8 +40,7 @@
   &:focus,
   &:focus-visible,
   &:focus-within {
-    color: var(--text-color);
-    outline-color: var(--text-color);
+    outline-width: 0.5rem;
   }
 }
 .homepage-search-submit {

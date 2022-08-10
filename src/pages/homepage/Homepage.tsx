@@ -12,7 +12,6 @@ import {
   MicrosoftOutlookLogo,
   DeeplLogo,
 } from "../../images";
-import TypewriterTitle from "./TypewriterTitle";
 import "./Homepage.scss";
 import HomepageLinkCard from "./HomepageLinkCard";
 
@@ -72,55 +71,9 @@ const TEMPListOfObjectsForLinksList = [
 
 export default function Homepage() {
   const [searchValue, setSearchValue] = useState("");
-  const [priorityTitleQueue, setPriorityTitleQueue] = useState([
-    "Welcome to my page!",
-  ]);
-
-  /* 
-    ? Not sure if i should move the title logic elsewhere
-    It should probably stay here given the fact that events in other components in the homepage can alter the priority queue of text 
-
-    here are all the cool texts i couldnt put in the defaultTitleList because true monospace fonts are hard
-    "☜(⌒▽⌒)☞",
-    "※(^o^)※",
-    "ʕっ•ᴥ•ʔっ ♥",
-    "ʕ·͡ᴥ·ʔ",
-    */
-
-  const defaultTitleList = [
-    "Hello world!",
-    "I hope you have a great day!",
-    "Did you brush your teeth?",
-    "Cats or dogs?",
-    "What did the fox say?",
-    "PEBKAC",
-    "Lorem ipsum n stuff",
-    "psst... hey, wake up, this is a dream",
-    "It took over a week to get this title to work...",
-    "I wanted to put emojis, but turns out there are no monospace emoji/japanese character fonts :c",
-    "The cake is a lie",
-  ];
-
-  const popPriorityTitleQueue = () => {
-    const aux = priorityTitleQueue[0];
-    setPriorityTitleQueue(priorityTitleQueue.slice(1));
-    return aux;
-  };
-
-  useEffect(() => {
-    if (searchValue.toLowerCase() === "i love you") {
-      setPriorityTitleQueue(["I love you Zvet <3", ...priorityTitleQueue]);
-    }
-    if (searchValue.toLowerCase() === "c'est la vie") {
-      setPriorityTitleQueue(["Oui, c'est la vie eh?", ...priorityTitleQueue]);
-    }
-    if (searchValue.toLowerCase() === "un dos tres cuatro") {
-      setPriorityTitleQueue(["Cinco seis siete ocho!", ...priorityTitleQueue]);
-    }
-  }, [searchValue]);
 
   const searchbarIcon = () => {
-    if (searchValue.toLowerCase() === "i love you") {
+    if (searchValue.toLowerCase().includes("i love you")) {
       return <Heart />;
     }
     if (searchValue.length > 0) {
@@ -154,6 +107,7 @@ export default function Homepage() {
           className="homepage-search-submit"
           disabled={searchValue.length === 0}
           title="Search on DuckDuckGo (Submit button)"
+          tabIndex={-1}
         >
           {searchbarIcon()}
         </button>
@@ -171,12 +125,6 @@ export default function Homepage() {
           );
         })}
       </ul>
-      <TypewriterTitle
-        defaultTitleList={defaultTitleList}
-        priorityTitleQueue={priorityTitleQueue}
-        popPriorityTitleQueue={popPriorityTitleQueue}
-        className="homepage-title"
-      />
     </section>
   );
 }
