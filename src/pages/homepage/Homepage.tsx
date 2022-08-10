@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   Search,
   Heart,
@@ -125,6 +125,9 @@ export default function Homepage() {
           );
         })}
       </ul>
+      <div className="homepage-fun-box" title="Work in progress ;)">
+        <p>The fun box! ☜(⌒▽⌒)☞</p>
+      </div>
     </section>
   );
 }

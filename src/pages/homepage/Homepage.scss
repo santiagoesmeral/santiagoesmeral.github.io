@@ -1,24 +1,30 @@
 .homepage {
   background-color: var(--bg-color);
-  height: calc(100vh - var(--header-height));
-  box-sizing: border-box; //makes padding and margin respect the height, rather than the hei
+  //TODO: this is supposed to be 100vh - the header height, but there's 2vh extra appearing outta nowhere. Gotta find where it comes from...
+  height: calc(98vh - var(--header-height));
+  box-sizing: border-box;
+
   display: grid;
-  grid-template-areas: "searchbar searchbar" "links .";
-  grid-template-columns: min-content 1fr;
+  grid-template-areas:
+    "searchbar searchbar searchbar searchbar"
+    "linkpad fun-box fun-box fun-box";
+  grid-template-columns: min-content 1fr 1fr 1fr;
   grid-template-rows: min-content 1fr;
   padding: 5vw;
   gap: 2rem;
+  align-items: center;
+  justify-content: center;
 }
 
 .homepage-search-form {
-  width: 50%;
-  grid-area: searchbar;
+  grid-column: 1/5;
+  width: 40%;
   /* 
     position relative to allow us to make the submit button absolute and move it
     relative to this box rather than the document 
   */
   position: relative;
-  transition: 0.5s ease;
+  transition: 0.3s ease;
   &:focus-within {
     width: 100%;
   }
@@ -66,22 +72,34 @@
     color: #9898a0;
     width: inherit;
     height: inherit;
-    // filter: grayscale(30%); //original color is a little too strong
   }
 }
 
 .homepage-list-of-links {
-  grid-area: links;
+  grid-row: 2;
   list-style: none;
   margin: 0;
   padding: 0;
-  /* TODO: change it to use a dynamic grid with autofit, so it aligns perfectly with the searchbar, if possible */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   gap: 2rem;
   height: fit-content;
   width: fit-content;
-  align-self: center;
-  justify-self: center;
+}
+
+.homepage-fun-box {
+  grid-area: fun-box;
+
+  height: 100%;
+  color: var(--text-color-opaque);
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  transition: 1s ease;
+  outline: 1px solid transparent;
+  &:hover {
+    outline-color: white;
+    color: var(--text-color);
+  }
 }
