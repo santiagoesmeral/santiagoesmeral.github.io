@@ -154,6 +154,19 @@ export default function Homepage() {
       </form>
       <ul className="homepage-list-of-links">
         {ListOfLinks.map((item) => {
+          /*
+            * Here's a fun challenge for a coding interview: given an array of numbers from 1 to 9, sort them in the numpad format. 
+            The numpad format being the following: 
+            789
+            456
+            123
+
+            in other words, the array must be: [7, 8, 9, 4, 5, 6, 1, 2, 3]
+
+            My approach: immediately give up, assign the id as a grid area property, and create a template area in css. If it works it works ¯\_(ツ)_/¯
+
+            TODO: if at any moment a better solution appears, implement it
+          */
           return (
             <HomepageLinkCard
               id={item.id}
