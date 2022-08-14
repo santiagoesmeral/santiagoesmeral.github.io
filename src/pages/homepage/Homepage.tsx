@@ -68,7 +68,7 @@ const ListOfLinks = [
   {
     content: "LinkedIn",
     url: "https://www.linkedin.com/",
-    id: "69",
+    id: "9",
     icon: <LinkedInLogo />,
   },
 ];
@@ -82,9 +82,11 @@ export default function Homepage() {
       /*
         Explanation: 
           Since all the codes for numpad inputs are like this: NumpadX (X being either the number, or stuff like NumpadAdd), we can use the first 5 characters of the code to know if we're using the numpad. We can then map it on the linklist, and if the reminding string after "Numpad" matches an Id, we redirect to that page. Otherwise, we ignore it.
+
+          Also: if you're wondering why i'm defining a function rather than passing an arrow function to the addEventListener, its because i need the function declaration on the removeEventListener. https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
       */
 
-      //skip-navigation-target, in the homepage, represent the searchbar. Dont wanna redirect the user while he's typing.
+      //skip-navigation-target, in the homepage, represent the searchbar. Dont wanna redirect the user while they search something.
       if (document.activeElement?.id === "skip-navigation-target") return;
 
       if (event.code.includes("Numpad")) {
