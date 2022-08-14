@@ -68,28 +68,45 @@ const ListOfLinks = [
   {
     content: "LinkedIn",
     url: "https://www.linkedin.com/",
-    id: "9",
+    id: "69",
     icon: <LinkedInLogo />,
   },
 ];
-
-/*
-  
-*/
 
 export default function Homepage() {
   const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
     //TODO: change :any into a more appropiate type. :event is not the right one apparently
-    function ConsoleKeyCode(event: any) {
-      console.log(event);
-      console.log("You just pressed: ", event.code);
+    function RedirectOnNumpadNumberInput(event: any) {
+      /*
+        Explanation: 
+          Since all the codes for numpad inputs are like this: NumpadX (X being either the number, or stuff like NumpadAdd), we can use the first 5 characters of the code to know if we're using the numpad. We can then map it on the linklist, and if the reminding string after "Numpad" matches an Id, we redirect to that page. Otherwise, we ignore it.
+      */
+
+      //skip-navigation-target, in the homepage, represent the searchbar. Dont wanna redirect the user while he's typing.
+      if (document.activeElement?.id === "skip-navigation-target") return;
+
+      if (event.code.includes("Numpad")) {
+        let numpadInput = event.code.slice(6); //Remove the "Numpad" from the string
+        if (numpadInput === "0") {
+          window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; //gottem
+        }
+        // negated isNaN seems to be the best way to check if a string is a number
+        if (!isNaN(numpadInput)) {
+          const urlToRedirect = ListOfLinks.find(
+            (link) => link.id === numpadInput
+          )?.url;
+          if (urlToRedirect) {
+            window.location.href = urlToRedirect;
+          }
+        }
+      }
     }
 
-    document.body.addEventListener("keydown", ConsoleKeyCode);
+    document.body.addEventListener("keydown", RedirectOnNumpadNumberInput);
     return () => {
-      document.body.removeEventListener("keydown", ConsoleKeyCode);
+      document.body.removeEventListener("keydown", RedirectOnNumpadNumberInput);
     };
   }, []);
 
