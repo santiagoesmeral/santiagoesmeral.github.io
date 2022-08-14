@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Search,
   Heart,
@@ -73,8 +73,25 @@ const ListOfLinks = [
   },
 ];
 
+/*
+  
+*/
+
 export default function Homepage() {
   const [searchValue, setSearchValue] = useState("");
+
+  useEffect(() => {
+    //TODO: change :any into a more appropiate type. :event is not the right one apparently
+    function ConsoleKeyCode(event: any) {
+      console.log(event);
+      console.log("You just pressed: ", event.code);
+    }
+
+    document.body.addEventListener("keydown", ConsoleKeyCode);
+    return () => {
+      document.body.removeEventListener("keydown", ConsoleKeyCode);
+    };
+  }, []);
 
   const searchbarIcon = () => {
     if (searchValue.toLowerCase().includes("i love you")) {
