@@ -36,8 +36,13 @@ export default function Header() {
         >
           My Github Profile
         </a>
-        <a id="link-3" href="/" className="header-link">
-          Link 3
+        <a
+          id="link-3"
+          href="https://www.linkedin.com/in/santiago-alfredo-esmeral-albarracin-37250516b/"
+          className="header-link"
+          title="Santiago Esmeral's LinkedIn profile"
+        >
+          My LinkedIn Profile
         </a>
       </nav>
     </header>

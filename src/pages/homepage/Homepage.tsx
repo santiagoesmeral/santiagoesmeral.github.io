@@ -11,14 +11,12 @@ import {
   GoogleDriveLogo,
   MicrosoftOutlookLogo,
   DeeplLogo,
+  LinkedInLogo,
 } from "../../images";
 import "./Homepage.scss";
 import HomepageLinkCard from "./HomepageLinkCard";
 
-/*
- * This can potentially come from a backend in the future
- */
-const TEMPListOfObjectsForLinksList = [
+const ListOfLinks = [
   {
     content: "Youtube",
     url: "https://www.youtube.com",
@@ -67,6 +65,12 @@ const TEMPListOfObjectsForLinksList = [
     id: "8",
     icon: <DeeplLogo />,
   },
+  {
+    content: "LinkedIn",
+    url: "https://www.linkedin.com/",
+    id: "9",
+    icon: <LinkedInLogo />,
+  },
 ];
 
 export default function Homepage() {
@@ -113,7 +117,7 @@ export default function Homepage() {
         </button>
       </form>
       <ul className="homepage-list-of-links">
-        {TEMPListOfObjectsForLinksList.map((item) => {
+        {ListOfLinks.map((item) => {
           return (
             <HomepageLinkCard
               id={item.id}
