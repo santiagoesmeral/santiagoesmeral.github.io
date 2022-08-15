@@ -13,8 +13,9 @@ import {
   DeeplLogo,
   LinkedInLogo,
 } from "../../images";
-import "./Homepage.scss";
 import HomepageLinkCard from "./HomepageLinkCard";
+import TheFunBox from "./TheFunBox";
+import "./Homepage.scss";
 
 const ListOfLinks = [
   {
@@ -152,7 +153,7 @@ export default function Homepage() {
           {searchbarIcon()}
         </button>
       </form>
-      <ul className="homepage-list-of-links">
+      <ul className="homepage-list-of-links" id="homepage-list-of-links">
         {ListOfLinks.map((item) => {
           /*
             * Here's a fun challenge for a coding interview: given an array of numbers from 1 to 9, sort them in the numpad format. 
@@ -166,6 +167,7 @@ export default function Homepage() {
             My approach: immediately give up, assign the id as a grid area property, and create a template area in css. If it works it works ¯\_(ツ)_/¯
 
             TODO: if at any moment a better solution appears, implement it
+            TODO: this kinda breaks the tab index order. I should change it, probably
           */
           return (
             <HomepageLinkCard
@@ -178,9 +180,7 @@ export default function Homepage() {
           );
         })}
       </ul>
-      <div className="homepage-fun-box" title="Work in progress ;)">
-        <p>The fun box! ☜(⌒▽⌒)☞</p>
-      </div>
+      <TheFunBox />
     </section>
   );
 }

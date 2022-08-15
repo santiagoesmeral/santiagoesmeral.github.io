@@ -95,25 +95,10 @@
     My approach: immediately give up, assign the id as a grid area property, and create a template area in css. If it works it works ¯\_(ツ)_/¯
 
     TODO: if at any moment a better solution appears, implement it
+    TODO: this kinda breaks the tab index order. I should change it, probably
   */
   grid-template-areas: "numpad-7 numpad-8 numpad-9" "numpad-4 numpad-5 numpad-6" "numpad-1 numpad-2 numpad-3";
   gap: 2rem;
   height: fit-content;
   width: fit-content;
-}
-
-.homepage-fun-box {
-  grid-area: fun-box;
-
-  height: 100%;
-  color: transparent;
-  display: grid;
-  align-content: center;
-  justify-content: center;
-  transition: 0.8s ease;
-  outline: 1px solid transparent;
-  &:hover {
-    outline-color: white;
-    color: var(--text-color);
-  }
 }
