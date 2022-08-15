@@ -27,6 +27,8 @@ export default function TheFunBox() {
                 </li>
             ]
         </ul>
+
+        TODO: remove status on blur
     */
     document
       .getElementById("homepage-list-of-links")
