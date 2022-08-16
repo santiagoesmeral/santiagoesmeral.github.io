@@ -83,21 +83,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  /*
-    * Here's a fun challenge for a coding interview: given an array of numbers from 1 to 9, sort them in the numpad format. 
-    The numpad format being the following: 
-    789
-    456
-    123
-
-    in other words, the array must be: [7, 8, 9, 4, 5, 6, 1, 2, 3]
-
-    My approach: immediately give up, assign the id as a grid area property, and create a template area in css. If it works it works ¯\_(ツ)_/¯
-
-    TODO: if at any moment a better solution appears, implement it
-    TODO: this kinda breaks the tab index order. I should change it, probably
-  */
-  grid-template-areas: "numpad-7 numpad-8 numpad-9" "numpad-4 numpad-5 numpad-6" "numpad-1 numpad-2 numpad-3";
   gap: 2rem;
   height: fit-content;
   width: fit-content;

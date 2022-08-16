@@ -17,36 +17,53 @@ import HomepageLinkCard from "./HomepageLinkCard";
 import TheFunBox from "./TheFunBox";
 import "./Homepage.scss";
 
+/*
+  * Here's a fun challenge for a coding interview: given a randomly ordered array of numbers from 1 to 9, sort them in the numpad format. 
+  The numpad format being the following: 
+  789
+  456
+  123
+
+  in other words, the array must be: [7, 8, 9, 4, 5, 6, 1, 2, 3]
+
+  My approach: immediately give up since this list is hardcoded anyways. Just manually order the list. I would have to go through the spaghetti headache of implementing the above solution if it was dynamic though. A story for another day.
+
+  Also, just to note: if we were using flexbox, i think it would be as easy as setting flex-direction: reverse-row and flex-wrap: wrap-reverse. Didnt test it though, and since we want this to have exactly 3 columns and 3 rows, it makes sense to use grid instead. (Also, doing this approach would probably screw the tab index like my last attempt at fixing it using a defined grid template area corresponding to the id of each link)
+
+  TODO: google maps breaks. :/
+*/
+
+//*TL-DR: the id corresponds to the number in the numpad to link it with. For a detailed explanation, look at the useEffect of <Homepage />
 const ListOfLinks = [
   {
-    content: "Youtube",
-    url: "https://www.youtube.com",
-    id: "1",
-    icon: <YoutubeLogo />,
+    content: "LinkedIn",
+    url: "https://www.linkedin.com/",
+    id: "7",
+    icon: <LinkedInLogo />,
   },
   {
     content: "Github",
     url: "https://github.com/",
-    id: "2",
+    id: "8",
     icon: <GithubLogo />,
+  },
+  {
+    content: "Google Maps",
+    url: "https://maps.google.com",
+    id: "9",
+    icon: <GoogleMapsLogo />,
   },
   {
     content: "Outlook",
     url: "https://outlook.live.com",
-    id: "3",
+    id: "4",
     icon: <MicrosoftOutlookLogo />,
   },
   {
     content: "Gmail",
     url: "https://mail.google.com",
-    id: "4",
-    icon: <GmailLogo />,
-  },
-  {
-    content: "Google Keep",
-    url: "https://keep.google.com/",
     id: "5",
-    icon: <GoogleKeepLogo />,
+    icon: <GmailLogo />,
   },
   {
     content: "Google Drive",
@@ -55,22 +72,22 @@ const ListOfLinks = [
     icon: <GoogleDriveLogo />,
   },
   {
-    content: "Google Maps",
-    url: "maps.google.com",
-    id: "7",
-    icon: <GoogleMapsLogo />,
+    content: "Youtube",
+    url: "https://www.youtube.com",
+    id: "1",
+    icon: <YoutubeLogo />,
   },
   {
     content: "Deepl",
     url: "https://www.deepl.com",
-    id: "8",
+    id: "2",
     icon: <DeeplLogo />,
   },
   {
-    content: "LinkedIn",
-    url: "https://www.linkedin.com/",
-    id: "9",
-    icon: <LinkedInLogo />,
+    content: "Google Keep",
+    url: "https://keep.google.com/",
+    id: "3",
+    icon: <GoogleKeepLogo />,
   },
 ];
 
@@ -155,20 +172,6 @@ export default function Homepage() {
       </form>
       <ul className="homepage-list-of-links" id="homepage-list-of-links">
         {ListOfLinks.map((item) => {
-          /*
-            * Here's a fun challenge for a coding interview: given an array of numbers from 1 to 9, sort them in the numpad format. 
-            The numpad format being the following: 
-            789
-            456
-            123
-
-            in other words, the array must be: [7, 8, 9, 4, 5, 6, 1, 2, 3]
-
-            My approach: immediately give up, assign the id as a grid area property, and create a template area in css. If it works it works ¯\_(ツ)_/¯
-
-            TODO: if at any moment a better solution appears, implement it
-            TODO: this kinda breaks the tab index order. I should change it, probably
-          */
           return (
             <HomepageLinkCard
               id={item.id}
