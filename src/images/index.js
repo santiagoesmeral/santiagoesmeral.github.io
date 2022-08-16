@@ -6,6 +6,7 @@ import { ReactComponent as GmailLogo } from "./icons8-gmail.svg";
 import { ReactComponent as GoogleDriveLogo } from "./icons8-google-drive.svg";
 import { ReactComponent as GoogleKeepLogo } from "./icons8-google-keep.svg";
 import { ReactComponent as GoogleMapsLogo } from "./icons8-google-maps.svg";
+import { ReactComponent as LinkedInLogo } from "./icons8-linkedin.svg";
 import { ReactComponent as MicrosoftOutlookLogo } from "./icons8-microsoft-outlook.svg";
 import { ReactComponent as YoutubeLogo } from "./icons8-youtube.svg";
 import { ReactComponent as DeeplLogo } from "./deepl_logo_icon.svg";
@@ -16,6 +17,8 @@ import { ReactComponent as DeeplLogo } from "./deepl_logo_icon.svg";
     -Icons8 https://icons8.com/license
     -Icon-icons https://icon-icons.com/license
 */
+
+// TODO: delete unused icons if any
 
 export {
   Heart,
@@ -28,5 +31,6 @@ export {
   GoogleMapsLogo,
   MicrosoftOutlookLogo,
   YoutubeLogo,
+  LinkedInLogo,
   DeeplLogo,
 };
