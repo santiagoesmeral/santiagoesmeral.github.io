@@ -168,7 +168,6 @@ export default function Homepage() {
 
             TODO: if at any moment a better solution appears, implement it
             TODO: this kinda breaks the tab index order. I should change it, probably
-            TODO: google maps link doesnt work. fuck.
           */
           return (
             <HomepageLinkCard
