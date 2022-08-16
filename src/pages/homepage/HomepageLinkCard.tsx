@@ -15,7 +15,11 @@ export default function HomepageLinkCard({
   icon,
 }: HomepageLinkCardPropObject) {
   return (
-    <li className="homepage-link-card-container" key={id}>
+    <li
+      className="homepage-link-card-container"
+      key={id}
+      style={{ gridArea: "numpad-" + id }}
+    >
       <a
         className="homepage-link-card"
         href={url}

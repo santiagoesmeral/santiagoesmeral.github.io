@@ -4,64 +4,15 @@ body,
 .App {
   scroll-behavior: smooth;
   position: relative;
-  font-family: "Futura W01", helvetica, san-serif;
+
+  font-family: "Unifont", monospace;
 
   --header-height: 4rem;
   --header-color: #202020;
-  --bg-color: #2b2a33;
+  --bg-color: black;
   --text-color: whitesmoke;
   --text-color-opaque: #9898a0;
 
   --focus-color: #00b4d8;
-
-  --font-family-retro: "Unifont", monospace;
-}
-
-/*
-in hindsight, probably a bad idea
-*:focus,
-*:focus-visible {
-  outline: 2px solid var(--focus-color);
-}
-*/
-
-.special-link {
-  // move to header?
-  color: inherit;
-  transition: outline-offset 0.1s ease;
-  padding: 0.5rem;
-  &:hover,
-  &:focus,
-  &:focus-visible {
-    outline: 1px solid white;
-    outline-offset: -0.25rem;
-    color: white;
-  }
-  &:active {
-    outline-offset: -0.5rem;
-    outline: 1px solid white;
-    color: white;
-  }
-}
-
-.special-button {
-  // move to header?
-  color: inherit;
-  transition: outline-offset 0.1s ease;
-  padding: 1rem;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  &:hover,
-  &:focus,
-  &:focus-visible {
-    outline: 1px solid white;
-    outline-offset: -0.25rem;
-    color: white;
-  }
-  &:active {
-    outline-offset: -0.5rem;
-    outline: 1px solid white;
-    color: white;
-  }
+  --font-family-retro: "Unifont", monospace; //apparently i need to define this here even if its already the default in the page
 }

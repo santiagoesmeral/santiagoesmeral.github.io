@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Search,
   Heart,
@@ -11,15 +11,13 @@ import {
   GoogleDriveLogo,
   MicrosoftOutlookLogo,
   DeeplLogo,
+  LinkedInLogo,
 } from "../../images";
-import TypewriterTitle from "./TypewriterTitle";
-import "./Homepage.scss";
 import HomepageLinkCard from "./HomepageLinkCard";
+import TheFunBox from "./TheFunBox";
+import "./Homepage.scss";
 
-/*
- * This can potentially come from a backend in the future
- */
-const TEMPListOfObjectsForLinksList = [
+const ListOfLinks = [
   {
     content: "Youtube",
     url: "https://www.youtube.com",
@@ -68,59 +66,55 @@ const TEMPListOfObjectsForLinksList = [
     id: "8",
     icon: <DeeplLogo />,
   },
+  {
+    content: "LinkedIn",
+    url: "https://www.linkedin.com/",
+    id: "9",
+    icon: <LinkedInLogo />,
+  },
 ];
 
 export default function Homepage() {
   const [searchValue, setSearchValue] = useState("");
-  const [priorityTitleQueue, setPriorityTitleQueue] = useState([
-    "Welcome to my page!",
-  ]);
-
-  /* 
-    ? Not sure if i should move the title logic elsewhere
-    It should probably stay here given the fact that events in other components in the homepage can alter the priority queue of text 
-
-    here are all the cool texts i couldnt put in the defaultTitleList because true monospace fonts are hard
-    "☜(⌒▽⌒)☞",
-    "※(^o^)※",
-    "ʕっ•ᴥ•ʔっ ♥",
-    "ʕ·͡ᴥ·ʔ",
-    */
-
-  const defaultTitleList = [
-    "Hello world!",
-    "I hope you have a great day!",
-    "Did you brush your teeth?",
-    "Cats or dogs?",
-    "What did the fox say?",
-    "PEBKAC",
-    "Lorem ipsum n stuff",
-    "psst... hey, wake up, this is a dream",
-    "It took over a week to get this title to work...",
-    "I wanted to put emojis, but turns out there are no monospace emoji/japanese character fonts :c",
-    "The cake is a lie",
-  ];
-
-  const popPriorityTitleQueue = () => {
-    const aux = priorityTitleQueue[0];
-    setPriorityTitleQueue(priorityTitleQueue.slice(1));
-    return aux;
-  };
 
   useEffect(() => {
-    if (searchValue.toLowerCase() === "i love you") {
-      setPriorityTitleQueue(["I love you Zvet <3", ...priorityTitleQueue]);
+    //TODO: change :any into a more appropiate type. :event is not the right one apparently
+    function RedirectOnNumpadNumberInput(event: any) {
+      /*
+        Explanation: 
+          Since all the codes for numpad inputs are like this: NumpadX (X being either the number, or stuff like NumpadAdd), we can use the first 5 characters of the code to know if we're using the numpad. We can then map it on the linklist, and if the reminding string after "Numpad" matches an Id, we redirect to that page. Otherwise, we ignore it.
+
+          Also: if you're wondering why i'm defining a function rather than passing an arrow function to the addEventListener, its because i need the function declaration on the removeEventListener. https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
+      */
+
+      //skip-navigation-target, in the homepage, represent the searchbar. Dont wanna redirect the user while they search something.
+      if (document.activeElement?.id === "skip-navigation-target") return;
+
+      if (event.code.includes("Numpad")) {
+        let numpadInput = event.code.slice(6); //Remove the "Numpad" from the string
+        if (numpadInput === "0") {
+          window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; //gottem
+        }
+        // negated isNaN seems to be the best way to check if a string is a number
+        if (!isNaN(numpadInput)) {
+          const urlToRedirect = ListOfLinks.find(
+            (link) => link.id === numpadInput
+          )?.url;
+          if (urlToRedirect) {
+            window.location.href = urlToRedirect;
+          }
+        }
+      }
     }
-    if (searchValue.toLowerCase() === "c'est la vie") {
-      setPriorityTitleQueue(["Oui, c'est la vie eh?", ...priorityTitleQueue]);
-    }
-    if (searchValue.toLowerCase() === "un dos tres cuatro") {
-      setPriorityTitleQueue(["Cinco seis siete ocho!", ...priorityTitleQueue]);
-    }
-  }, [searchValue]);
+
+    document.body.addEventListener("keydown", RedirectOnNumpadNumberInput);
+    return () => {
+      document.body.removeEventListener("keydown", RedirectOnNumpadNumberInput);
+    };
+  }, []);
 
   const searchbarIcon = () => {
-    if (searchValue.toLowerCase() === "i love you") {
+    if (searchValue.toLowerCase().includes("i love you")) {
       return <Heart />;
     }
     if (searchValue.length > 0) {
@@ -154,12 +148,28 @@ export default function Homepage() {
           className="homepage-search-submit"
           disabled={searchValue.length === 0}
           title="Search on DuckDuckGo (Submit button)"
+          tabIndex={-1}
         >
           {searchbarIcon()}
         </button>
       </form>
-      <ul className="homepage-list-of-links">
-        {TEMPListOfObjectsForLinksList.map((item) => {
+      <ul className="homepage-list-of-links" id="homepage-list-of-links">
+        {ListOfLinks.map((item) => {
+          /*
+            * Here's a fun challenge for a coding interview: given an array of numbers from 1 to 9, sort them in the numpad format. 
+            The numpad format being the following: 
+            789
+            456
+            123
+
+            in other words, the array must be: [7, 8, 9, 4, 5, 6, 1, 2, 3]
+
+            My approach: immediately give up, assign the id as a grid area property, and create a template area in css. If it works it works ¯\_(ツ)_/¯
+
+            TODO: if at any moment a better solution appears, implement it
+            TODO: this kinda breaks the tab index order. I should change it, probably
+            TODO: google maps link doesnt work. fuck.
+          */
           return (
             <HomepageLinkCard
               id={item.id}
@@ -171,12 +181,7 @@ export default function Homepage() {
           );
         })}
       </ul>
-      <TypewriterTitle
-        defaultTitleList={defaultTitleList}
-        priorityTitleQueue={priorityTitleQueue}
-        popPriorityTitleQueue={popPriorityTitleQueue}
-        className="homepage-title"
-      />
+      <TheFunBox />
     </section>
   );
 }

@@ -1,0 +1,10 @@
+.the-fun-box {
+  grid-area: fun-box;
+
+  height: 100%;
+  color: var(--text-color);
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  transition: 0.8s ease;
+}
