@@ -20,6 +20,9 @@ export default function TypewriterTitle({
   popPriorityTitleQueue,
   className,
 }: TypewriterProps) {
+  /* 
+    ! This is currently unused. Either use it or delete it.
+  */
   //TODO: check if and where it makes sense to implement useMemo/useCalback
   //TODO: make the caret bigger, like in a console
   //TODO: se if its possible to fix the caret sometimes disappearing in the waiting periods

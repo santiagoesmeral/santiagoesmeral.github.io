@@ -12,7 +12,12 @@ export default function TheFunBox() {
 
   useEffect(() => {
     function SetStatusToShowLinkListCheatsheet(event: any) {
+      console.log(event);
       setCurrentStatus("showNumpadCheatsheet");
+    }
+    function SetStatusToHideLinkListCheatsheet(event: any) {
+      console.log(event);
+      setCurrentStatus("");
     }
 
     /*
@@ -21,14 +26,14 @@ export default function TheFunBox() {
         
         The layout of the list of links: 
         <ul id="homepage-list-of-links">
-            [
-                <li className="homepage-link-card-container">
-                    <a className="homepage-link-card" />
-                </li>
-            ]
+        [
+          <li className="homepage-link-card-container">
+          <a className="homepage-link-card" />
+          </li>
+        ]
         </ul>
-
-        TODO: remove status on blur
+        
+        Edit 19/8/22: i tried to make only 1 function for both focus and blur, but that seems impossible. I am not 100% experienced with event listeners so there may be a way, but for now, we'll have to add and remove 2 event listeners to each of the keys. C'est la vie.
     */
     document
       .getElementById("homepage-list-of-links")
@@ -36,6 +41,10 @@ export default function TheFunBox() {
         linkContainer.childNodes[0].addEventListener(
           "focus",
           SetStatusToShowLinkListCheatsheet
+        );
+        linkContainer.childNodes[0].addEventListener(
+          "blur",
+          SetStatusToHideLinkListCheatsheet
         );
       });
 
@@ -46,6 +55,10 @@ export default function TheFunBox() {
           linkContainer.childNodes[0].removeEventListener(
             "focus",
             SetStatusToShowLinkListCheatsheet
+          );
+          linkContainer.childNodes[0].addEventListener(
+            "blur",
+            SetStatusToHideLinkListCheatsheet
           );
         });
     };
