@@ -139,7 +139,6 @@ export default function Homepage() {
     }
     return <DuckDuckGoLogo />;
   };
-
   return (
     <section className="homepage">
       <form

@@ -13,11 +13,29 @@ export default function TheFunBox() {
   useEffect(() => {
     function SetStatusToShowLinkListCheatsheet(event: any) {
       console.log(event);
-      setCurrentStatus("showNumpadCheatsheet");
-    }
-    function SetStatusToHideLinkListCheatsheet(event: any) {
-      console.log(event);
-      setCurrentStatus("");
+      if (event.type === "focus") {
+        /*
+          I usually like to leave classes for css only, but in this case i dont see another attribute that would make sense. 
+          Id is unique and i want to target all link cards. 
+
+          ! DONT DO THIS, if the minimization removes classes then this gets borked. 
+
+          instead set a custom attribute, probably. Or something. Idk. Still trying to figure out what best to do here. 
+
+          Ideally, we just get whatever happens to be the currently focused item.
+
+          window.getSelection()?.focusNode doesnt quite work because the focusNode isnt necesarily an DOM object. It can be just a string. 
+
+          TODO: 
+          1- find a way to trigger a function each time focus changes in the page
+          2- find a way to know if we're targeting a card link or the searchbar. We cant rely on classNames or IDs (probably a custom attr)
+        */
+        if (event.target.className === "homepage-link-card") {
+          setCurrentStatus("showNumpadCheatsheet");
+        } else {
+          setCurrentStatus("showSearchbarCheatsheet");
+        }
+      }
     }
 
     /*
@@ -33,7 +51,6 @@ export default function TheFunBox() {
         ]
         </ul>
         
-        Edit 19/8/22: i tried to make only 1 function for both focus and blur, but that seems impossible. I am not 100% experienced with event listeners so there may be a way, but for now, we'll have to add and remove 2 event listeners to each of the keys. C'est la vie.
     */
     document
       .getElementById("homepage-list-of-links")
@@ -44,7 +61,7 @@ export default function TheFunBox() {
         );
         linkContainer.childNodes[0].addEventListener(
           "blur",
-          SetStatusToHideLinkListCheatsheet
+          SetStatusToShowLinkListCheatsheet
         );
       });
 
@@ -58,7 +75,7 @@ export default function TheFunBox() {
           );
           linkContainer.childNodes[0].addEventListener(
             "blur",
-            SetStatusToHideLinkListCheatsheet
+            SetStatusToShowLinkListCheatsheet
           );
         });
     };
