@@ -30,10 +30,11 @@ export default function TheFunBox() {
       ! reminder for myself: focus > hover in priority of display
 
       todo: find a way to check elements under hover
+
       todo: change the name of the var. I was just thinking of that song from 4 non blondes so yeah. 
       https://www.youtube.com/watch?v=6NXnxTNIWkc WHAT'S GOING OOOOOOOOOOOOOOOOOOOOOOOON
     */
-    const whatsGoingOn = window.setInterval(handlePageFocusOrHoverChange, 500);
+    const whatsGoingOn = window.setInterval(handlePageFocusOrHoverChange, 250);
 
     return () => {
       window.clearInterval(whatsGoingOn);
@@ -45,7 +46,12 @@ export default function TheFunBox() {
       case "showNumpadCheatsheet":
         return (
           <div>
-            <p>Here be the cheatsheet, arr</p>
+            <p>
+              Hey, fun fact: the links on the left are mapped to the numpad
+              inputs
+            </p>
+            <p>If you press 1 it will take you to Youtube, 2 to Deepl, etc</p>
+            <p>;)</p>
           </div>
         );
       default:
