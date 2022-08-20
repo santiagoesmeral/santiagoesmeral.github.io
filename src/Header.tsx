@@ -13,7 +13,7 @@ export default function Header() {
   };
   return (
     <header className="header">
-      <a id="link-0" className="header-title" href="/">
+      <a id="header-link-0" className="header-title" href="/">
         Santiago Esmeral
       </a>
       <button className="header-button" onClick={() => onSkipNavigation()}>
@@ -21,7 +21,7 @@ export default function Header() {
       </button>
       <nav className="header-nav">
         <a
-          id="link-1"
+          id="header-link-1"
           href="/about_me"
           className="header-link"
           title="About Me"
@@ -29,7 +29,7 @@ export default function Header() {
           About Me
         </a>
         <a
-          id="link-2"
+          id="header-link-2"
           href="https://github.com/santiagoesmeral"
           className="header-link"
           title="Santiago Esmeral's Github profile"
@@ -37,7 +37,7 @@ export default function Header() {
           My Github Profile
         </a>
         <a
-          id="link-3"
+          id="header-link-3"
           href="https://www.linkedin.com/in/santiago-alfredo-esmeral-albarracin-37250516b/"
           className="header-link"
           title="Santiago Esmeral's LinkedIn profile"

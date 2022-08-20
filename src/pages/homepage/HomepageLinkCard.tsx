@@ -21,6 +21,7 @@ export default function HomepageLinkCard({
         href={url}
         data-pseudoelem-content={content}
         title={content}
+        id={"homepage-link-card-number-" + id}
       >
         {icon}
       </a>
