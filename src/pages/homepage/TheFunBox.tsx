@@ -14,7 +14,11 @@ export default function TheFunBox() {
     function handlePageFocusOrHoverChange() {
       console.log(document.activeElement?.id);
       const currentElem = document.activeElement;
-      if (currentElem?.id.includes("homepage-link-card-number-")) {
+
+      if (currentElem?.id.includes("skip-navigation-target")) {
+        //skip-navigation-target, in the homepage, represent the searchbar. Dont wanna redirect the user while they search something.
+        setCurrentStatus("showSearchbarCheatsheet");
+      } else if (currentElem?.id.includes("homepage-link-card-number-")) {
         setCurrentStatus("showNumpadCheatsheet");
       } else {
         setCurrentStatus("");
@@ -43,6 +47,20 @@ export default function TheFunBox() {
 
   const elementToRender = () => {
     switch (currentStatus) {
+      case "showSearchbarCheatsheet":
+        return (
+          <div className="the-fun-box-searchbar-cheatsheet-grid">
+            <p>
+              Hey! did you know that DuckDuckGo has a feature called
+              searchbangs?
+            </p>
+            <p>
+              If you type a searchbang alongside your search, you will be
+              immediately redirected. Very useful!
+            </p>
+            <p>For example: try searching "Bohemian Rhapsody !yt"</p>
+          </div>
+        );
       case "showNumpadCheatsheet":
         return (
           <div>

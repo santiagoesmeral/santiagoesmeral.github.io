@@ -4,9 +4,17 @@
   height: 100%;
   color: var(--text-color);
   font-size: 2rem;
-  padding: 2rem;
   display: grid;
   align-content: center;
   justify-content: center;
   transition: 0.8s ease;
+}
+
+.the-fun-box-searchbar-cheatsheet-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  height: min-content;
+  font-size: 1.5rem;
 }
