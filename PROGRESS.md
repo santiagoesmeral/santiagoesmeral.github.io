@@ -1,5 +1,6 @@
 # TODO:
 
+- **FIND OUT WHY ON EARTH I AM GETTING SO MANY GIT CORRUPT FILES. It makes no sense! i am not doing anything crazy**
 - **add socials (linkedin, github)**
 - **add about me page**
   use this fucking thing in the hire me section: https://dev.to/afif/a-scalable-css-only-typewriter-effect-2opn (multiline text)
