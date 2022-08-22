@@ -17,6 +17,7 @@ export default function TheFunBox() {
 
       if (currentElem?.id.includes("skip-navigation-target")) {
         //skip-navigation-target, in the homepage, represent the searchbar. Dont wanna redirect the user while they search something.
+        //TODO: add a feature to open search on new tab if the user is selecting the skip navigation target and uses the numpad enter to search
         setCurrentStatus("showSearchbarCheatsheet");
       } else if (currentElem?.id.includes("homepage-link-card-number-")) {
         setCurrentStatus("showNumpadCheatsheet");
@@ -33,9 +34,9 @@ export default function TheFunBox() {
 
       ! reminder for myself: focus > hover in priority of display
 
-      todo: find a way to check elements under hover
+      TODO: find a way to check elements under hover
 
-      todo: change the name of the var. I was just thinking of that song from 4 non blondes so yeah. 
+      TODO: change the name of the var. I was just thinking of that song from 4 non blondes so yeah. 
       https://www.youtube.com/watch?v=6NXnxTNIWkc WHAT'S GOING OOOOOOOOOOOOOOOOOOOOOOOON
     */
     const whatsGoingOn = window.setInterval(handlePageFocusOrHoverChange, 250);
@@ -49,16 +50,22 @@ export default function TheFunBox() {
     switch (currentStatus) {
       case "showSearchbarCheatsheet":
         return (
-          <div className="the-fun-box-searchbar-cheatsheet-grid">
-            <p>
-              Hey! did you know that DuckDuckGo has a feature called
-              searchbangs?
+          <div className="the-fun-box-searchbar-cheatsheet">
+            <p className="the-fun-box-searchbar-cheatsheet-decription">
+              DuckDuckGo has a feature called searchbangs. It allows you to add
+              a special keyword on your search to automatically redirect the
+              search on another site.
+              <br />
+              There's hundreds of them, but here are some useful ones.{" "}
+              <sup>hover over them to see what they do</sup>
             </p>
-            <p>
-              If you type a searchbang alongside your search, you will be
-              immediately redirected. Very useful!
-            </p>
-            <p>For example: try searching "Bohemian Rhapsody !yt"</p>
+            <div className="the-fun-box-searchbar-cheatsheet-list-of-searchbangs">
+              <kbd title="Redirect search to www.google.com">!g</kbd>
+              <kbd title="Redirect search to www.youtube.com">!yt</kbd>
+              <kbd title="Redirect to maps.google.com">!gm</kbd>
+              <kbd title="Redirect to wikipedia.org">!w</kbd>
+              <kbd title="Redirect to the first result of the search">!</kbd>
+            </div>
           </div>
         );
       case "showNumpadCheatsheet":

@@ -1,6 +1,7 @@
 .homepage {
   background-color: var(--bg-color);
   //TODO: this is supposed to be 100vh - the header height, but there's 2vh extra appearing outta nowhere. Gotta find where it comes from...
+  //TODO: there are some weird problems causing scrollbars in heights that shouldnt have this. gotta find why its happening...
   height: calc(98vh - var(--header-height));
   box-sizing: border-box;
 

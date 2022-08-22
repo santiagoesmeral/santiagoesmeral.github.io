@@ -10,11 +10,41 @@
   transition: 0.8s ease;
 }
 
-.the-fun-box-searchbar-cheatsheet-grid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+/*
+  You might think that these names are too long for a css selector and i should shorten them. 
+  Something like .cheatsheet
+
+  And, if the world was a perfect place, i would agree. 
+
+  Unfortunately, the world includes many third packages that dont properly scope their classes in a realistic work enviroment. 
+  Not to mention the fact that on large projects, it can be near impossible to know if anywhere else in the page there is another class of an equal name. 
+  
+  I'd rather have very long and incredibly specific selectors, to guarantee that the css i write is contained where it needs to be contained.
+*/
+
+.the-fun-box-searchbar-cheatsheet {
   height: min-content;
   font-size: 1.5rem;
+}
+
+.the-fun-box-searchbar-cheatsheet-decription {
+  font-size: 1.2rem;
+  max-width: 70ch;
+  line-height: 1.5rem;
+  sup {
+    font-style: italic;
+  }
+}
+
+.the-fun-box-searchbar-cheatsheet-list-of-searchbangs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  kbd {
+    outline: 1px solid white;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    cursor: help;
+  }
 }

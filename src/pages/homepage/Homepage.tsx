@@ -29,8 +29,6 @@ import "./Homepage.scss";
   My approach: immediately give up since this list is hardcoded anyways. Just manually order the list. I would have to go through the spaghetti headache of implementing the above solution if it was dynamic though. A story for another day.
 
   Also, just to note: if we were using flexbox, i think it would be as easy as setting flex-direction: reverse-row and flex-wrap: wrap-reverse. Didnt test it though, and since we want this to have exactly 3 columns and 3 rows, it makes sense to use grid instead. (Also, doing this approach would probably screw the tab index like my last attempt at fixing it using a defined grid template area corresponding to the id of each link)
-
-  TODO: google maps breaks. :/
 */
 
 //*TL-DR: the id corresponds to the number in the numpad to link it with. For a detailed explanation, look at the useEffect of <Homepage />
