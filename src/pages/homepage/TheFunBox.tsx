@@ -99,7 +99,7 @@ export default function TheFunBox() {
           </div>
         );
       default:
-        return <p>The fun box! ☜(⌒▽⌒)☞</p>;
+        return <div className="TEMP-IDK-WHAT-TO-CALL-THIS"></div>;
     }
   };
   return (
