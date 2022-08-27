@@ -14,6 +14,7 @@ export default function HomepageLinkCard({
   content,
   icon,
 }: HomepageLinkCardPropObject) {
+  //TODO: add a numpad key icon in the corner of each of them
   return (
     <li className="homepage-link-card-container" key={id}>
       <a

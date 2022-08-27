@@ -22,21 +22,21 @@
   I'd rather have very long and incredibly specific selectors, to guarantee that the css i write is contained where it needs to be contained.
 */
 
-.the-fun-box-searchbar-cheatsheet {
+.the-fun-box-cheatsheet {
   height: min-content;
   font-size: 1.5rem;
 }
 
-.the-fun-box-searchbar-cheatsheet-decription {
+.the-fun-box-cheatsheet-decription {
   font-size: 1.2rem;
   max-width: 70ch;
-  line-height: 1.5rem;
+  line-height: 2rem;
   sup {
     font-style: italic;
   }
 }
 
-.the-fun-box-searchbar-cheatsheet-list-of-searchbangs {
+.the-fun-box-cheatsheet-list-of-searchbangs {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

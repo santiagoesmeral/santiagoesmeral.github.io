@@ -92,6 +92,8 @@ const ListOfLinks = [
 export default function Homepage() {
   const [searchValue, setSearchValue] = useState("");
 
+  //TODO: add a feature to open search on new tab if the user is selecting the skip navigation target and uses the numpad enter to search
+
   useEffect(() => {
     //TODO: change :any into a more appropiate type. :event is not the right one apparently
     function RedirectOnNumpadNumberInput(event: any) {
