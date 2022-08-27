@@ -49,6 +49,16 @@
   }
 }
 
-.TEMP-IDK-WHAT-TO-CALL-THIS {
-  outline: 1px solid red;
+.the-fun-box-unclickable-button-container {
+  button {
+    display: inline-block;
+    transform: scaleX(-1);
+    font-size: 3rem;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    border: 1px solid var(--text-color);
+    padding: 0.5rem;
+    transition: 0.5s ease;
+    cursor: pointer;
+  }
 }

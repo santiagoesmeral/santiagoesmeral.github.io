@@ -106,7 +106,7 @@ export default function TheFunBox() {
       case "unclickableButton":
         return (
           <div className="the-fun-box-unclickable-button-container">
-            <button>ᕕ(⌐■_■)ᕗ ♪♬</button>
+            <button>ᕕ( ᐛ )ᕗ</button>
           </div>
         );
       case "nothing":
