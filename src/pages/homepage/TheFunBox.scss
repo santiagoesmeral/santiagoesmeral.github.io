@@ -2,12 +2,17 @@
   grid-area: fun-box;
 
   height: 100%;
+  width: 100%;
   color: var(--text-color);
   font-size: 2rem;
   display: grid;
+  transition: 0.8s ease;
+  position: relative;
+}
+
+.the-fun-box.the-fun-box-align-center {
   align-content: center;
   justify-content: center;
-  transition: 0.8s ease;
 }
 
 /*
@@ -22,12 +27,12 @@
   I'd rather have very long and incredibly specific selectors, to guarantee that the css i write is contained where it needs to be contained.
 */
 
-.the-fun-box-cheatsheet {
+.tfb-cheatsheet {
   height: min-content;
   font-size: 1.5rem;
 }
 
-.the-fun-box-cheatsheet-decription {
+.tfb-cheatsheet-decription {
   font-size: 1.2rem;
   max-width: 70ch;
   line-height: 2rem;
@@ -36,7 +41,7 @@
   }
 }
 
-.the-fun-box-cheatsheet-list-of-searchbangs {
+.tfb-cheatsheet-list-of-searchbangs {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -49,16 +54,22 @@
   }
 }
 
-.the-fun-box-unclickable-button-container {
-  button {
-    display: inline-block;
-    transform: scaleX(-1);
-    font-size: 3rem;
-    color: var(--text-color);
-    background-color: var(--bg-color);
-    border: 1px solid var(--text-color);
-    padding: 0.5rem;
-    transition: 0.5s ease;
-    cursor: pointer;
-  }
+.tfb-unclickable-button {
+  display: inline-block;
+  transform: scaleX(-1);
+  font-size: 3rem;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  border: 1px solid var(--text-color);
+  padding: 0.5rem;
+  transition: 0.5s ease;
+  cursor: pointer;
+  width: max-content;
+  height: min-content;
+
+  position: absolute;
+}
+
+.tfb-unclickable-button.tfb-unclickable-button-end {
+  justify-self: end;
 }

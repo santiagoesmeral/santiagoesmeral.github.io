@@ -70,8 +70,8 @@ export default function TheFunBox() {
     switch (currentStatus) {
       case "searchbarCheatsheet":
         return (
-          <div className="the-fun-box-cheatsheet">
-            <p className="the-fun-box-cheatsheet-decription">
+          <div className="tfb-cheatsheet">
+            <p className="tfb-cheatsheet-decription">
               DuckDuckGo has a feature called searchbangs. It allows you to add
               a special keyword on your search to automatically redirect the
               search on another site.
@@ -82,7 +82,7 @@ export default function TheFunBox() {
               <br />
               <sup>hover over them to see what they do</sup>
             </p>
-            <div className="the-fun-box-cheatsheet-list-of-searchbangs">
+            <div className="tfb-cheatsheet-list-of-searchbangs">
               <kbd title="Redirect search to www.google.com">!g</kbd>
               <kbd title="Redirect search to www.youtube.com">!yt</kbd>
               <kbd title="Redirect to maps.google.com">!gm</kbd>
@@ -93,8 +93,8 @@ export default function TheFunBox() {
         );
       case "numpadCheatsheet":
         return (
-          <div className="the-fun-box-cheatsheet">
-            <p className="the-fun-box-cheatsheet-decription">
+          <div className="tfb-cheatsheet">
+            <p className="tfb-cheatsheet-decription">
               Hey, fun fact: the links on the left are mapped to the numpad
               inputs
               <br />
@@ -104,11 +104,7 @@ export default function TheFunBox() {
           </div>
         );
       case "unclickableButton":
-        return (
-          <div className="the-fun-box-unclickable-button-container">
-            <button>ᕕ( ᐛ )ᕗ</button>
-          </div>
-        );
+        return <UnclickableButton />;
       case "nothing":
         return "";
       default:
@@ -116,8 +112,36 @@ export default function TheFunBox() {
     }
   };
   return (
-    <div className="the-fun-box" title="Work in progress ;)">
+    <div
+      className={
+        "the-fun-box" +
+        (currentStatus.includes("Cheatsheet")
+          ? " the-fun-box-align-center"
+          : "")
+      }
+      title="Work in progress ;)"
+    >
       {elementToRender()}
     </div>
+  );
+}
+
+function UnclickableButton() {
+  const [currentHorizontal, setCurrentHorizontal] = useState("start");
+  const randomHorizontal = () => {
+    //temporary solution just to test the transition of the element going from left to right
+    return ["start", "end"][Math.floor(Math.random() * 2)];
+  };
+  return (
+    <button
+      className={
+        "tfb-unclickable-button " +
+        "tfb-unclickable-button-" +
+        currentHorizontal
+      }
+      onClick={() => setCurrentHorizontal(randomHorizontal())}
+    >
+      ᕕ( ᐛ )ᕗ
+    </button>
   );
 }
