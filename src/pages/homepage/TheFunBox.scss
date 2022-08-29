@@ -56,20 +56,40 @@
 
 .tfb-unclickable-button {
   display: inline-block;
-  transform: scaleX(-1);
-  font-size: 3rem;
+  font-size: 2rem;
   color: var(--text-color);
   background-color: var(--bg-color);
-  border: 1px solid var(--text-color);
-  padding: 0.5rem;
-  transition: 0.5s ease;
+  outline: 2px solid var(--text-color);
+  padding: 0.75rem;
   cursor: pointer;
   width: max-content;
   height: min-content;
-
   position: absolute;
+  animation: buttonHop 0.75s steps(2) infinite;
 }
 
-.tfb-unclickable-button.tfb-unclickable-button-end {
+.tfb-unclickable-button.tfb-unclickable-button-justify-start {
+  justify-self: start;
+}
+.tfb-unclickable-button.tfb-unclickable-button-justify-center {
+  justify-self: center;
+}
+.tfb-unclickable-button.tfb-unclickable-button-justify-end {
   justify-self: end;
+}
+
+.tfb-unclickable-button.tfb-unclickable-button-align-start {
+  align-self: start;
+}
+.tfb-unclickable-button.tfb-unclickable-button-align-center {
+  align-self: center;
+}
+.tfb-unclickable-button.tfb-unclickable-button-align-end {
+  align-self: end;
+}
+
+@keyframes buttonHop {
+  100% {
+    transform: translateY(0.5rem);
+  }
 }

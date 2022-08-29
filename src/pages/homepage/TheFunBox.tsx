@@ -8,8 +8,6 @@ import "./TheFunBox.scss";
     If they are selecting those, then instead show the user a cheatsheet with some useful info
 */
 
-const randomEvents = ["unclickableButton"];
-
 export default function TheFunBox() {
   const [currentStatus, setCurrentStatus] = useState("");
 
@@ -119,7 +117,7 @@ export default function TheFunBox() {
           ? " the-fun-box-align-center"
           : "")
       }
-      title="Work in progress ;)"
+      title="I hope you have a great day :)"
     >
       {elementToRender()}
     </div>
@@ -127,21 +125,52 @@ export default function TheFunBox() {
 }
 
 function UnclickableButton() {
-  const [currentHorizontal, setCurrentHorizontal] = useState("start");
-  const randomHorizontal = () => {
-    //temporary solution just to test the transition of the element going from left to right
-    return ["start", "end"][Math.floor(Math.random() * 2)];
+  // [0] = x, [1] = y, [2] = text
+  const [randomState, setRandomState] = useState([
+    "center",
+    "center",
+    "Click me if you can!",
+  ]);
+  const possiblePositions = ["start", "center", "end"];
+  const possibleTexts = [
+    "🤣",
+    "gotta go fast!",
+    "hehehe",
+    "jaja",
+    "😂",
+    "🗿",
+    "ᕕ( ᐛ )ᕗ",
+    "Can't touch this",
+    "EEEH MACARENA",
+    "Cha cha real smooth",
+  ];
+  const newRandomState = () => {
+    const newRandomX = possiblePositions.filter(
+      (elem) => elem !== randomState[0]
+    )[Math.floor(Math.random() * 2)]; //2 = length of possiblePositions -1
+    const newRandomY = possiblePositions.filter(
+      (elem) => elem !== randomState[1]
+    )[Math.floor(Math.random() * 2)];
+    const newRandomText = possibleTexts.filter(
+      (elem) => elem !== randomState[2]
+    )[Math.floor(Math.random() * (possibleTexts.length - 1))];
+    setRandomState([newRandomX, newRandomY, newRandomText]);
   };
   return (
     <button
       className={
-        "tfb-unclickable-button " +
-        "tfb-unclickable-button-" +
-        currentHorizontal
+        "tfb-unclickable-button" +
+        " tfb-unclickable-button-justify-" +
+        randomState[0] +
+        " tfb-unclickable-button-align-" +
+        randomState[1]
       }
-      onClick={() => setCurrentHorizontal(randomHorizontal())}
+      onMouseOver={() => newRandomState()}
+      onClick={() => setRandomState(["center", "center", "You won!!"])}
+      tabIndex={-1}
+      title="a silly button that runs away"
     >
-      ᕕ( ᐛ )ᕗ
+      {randomState[2]}
     </button>
   );
 }
