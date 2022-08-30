@@ -8,6 +8,11 @@ export default function Header() {
 
   const menu = () => {
     //TODO: continue this
+    /*
+      choose buttons for this menu: 
+      a) https://codepen.io/version1/pen/zYvWYEB
+      b) https://codepen.io/letitcode/pen/veEvpd
+    */
     return <nav></nav>;
   };
 
