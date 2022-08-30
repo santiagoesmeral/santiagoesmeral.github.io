@@ -149,7 +149,7 @@ export default function Homepage() {
         autoComplete="off"
       >
         <input
-          type="text"
+          type="search"
           name="q"
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
