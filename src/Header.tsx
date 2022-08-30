@@ -15,15 +15,42 @@ export default function Header() {
 
       great resource to read: https://www.smashingmagazine.com/2017/11/building-accessible-menu-systems/#navigation-menu-buttons
       tl-dr: for accesibility purposes, we really want a simple menu that toggles between opened and closed
-          onClick={() => setIsMenuOpen(true)}
     */
     if (isMenuOpen) {
-      return <nav></nav>;
+      return (
+        <nav className="header-nav">
+          <a
+            id="header-link-1"
+            href="/about_me"
+            className="header-link"
+            title="About Me"
+          >
+            About Me
+          </a>
+          <a
+            id="header-link-2"
+            href="https://github.com/santiagoesmeral"
+            className="header-link"
+            title="Santiago Esmeral's Github profile"
+          >
+            My Github Profile
+          </a>
+          <a
+            id="header-link-3"
+            href="https://www.linkedin.com/in/santiago-alfredo-esmeral-albarracin-37250516b/"
+            className="header-link"
+            title="Santiago Esmeral's LinkedIn profile"
+          >
+            My LinkedIn Profile
+          </a>
+        </nav>
+      );
     } else
       return (
         <button
           title="Toggle Navigation"
           className="header-button"
+          onClick={() => setIsMenuOpen(true)}
           aria-haspopup
         >
           Open
@@ -54,32 +81,3 @@ export default function Header() {
     </header>
   );
 }
-
-/*
-<nav className="header-nav">
-        <a
-          id="header-link-1"
-          href="/about_me"
-          className="header-link"
-          title="About Me"
-        >
-          About Me
-        </a>
-        <a
-          id="header-link-2"
-          href="https://github.com/santiagoesmeral"
-          className="header-link"
-          title="Santiago Esmeral's Github profile"
-        >
-          My Github Profile
-        </a>
-        <a
-          id="header-link-3"
-          href="https://www.linkedin.com/in/santiago-alfredo-esmeral-albarracin-37250516b/"
-          className="header-link"
-          title="Santiago Esmeral's LinkedIn profile"
-        >
-          My LinkedIn Profile
-        </a>
-      </nav>
-       */
