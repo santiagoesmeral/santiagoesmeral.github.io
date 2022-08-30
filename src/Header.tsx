@@ -1,7 +1,16 @@
-import React from "react";
+import { useState } from "react";
 import "./Header.scss";
 
 export default function Header() {
+  //i could do css shenanigans instead of state, but it will complicate things for what i have in mind for mobile
+  //todo: close menu when page is no longer active
+  const [menuOpen, isMenuOpen] = useState(false);
+
+  const menu = () => {
+    //TODO: continue this
+    return <nav></nav>;
+  };
+
   /*
     This is a small project, so i dont see the value of having the links defined in the app and passing them as props. 
     I dont need a fancy routing system here, i'll have a couple of static links. So for now, it will stay here. If i needed a more complex routing system i'd probably go for a library like react-router instead
