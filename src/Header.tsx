@@ -4,7 +4,7 @@ import "./Header.scss";
 export default function Header() {
   //i could do css shenanigans instead of state, but it will complicate things for what i have in mind for mobile
   //todo: close menu when page is no longer active
-  const [menuOpen, isMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menu = () => {
     //TODO: continue this
@@ -12,8 +12,23 @@ export default function Header() {
       choose buttons for this menu: 
       a) https://codepen.io/version1/pen/zYvWYEB
       b) https://codepen.io/letitcode/pen/veEvpd
+
+      great resource to read: https://www.smashingmagazine.com/2017/11/building-accessible-menu-systems/#navigation-menu-buttons
+      tl-dr: for accesibility purposes, we really want a simple menu that toggles between opened and closed
+          onClick={() => setIsMenuOpen(true)}
     */
-    return <nav></nav>;
+    if (isMenuOpen) {
+      return <nav></nav>;
+    } else
+      return (
+        <button
+          title="Toggle Navigation"
+          className="header-button"
+          aria-haspopup
+        >
+          Open
+        </button>
+      );
   };
 
   /*
@@ -29,10 +44,19 @@ export default function Header() {
       <a id="header-link-0" className="header-title" href="/">
         Santiago Esmeral
       </a>
-      <button className="header-button" onClick={() => onSkipNavigation()}>
+      <button
+        className="header-button hidden-button"
+        onClick={() => onSkipNavigation()}
+      >
         Skip Navigation
       </button>
-      <nav className="header-nav">
+      {menu()}
+    </header>
+  );
+}
+
+/*
+<nav className="header-nav">
         <a
           id="header-link-1"
           href="/about_me"
@@ -58,6 +82,4 @@ export default function Header() {
           My LinkedIn Profile
         </a>
       </nav>
-    </header>
-  );
-}
+       */
