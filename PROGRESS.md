@@ -121,3 +121,16 @@
   I am actually quite happy with how it looks like on this first iteration, and unlike previous designs, i know exactly what to do with the typewriter text for mobiles (either move it down or remove it)
 
   there are multiple nice-to-haves that i could try having here, but for now i'll leave it be. I'll instead start making the new page for my CV-esque page
+
+- 30/8/22
+  Hey, unlike last time, i've been working a lot and i just forgot to write it here.
+  I've been adding all the features i wanted to add. The redirect to links on numpad presses, the fun box minigame thing, and i am now working on making a new menu with links (so i can add even more liks, like a direct CV download and links to codepens), as well as the about me page.
+
+  I am close to done!
+  just to recap, the todo to MVP:
+  -about me page
+  -dropdown menu with multiple links
+  -open search in new page if you use the numpad enter (optional)
+  -links to icon providers
+  -404 page
+  -and host it!

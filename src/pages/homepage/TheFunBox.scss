@@ -10,6 +10,7 @@
   position: relative;
 }
 
+//TODO: i dont remember the logic that made me create this selector, but i should double check it and simplify it
 .the-fun-box.the-fun-box-align-center {
   align-content: center;
   justify-content: center;
@@ -25,6 +26,8 @@
   Not to mention the fact that on large projects, it can be near impossible to know if anywhere else in the page there is another class of an equal name. 
   
   I'd rather have very long and incredibly specific selectors, to guarantee that the css i write is contained where it needs to be contained.
+
+  (yes i am fully aware that i am making this project with the specific intent of avoiding any extra libraries. Its just common practice for me)
 */
 
 .tfb-cheatsheet {
@@ -68,6 +71,12 @@
   animation: buttonHop 0.75s steps(2) infinite;
 }
 
+@keyframes buttonHop {
+  100% {
+    transform: translateY(0.5rem);
+  }
+}
+
 .tfb-unclickable-button.tfb-unclickable-button-justify-start {
   justify-self: start;
 }
@@ -86,10 +95,4 @@
 }
 .tfb-unclickable-button.tfb-unclickable-button-align-end {
   align-self: end;
-}
-
-@keyframes buttonHop {
-  100% {
-    transform: translateY(0.5rem);
-  }
 }

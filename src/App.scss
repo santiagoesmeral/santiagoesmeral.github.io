@@ -17,6 +17,7 @@ body,
   --font-family-retro: "Unifont", monospace; //apparently i need to define this here even if its already the default in the page
 }
 
+//todo: fix app height issues...
 .App {
   overflow: hidden; //TODO: DOUBLECHECK THAT THIS DOESN'T BREAK STUFF
 }
