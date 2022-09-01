@@ -19,10 +19,17 @@ export default function Header() {
     if (isMenuOpen) {
       return (
         <nav className="header-nav">
+          <button
+            title="Close Navigation"
+            className="header-button header-toggle-navigation-button"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            X
+          </button>
           <a
             id="header-link-1"
             href="/about_me"
-            className="header-link"
+            className="header-button"
             title="About Me"
           >
             About Me
@@ -30,7 +37,7 @@ export default function Header() {
           <a
             id="header-link-2"
             href="https://github.com/santiagoesmeral"
-            className="header-link"
+            className="header-button"
             title="Santiago Esmeral's Github profile"
           >
             My Github Profile
@@ -38,7 +45,7 @@ export default function Header() {
           <a
             id="header-link-3"
             href="https://www.linkedin.com/in/santiago-alfredo-esmeral-albarracin-37250516b/"
-            className="header-link"
+            className="header-button"
             title="Santiago Esmeral's LinkedIn profile"
           >
             My LinkedIn Profile
@@ -48,12 +55,12 @@ export default function Header() {
     } else
       return (
         <button
-          title="Toggle Navigation"
-          className="header-button"
+          title="Open Navigation"
+          className="header-button header-toggle-navigation-button"
           onClick={() => setIsMenuOpen(true)}
           aria-haspopup
         >
-          Open
+          ☰
         </button>
       );
   };

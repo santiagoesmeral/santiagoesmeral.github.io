@@ -4,7 +4,6 @@
   top: 0;
 
   /* the -0.1rem is bc of the border bottom */
-  line-height: calc(var(--header-height) - 0.1rem);
   padding: 0 1rem;
 
   background-color: var(--header-color);
@@ -15,31 +14,9 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
-.header .header-button.hidden-button {
-  min-width: fit-content;
-  opacity: 0;
-  cursor: default;
-  pointer-events: none;
-  &:focus,
-  &:focus-visible {
-    opacity: 1;
-    cursor: pointer;
-    pointer-events: unset;
-  }
-}
-
-.header-nav {
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  line-height: 3rem;
-}
-
-.header-link,
 .header-title {
   color: inherit;
   min-width: fit-content;
@@ -48,6 +25,7 @@
   transition: outline-offset 0.1s ease;
   padding: 0.5rem;
   text-decoration: none;
+  font-size: 3rem;
   &:hover,
   &:focus,
   &:focus-visible {
@@ -62,8 +40,19 @@
   }
 }
 
-.header-title {
-  font-size: 3rem;
+.header-nav {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  box-sizing: border-box;
+  padding: 0.5rem;
+  background-color: var(--header-color);
+  border: 0.1rem solid var(--text-color);
 }
 
 .header-button {
@@ -83,12 +72,16 @@
   cursor: pointer;
   display: block;
   color: white;
+  border: 1px solid white;
   border-radius: 4px;
   text-align: center;
   transition: box-shadow ease 0.1s;
   box-shadow: 1px 4px 1px 1px var(--header-color),
     0px 6px 1px 2px var(--shadow-color);
   background-color: var(--button-color);
+
+  /* a tag overrides, as we're using this for <button> and <a> */
+  text-decoration: none;
   &:hover,
   &:focus,
   &:focus-visible {
@@ -99,5 +92,33 @@
     opacity: 0.8;
     transform: translateY(4px);
     box-shadow: 0px 0px 0px 0px var(--shadow-color);
+  }
+}
+
+.header-button.header-toggle-navigation-button {
+  /* targets open and close menu buttons, for styling, not alignment */
+  width: min-content;
+  aspect-ratio: 1;
+}
+
+/* targeting the toggle navigation buttons individually for alignment reasons */
+.header > .header-button.header-toggle-navigation-button {
+  margin-left: auto;
+}
+
+.header-nav .header-button.header-toggle-navigation-button {
+  align-self: flex-end;
+}
+
+.header-button.hidden-button {
+  min-width: fit-content;
+  opacity: 0;
+  cursor: default;
+  pointer-events: none;
+  &:focus,
+  &:focus-visible {
+    opacity: 1;
+    cursor: pointer;
+    pointer-events: unset;
   }
 }
