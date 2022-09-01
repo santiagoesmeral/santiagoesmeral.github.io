@@ -82,11 +82,16 @@ export default function TheFunBox() {
             </p>
             <div className="tfb-cheatsheet-list-of-searchbangs">
               <kbd title="Redirect search to www.google.com">!g</kbd>
+              <kbd title="Redirect to Google Maps">!gm</kbd>
+              <kbd title="Redirect to Google Images">!gi</kbd>
               <kbd title="Redirect search to www.youtube.com">!yt</kbd>
-              <kbd title="Redirect to maps.google.com">!gm</kbd>
               <kbd title="Redirect to wikipedia.org">!w</kbd>
               <kbd title="Redirect to the first result of the search">!</kbd>
             </div>
+            <p className="tfb-cheatsheet-decription">
+              Also, if you want to open your search in a new window rather than
+              this one, then use the numpad enter instead of the normal one.
+            </p>
           </div>
         );
       case "numpadCheatsheet":

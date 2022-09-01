@@ -134,3 +134,16 @@
   -links to icon providers
   -404 page
   -and host it!
+
+- 1/9/22
+  listen, i had a couple of rough 2 days. In any case, i just sat down and got the menu working as well as the redirect on new page.
+
+  Current todo:
+  -about me page
+  -links to icon providers
+  -404 page
+  -test on other browsers
+  -check css not loading correctly on first load
+  -and host!
+
+  sidenote: there's some CSS loading bugs going on. Gotta test that.

@@ -105,7 +105,25 @@ export default function Homepage() {
       */
 
       //skip-navigation-target, in the homepage, represent the searchbar. Dont wanna redirect the user while they search something.
-      if (document.activeElement?.id === "skip-navigation-target") return;
+      if (document.activeElement?.id === "skip-navigation-target") {
+        //numpad enter redirects on new tab feature!!
+        if (event.code === "NumpadEnter") {
+          event.preventDefault();
+          /*
+            for some reason, i cant use searchValue. It appears like the value doesn't get set as its typing, for some reason.
+          */
+          window.open(
+            "https://duckduckgo.com/?q=" +
+              (
+                document.getElementById(
+                  "skip-navigation-target"
+                ) as HTMLInputElement
+              )?.value,
+            "blank"
+          );
+        }
+        return;
+      }
 
       if (event.code.includes("Numpad")) {
         let numpadInput = event.code.slice(6); //Remove the "Numpad" from the string
