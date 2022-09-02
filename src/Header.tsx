@@ -21,10 +21,10 @@ export default function Header() {
         <nav className="header-nav">
           <button
             title="Close Navigation"
-            className="header-button header-toggle-navigation-button"
+            className="header-button header-close-navigation-button"
             onClick={() => setIsMenuOpen(false)}
           >
-            X
+            Close Menu
           </button>
           <a
             id="header-link-1"
@@ -50,13 +50,27 @@ export default function Header() {
           >
             My LinkedIn Profile
           </a>
+          <button
+            className="header-button"
+            title="Santiago Esmeral's Codepen (coming soon)"
+            disabled
+          >
+            My Codepen
+          </button>
+          <button
+            className="header-button"
+            title="Download my CV (coming soon)"
+            disabled
+          >
+            Download my CV
+          </button>
         </nav>
       );
     } else
       return (
         <button
           title="Open Navigation"
-          className="header-button header-toggle-navigation-button"
+          className="header-button header-open-navigation-button"
           onClick={() => setIsMenuOpen(true)}
           aria-haspopup
         >

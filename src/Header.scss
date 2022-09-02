@@ -47,6 +47,7 @@
 
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
 
   box-sizing: border-box;
@@ -62,6 +63,7 @@
   */
 
   --button-color: black;
+  --button-color-focus: var(--header-color);
   --shadow-color: black;
 
   width: 16rem;
@@ -73,10 +75,11 @@
   display: block;
   color: white;
   border: 1px solid white;
+  box-sizing: border-box;
   border-radius: 4px;
   text-align: center;
   transition: box-shadow ease 0.1s;
-  box-shadow: 1px 4px 1px 1px var(--header-color),
+  box-shadow: 1px 4px 1px 1px var(--button-color),
     0px 6px 1px 2px var(--shadow-color);
   background-color: var(--button-color);
 
@@ -86,28 +89,27 @@
   &:focus,
   &:focus-visible {
     outline: 1px solid white;
-    background-color: var(--header-color);
+    background-color: var(--button-color-focus);
   }
   &:active {
     opacity: 0.8;
     transform: translateY(4px);
-    box-shadow: 0px 0px 0px 0px var(--shadow-color);
+    box-shadow: 0px 0px 0px 0px var(--button-color-focus);
   }
 }
 
-.header-button.header-toggle-navigation-button {
-  /* targets open and close menu buttons, for styling, not alignment */
+.header-button.header-open-navigation-button {
   width: min-content;
   aspect-ratio: 1;
-}
-
-/* targeting the toggle navigation buttons individually for alignment reasons */
-.header > .header-button.header-toggle-navigation-button {
   margin-left: auto;
 }
 
-.header-nav .header-button.header-toggle-navigation-button {
-  align-self: flex-end;
+.header-button.header-close-navigation-button {
+  margin-bottom: 1rem;
+  width: 80%;
+
+  --button-color: rgb(204, 0, 0);
+  --button-color-focus: rgba(204, 0, 0, 0.664);
 }
 
 .header-button.hidden-button {
@@ -121,4 +123,13 @@
     cursor: pointer;
     pointer-events: unset;
   }
+}
+
+.header-button:disabled {
+  background-color: var(--header-color);
+  color: var(--text-color-opaque);
+  box-shadow: none;
+  border-color: gray;
+  outline: none;
+  cursor: default;
 }
