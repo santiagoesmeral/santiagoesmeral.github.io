@@ -51,7 +51,7 @@
   gap: 1rem;
 
   box-sizing: border-box;
-  padding: 0.5rem;
+  padding: 1.5rem;
   background-color: var(--header-color);
   border: 0.1rem solid var(--text-color);
 }
@@ -106,7 +106,6 @@
 
 .header-button.header-close-navigation-button {
   margin-bottom: 1rem;
-  width: 80%;
 
   --button-color: rgb(204, 0, 0);
   --button-color-focus: rgba(204, 0, 0, 0.664);
