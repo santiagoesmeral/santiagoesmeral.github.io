@@ -8,7 +8,7 @@ body,
   font-family: "Unifont", monospace;
 
   //todo: after the nth time reworking the styling in this page, the old classifications make no sense, i really need to re-do all the css variables here
-  --header-height: 4rem;
+  --header-height: 5rem;
   --header-color: #202020;
   --bg-color: black;
   --text-color: whitesmoke;
@@ -21,4 +21,15 @@ body,
 //todo: fix app height issues...
 .App {
   overflow: hidden; //TODO: DOUBLECHECK THAT THIS DOESN'T BREAK STUFF
+}
+
+.take-remaining-space-in-page {
+  /*
+    There once was a bug here, where 2 extra vh would come outta nowhere.
+    Said bug occured because, in true dumbass fashion, i forgot to set the height of the header to the --header-height.
+
+    c'est la vie. Anyways, fixed!
+  */
+  height: calc(100vh - var(--header-height));
+  box-sizing: border-box;
 }

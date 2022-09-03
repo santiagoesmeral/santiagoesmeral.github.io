@@ -158,7 +158,7 @@ export default function Homepage() {
     return <DuckDuckGoLogo />;
   };
   return (
-    <section className="homepage">
+    <section className="homepage take-remaining-space-in-page">
       <form
         method="get"
         id="ddgSearch"

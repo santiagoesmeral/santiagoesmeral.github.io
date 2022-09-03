@@ -6,6 +6,10 @@
   /* the -0.1rem is bc of the border bottom */
   padding: 0 1rem;
 
+  height: var(--header-height);
+  max-height: var(--header-height);
+  box-sizing: border-box;
+
   background-color: var(--header-color);
   color: var(--text-color);
 
