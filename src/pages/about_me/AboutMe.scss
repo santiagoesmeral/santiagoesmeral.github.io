@@ -1,25 +1,36 @@
 .about-me {
-  padding: 3rem;
+  /*
+    Imma go against my usual pattern with css selectors here because its fun to switch things up.
+
+    advantages of using selectors SCSS style: 
+    -they look nice
+    -since they end up compiling to .about-me .about-me-title rather than just .about-me-title, they get higher priority
+    
+    disadvantages: 
+    -it can be quite the pain to debug this via the inspector
+  */
+
+  padding: 4rem;
   color: var(--text-color);
   background-color: var(--bg-color);
-  h1,
-  h2,
-  p {
-    margin: 0;
-    padding: 0;
-  }
-  h1 {
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  gap: 2rem;
+  .about-me-title {
     font-size: 5rem;
+    padding: 0;
+    margin: 0;
+    outline: 1px solid red;
   }
-  h2 {
-    font-size: 3rem;
-    margin: 3rem 0 1rem 0;
+  .about-me-text {
+    font-size: 2rem;
+    padding: 0;
+    margin: 0;
+    outline: 1px solid green;
   }
-  p {
-    font-size: 1.5rem;
+  .about-me-address {
+    outline: 1px solid pink;
+    text-align: center;
+    min-height: 4rem;
   }
-}
-
-.about-me-address {
-  outline: 1px solid var(--text-color-opaque);
 }
