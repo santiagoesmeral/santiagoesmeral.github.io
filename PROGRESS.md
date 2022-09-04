@@ -1,24 +1,26 @@
 # TODO:
 
-- **FIND OUT WHY ON EARTH I AM GETTING SO MANY GIT CORRUPT FILES. It makes no sense! i am not doing anything crazy**
-- **add socials (linkedin, github)**
-- **add about me page**
-  use this fucking thing in the hire me section: https://dev.to/afif/a-scalable-css-only-typewriter-effect-2opn (multiline text)
+- **everything in the about me page**
+- **rename about_me to hire_me, move that link to outside the dropdown**
+- **change the button from the ascii bar code to "More"**
+- **404 page**
 - **add link to downloadable CV**
   - update CV
   - find somewhere to host it (already have it on microsoft office online)
 - **add link to icon providers in the bottom of the screen or something**
   -change icons so we only depend on one library. Or less if even possible. I hate copyright
 - **update all libraries** (done, but check again in the future)
+- **test on other browsers**
+- **host it**
 
 # NICE TO HAVE:
 
-- **add a small popup cheatsheet with all the !commands for ddg when user has the searchbar focused**
-- **add keyboard shortcuts to external links (i.e.: pressing 1 redirects to youtube)**
-  -add keyboard icons to the links, like this https://dev.to/afif/the-css-scrabble-writer-the-next-gen-typewriter-fbi
+- **add keyboard icons to the links, like this https://dev.to/afif/the-css-scrabble-writer-the-next-gen-typewriter-fbi**
 - **disable animations if the user's settings request it**
 - **add translation into spanish, french, portuguese and italian**
   -see if there is any good api's for translating all this stuff
+- **go over all the TODOs scattered across the app and fix them**
+- **tests? i hate tests...**
 
 # personal FAQ for when i forget stuff:
 
@@ -27,6 +29,9 @@
 
 2? WHY DOES STICKY NOT WORK AAAAAAA
 2- sticky needs to have A- all parentS (plural) to have overflow visible, and needs a top/right/left/bottom property defined, usually top: 0;
+
+3? WHY SO MANY GIT CORRUPT FILES
+3- idk but it seems like separating the npm start from the code . in 2 separate terminals (Aka not using the start_project command i had) fixed it.
 
 # CURRENT STATUS:
 

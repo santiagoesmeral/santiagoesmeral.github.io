@@ -2,7 +2,7 @@ import React from "react";
 import "./Signature.scss";
 
 const Signature = () => {
-  //TODO: either use this or remove it
+  //TODO: Currenctly unused. either use this or remove it
   return (
     <svg
       className="signature"
