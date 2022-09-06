@@ -13,14 +13,15 @@ body,
   --bg-color: black;
   --text-color: whitesmoke;
   --text-color-opaque: #9898a0;
-
   --focus-color: #00b4d8;
   --font-family-retro: "Unifont", monospace; //apparently i need to define this here even if its already the default in the page
 }
 
-//todo: fix app height issues...
 .App {
-  overflow: hidden; //TODO: DOUBLECHECK THAT THIS DOESN'T BREAK STUFF
+  /*
+    Ok so, i wanted to remove this, but it turns out i need this because otherwise, when you shrink the vertical space enough to the point where the elements inside of the page cause an overflow, there is a graphic glitch with the backgrounds. So this is staying, at least for now
+  */
+  overflow: hidden;
 }
 
 .take-remaining-space-in-page {
