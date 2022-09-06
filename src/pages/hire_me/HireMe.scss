@@ -1,10 +1,10 @@
-.about-me {
+.hire-me {
   /*
     Imma go against my usual pattern with css selectors here because its fun to switch things up.
 
     advantages of using selectors SCSS style: 
     -they look nice
-    -since they end up compiling to .about-me .about-me-title rather than just .about-me-title, they get higher priority
+    -since they end up compiling to .hire-me .hire-me-title rather than just .hire-me-title, they get higher priority
     
     disadvantages: 
     -it can be quite the pain to debug this via the inspector
@@ -16,19 +16,19 @@
   display: grid;
   grid-template-rows: min-content 1fr min-content;
   gap: 2rem;
-  .about-me-title {
+  .hire-me-title {
     font-size: 5rem;
     padding: 0;
     margin: 0;
     outline: 1px solid red;
   }
-  .about-me-text {
+  .hire-me-text {
     font-size: 2rem;
     padding: 0;
     margin: 0;
     outline: 1px solid green;
   }
-  .about-me-address {
+  .hire-me-address {
     outline: 1px solid pink;
     text-align: center;
     min-height: 4rem;

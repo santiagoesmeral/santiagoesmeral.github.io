@@ -28,11 +28,11 @@ export default function Header() {
           </button>
           <a
             id="header-link-1"
-            href="/about_me"
+            href="/hire_me"
             className="header-button"
-            title="About Me"
+            title="Hire Me"
           >
-            About Me
+            Hire Me
           </a>
           <a
             id="header-link-2"

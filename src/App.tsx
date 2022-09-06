@@ -1,5 +1,5 @@
 import Homepage from "./pages/homepage/Homepage";
-import AboutMe from "./pages/about_me/AboutMe";
+import HireMe from "./pages/hire_me/HireMe";
 import Header from "./Header";
 import "./App.scss";
 
@@ -12,8 +12,8 @@ function App() {
     */
     switch (window.location.pathname) {
       /* note: since we're returning, we dont need to break after each case */
-      case "/about_me":
-        return <AboutMe />;
+      case "/hire_me":
+        return <HireMe />;
       /* fall through sequence checking for empty string, "/", and "#" to redirect to homepage (https://stackoverflow.com/a/6514571/6749456) */
       case "/":
       case "#":
