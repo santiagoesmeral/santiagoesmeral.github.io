@@ -28,6 +28,8 @@ export default function HireMe() {
 
     and have a list of all of those.
     Some of the buttons wont have a copy and will instead be a direct redirect, so keep that in mind.
+
+    TODO: add skip navigation id
   */
   return (
     <section className="hire-me take-remaining-space-in-page">
@@ -41,11 +43,28 @@ export default function HireMe() {
         <br />I hope you like it! and if you have feedback, or you're interested
         in hiring me, don't hesitate to contact me.
       </p>
+      {/* TODO: maybe make this an <address> tag */}
       <div className="hire-me-links">
-        <label className="hire-me-link">
-          <p>Label:</p>
-          {ButtonWithCopy()}
-        </label>
+        <div className="hire-me-link">
+          <label>Label:</label>
+          <ButtonWithCopy />
+        </div>
+        <div className="hire-me-link">
+          <label>Label:</label>
+          <ButtonWithCopy />
+        </div>
+        <div className="hire-me-link">
+          <label>Label:</label>
+          <ButtonWithCopy />
+        </div>
+        <div className="hire-me-link">
+          <label>Label:</label>
+          <ButtonWithCopy />
+        </div>
+        <div className="hire-me-link">
+          <label>Label:</label>
+          <button>button</button>
+        </div>
       </div>
     </section>
   );

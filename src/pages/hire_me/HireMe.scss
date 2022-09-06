@@ -2,7 +2,7 @@
   /*
     Imma go against my usual pattern with css selectors here because its fun to switch things up.
 
-    advantages of using selectors SCSS style: 
+    advantages of using SCSS style selectors: 
     -they look nice
     -since they end up compiling to .hire-me .hire-me-title rather than just .hire-me-title, they get higher specificity and thus less cascading bugs
     
@@ -13,33 +13,40 @@
     -becomes ugly when implementing custom styling on the children based on the parent's state
   */
 
-  padding: 4rem;
+  padding: 3rem;
   color: var(--text-color);
   background-color: var(--bg-color);
   display: grid;
   grid-template-columns: 1fr min-content;
   grid-template-rows: min-content 1fr;
-  grid-template-areas: "title title" "text links";
+  grid-template-areas: "title links" "text links";
   gap: 2rem;
+  --button-border-width: 0.125rem;
   .hire-me-title {
     grid-area: title;
     font-size: 5rem;
     padding: 0;
     margin: 0;
-    outline: 1px solid red;
   }
   .hire-me-text {
+    //todo: get text into a nicer position
     grid-area: text;
     font-size: 2rem;
     padding: 0;
     margin: 0;
-    outline: 1px solid green;
   }
   .hire-me-links {
     grid-area: links;
-    outline: 1px solid pink;
     text-align: center;
     min-height: 4rem;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    box-sizing: border-box;
+    border: 1px solid var(--text-color-opaque);
+    border-radius: 0.125rem;
+    padding: 1rem;
+    gap: 0.5rem;
     .hire-me-link {
       display: flex;
       align-items: center;
@@ -51,30 +58,39 @@
       }
     }
   }
-}
-
-.button-with-copy-container {
-  --border-width: 0.125rem;
-  min-width: max-content;
-  width: max-content;
   button {
+    width: 100%;
+
     background: transparent;
     color: var(--text-color);
-    border: var(--border-width) solid var(--text-color);
+    border: var(--button-border-width) solid var(--text-color);
     border-radius: 0.3rem;
     font-size: 1.5rem;
     padding: 0.5rem;
     cursor: pointer;
     transition: 0.2s ease;
+    outline: calc(var(--button-border-width) / 2) solid white;
+    &:focus,
+    &:hover,
+    &:focus-visible {
+      outline-offset: 0.125rem;
+      transform: translateY(-0.125rem);
+    }
+    &:active {
+      transform: translateY(0.125rem);
+    }
   }
-  .button-with-copy-main {
-    border-right-width: calc(var(--border-width) / 2);
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-  .button-with-copy-secondary {
-    border-left-width: calc(var(--border-width) / 2);
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+  .button-with-copy-container {
+    display: flex;
+    .button-with-copy-main {
+      border-right-width: calc(var(--button-border-width) / 2);
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    .button-with-copy-secondary {
+      border-left-width: calc(var(--button-border-width) / 2);
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
   }
 }

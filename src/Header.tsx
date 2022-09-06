@@ -5,6 +5,7 @@ export default function Header() {
   //i could do css shenanigans instead of state, but it will complicate things for what i have in mind for mobile
   //todo: close menu when page is no longer active
   //todo: close menu when clicking outside of it (not entirely sure about this one)
+  //todo: dont show "hire me" button if already in /hire_me
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
