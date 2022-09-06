@@ -4,33 +4,73 @@
 
     advantages of using selectors SCSS style: 
     -they look nice
-    -since they end up compiling to .hire-me .hire-me-title rather than just .hire-me-title, they get higher priority
+    -since they end up compiling to .hire-me .hire-me-title rather than just .hire-me-title, they get higher specificity and thus less cascading bugs
     
     disadvantages: 
-    -it can be quite the pain to debug this via the inspector
+    -it can be quite the pain to debug this via the html inspector in browsers
+    -cant easily copy-paste to search a classname
+    -quickly becomes a mess in larger files
+    -becomes ugly when implementing custom styling on the children based on the parent's state
   */
 
   padding: 4rem;
   color: var(--text-color);
   background-color: var(--bg-color);
   display: grid;
-  grid-template-rows: min-content 1fr min-content;
+  grid-template-columns: 1fr min-content;
+  grid-template-rows: min-content 1fr;
+  grid-template-areas: "title title" "text links";
   gap: 2rem;
   .hire-me-title {
+    grid-area: title;
     font-size: 5rem;
     padding: 0;
     margin: 0;
     outline: 1px solid red;
   }
   .hire-me-text {
+    grid-area: text;
     font-size: 2rem;
     padding: 0;
     margin: 0;
     outline: 1px solid green;
   }
-  .hire-me-address {
+  .hire-me-links {
+    grid-area: links;
     outline: 1px solid pink;
     text-align: center;
     min-height: 4rem;
+    .hire-me-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.5rem;
+      p {
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+}
+
+.button-with-copy-container {
+  --border-width: 0.2rem;
+  min-width: max-content;
+  width: max-content;
+  button {
+    background: transparent;
+    color: var(--text-color);
+    border: var(--border-width) solid var(--text-color);
+    border-radius: 0.3rem;
+  }
+  .button-with-copy-main {
+    border-right-width: calc(var(--border-width) / 2);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .button-with-copy-secondary {
+    border-left-width: calc(var(--border-width) / 2);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }
