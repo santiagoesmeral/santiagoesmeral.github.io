@@ -1,6 +1,10 @@
 import "./HireMe.scss";
 
-function ButtonWithCopy() {
+interface ButtonWithCopyInterface {
+  id?: string;
+}
+
+function ButtonWithCopy({ id }: ButtonWithCopyInterface) {
   /*
     There is no Easter Bunny, there is no Tooth Fairy, and you cant have a single button with more than one interactive function!
 
@@ -13,7 +17,9 @@ function ButtonWithCopy() {
   */
   return (
     <div className={"button-with-copy-container"}>
-      <button className="button-with-copy-main">{"button"}</button>
+      <button className="button-with-copy-main" id={id}>
+        {"button"}
+      </button>
       <button className="button-with-copy-secondary">{"📋"}</button>
     </div>
   );
@@ -47,7 +53,7 @@ export default function HireMe() {
       <div className="hire-me-links">
         <div className="hire-me-link">
           <label>Label:</label>
-          <ButtonWithCopy />
+          <ButtonWithCopy id="skip-navigation-target" />
         </div>
         <div className="hire-me-link">
           <label>Label:</label>

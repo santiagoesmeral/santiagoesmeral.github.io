@@ -27,6 +27,11 @@ export default function Header() {
     //when the menu gets opened, set the focus on the first button
   }, [isMenuOpen]);
 
+  const onSkipNavigation = () => {
+    document.getElementById("skip-navigation-target")?.focus();
+    return;
+  };
+
   const menu = () => {
     //TODO: continue this
     /*
@@ -118,10 +123,6 @@ export default function Header() {
     This is a small project, so i dont see the value of having the links defined in the app and passing them as props. 
     I dont need a fancy routing system here, i'll have a couple of static links. So for now, it will stay here. If i needed a more complex routing system i'd probably go for a library like react-router instead
   */
-  const onSkipNavigation = () => {
-    document.getElementById("skip-navigation-target")?.focus();
-    return;
-  };
   return (
     <header className="header">
       <a id="header-homepage-link" className="header-title" href="/">
