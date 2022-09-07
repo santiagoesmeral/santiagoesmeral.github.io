@@ -1,10 +1,21 @@
+import { useState } from "react";
 import "./HireMe.scss";
 
-interface ButtonWithCopyInterface {
+interface LinkWithCopyInterface {
   id?: string;
+  text?: string;
+  title?: string;
+  href?: string;
+  copyToClipboardFunction: () => any;
 }
 
-function ButtonWithCopy({ id }: ButtonWithCopyInterface) {
+function LinkWithCopy({
+  id,
+  text,
+  href,
+  title,
+  copyToClipboardFunction,
+}: LinkWithCopyInterface) {
   /*
     There is no Easter Bunny, there is no Tooth Fairy, and you cant have a single button with more than one interactive function!
 
@@ -13,14 +24,31 @@ function ButtonWithCopy({ id }: ButtonWithCopyInterface) {
 
     So instead, we make 2 buttons, and we make them look as if they are one, using absolute positioning or clever border stuff.
 
-    To remember: a lot of people have problems clicking on small buttons. Dont do the zoom button thing! buttons should be fat and big. And with labels if possible.
+    To remember: a lot of people have problems clicking on small buttons. Dont do the Zoom button thing! buttons should be fat and big. And with labels if possible.
   */
+  const [copyButtonIcon, setCopyButtonIcon] = useState("📋");
+  const handleCopyButton = () => {
+    copyToClipboardFunction();
+    setCopyButtonIcon("✔");
+    setTimeout(() => setCopyButtonIcon("📋"), 1337);
+  };
   return (
     <div className={"button-with-copy-container"}>
-      <button className="button-with-copy-main" id={id}>
-        {"button"}
+      <a
+        className="button-with-copy-main"
+        id={id}
+        title={title || "Oops, forgot a title"}
+        href={href || ""}
+      >
+        {text || "button"}
+      </a>
+      <button
+        className="button-with-copy-secondary"
+        title="Copy to Clipboard"
+        onClick={() => handleCopyButton()}
+      >
+        {copyButtonIcon}
       </button>
-      <button className="button-with-copy-secondary">{"📋"}</button>
     </div>
   );
 }
@@ -53,38 +81,60 @@ export default function HireMe() {
       </div>
       {/* TODO: maybe make this an <address> tag */}
       <div className="hire-me-links">
-        <div className="hire-me-link">
-          <label>Label:</label>
-          <ButtonWithCopy id="skip-navigation-target" />
-        </div>
-        <div className="hire-me-link">
-          <label>Label:</label>
-          <ButtonWithCopy />
-        </div>
-        <div className="hire-me-link">
-          <label>Label:</label>
-          <ButtonWithCopy />
-        </div>
-        <div className="hire-me-link">
-          <label>Label:</label>
-          <ButtonWithCopy />
-        </div>
-        <div className="hire-me-link">
-          <label>Label:</label>
-          <button>button</button>
-        </div>
+        <label>
+          {/* turns out, <a> tags are incompatible with labels. So adding a for tag wont make too much sense. */}
+          Email:
+        </label>
+        <LinkWithCopy
+          id="link-to-email skip-navigation-target"
+          text="santiagoesmeral@hotmail.com"
+          href="mailto:santiagoesmeral@hotmail.com"
+          title="Send email to santiagoesmeral@hotmail.com"
+          copyToClipboardFunction={() =>
+            navigator.clipboard.writeText("santiagoesmeral@hotmail.com")
+          }
+        />
+
+        <label>Telegram: </label>
+        <LinkWithCopy
+          id="link-to-telegram"
+          text="@santiago_esmeral"
+          href="https://t.me/santiago_esmeral"
+          title="Send message via Telegram"
+          copyToClipboardFunction={() =>
+            navigator.clipboard.writeText("@santiago_esmeral")
+          }
+        />
+
+        <label>Github:</label>
+        <a
+          id="link-to-github"
+          href="https://github.com/santiagoesmeral"
+          title="Santiago Esmeral's Github profile"
+        >
+          My Github Profile
+        </a>
+        <label>LinkedIn:</label>
+        <a
+          id="link-to-linkedin"
+          href="https://www.linkedin.com/in/santiago-alfredo-esmeral-albarracin-37250516b/"
+          title="Santiago Esmeral's LinkedIn profile"
+        >
+          My LinkedIn Profile
+        </a>
+        <label>Codepen:</label>
+        <button
+          id="link-to-codepen"
+          title="Santiago Esmeral's Codepen (coming soon)"
+          disabled
+        >
+          My Codepen
+        </button>
+        <label>Curriculum</label>
+        <button id="CV Download" title="Download my CV (coming soon)" disabled>
+          Download
+        </button>
       </div>
     </section>
   );
 }
-
-/*
-<address className="hire-me-address">work in progress :)</address>
-    <address className="hire-me-address">
-        Contact me
-        <br />
-        Email: <a href="santiagoesmeral@hotmailcom">Email</a>
-        <br />
-        Telegram: <a href="https://t.me/santiago_esmeral">@santiago_esmeral</a>
-      </address>
-  */
