@@ -24,7 +24,8 @@
   --button-border-width: 0.125rem;
   .hire-me-title {
     grid-area: title;
-    font-size: 5rem;
+    font-size: clamp(2rem, 3vw, 5rem);
+    min-width: 17ch;
     text-align: center;
     padding: 0;
     margin: 0;
@@ -35,7 +36,7 @@
     display: grid;
     padding-top: 3rem;
     .hire-me-text {
-      font-size: 2rem;
+      font-size: clamp(1.5rem, 2vw, 5rem);
       padding: 0;
       margin: 0;
     }

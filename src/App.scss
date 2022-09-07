@@ -16,12 +16,8 @@ body,
   --text-color-opaque: #9898a0;
   --focus-color: #00b4d8;
   --font-family-retro: "Unifont", monospace; //apparently i need to define this here even if its already the default in the page
-}
 
-.App {
-  /*
-    Ok so, i wanted to remove this, but it turns out i need this because otherwise, when you shrink the vertical space enough to the point where the elements inside of the page cause an overflow, there is a graphic glitch with the backgrounds. So this is staying, at least for now
-  */
+  //dont want overflows in this part, instead we want them to be restricted to the sections of content themselves
   overflow: hidden;
 }
 
@@ -34,4 +30,5 @@ body,
   */
   height: calc(100vh - var(--header-height));
   box-sizing: border-box;
+  overflow: auto;
 }

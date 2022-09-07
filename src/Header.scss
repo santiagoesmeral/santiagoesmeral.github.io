@@ -28,7 +28,7 @@
   transition: outline-offset 0.1s ease;
   padding: 0.5rem;
   text-decoration: none;
-  font-size: 3rem;
+  font-size: clamp(2rem, 6vw, 3rem);
   &:hover,
   &:focus,
   &:focus-visible {
@@ -115,6 +115,11 @@
   width: max-content;
   padding: 1rem;
   margin: 0 1rem 0 auto;
+}
+
+.header-button.header-open-navigation-button,
+.header-button.hire-me-quick-access-button {
+  font-size: clamp(1rem, 6vw, 1.4rem);
 }
 
 .header-button.header-close-navigation-button {
