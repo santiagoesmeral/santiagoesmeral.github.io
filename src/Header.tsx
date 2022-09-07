@@ -1,4 +1,4 @@
-import { useState, Fragment, useEffect } from "react";
+import { useState, Fragment, useEffect, useRef } from "react";
 import "./Header.scss";
 
 export default function Header() {
@@ -8,17 +8,23 @@ export default function Header() {
   //todo: dont show "hire me" button if already in /hire_me
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // R.I.P. componentDidUpdate(), this is a workaround
+  const isFirstRender = useRef(true);
   useEffect(() => {
     /*  
       In theory, useEffect runs after every render. So, rather than creating a whole new component which can be annoying with typescript, i can instead some logic for the opening and closing of the menu here
     */
-    //when the menu gets opened, set the focus on the first button
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
     if (isMenuOpen) {
       document.getElementById("header-nav-link-0")?.focus();
     } else {
       //when the menu is closed, focus on the open menu button
       document.getElementById("header-open-nav-button")?.focus();
     }
+    //when the menu gets opened, set the focus on the first button
   }, [isMenuOpen]);
 
   const menu = () => {
