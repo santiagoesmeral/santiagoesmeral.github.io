@@ -40,15 +40,17 @@ export default function HireMe() {
   return (
     <section className="hire-me take-remaining-space-in-page">
       <h1 className="hire-me-title">Thank you for visiting my page!</h1>
-      <p className="hire-me-text">
-        I created this page to implement the features that i would've liked to
-        have in a homepage, while also using it as a bit of a challenge.
-        <br />
-        I tried to avoid using as many extra libraries as possible purely to
-        make me learn new things.
-        <br />I hope you like it! and if you have feedback, or you're interested
-        in hiring me, don't hesitate to contact me.
-      </p>
+      <div className="hire-me-text-container">
+        <p className="hire-me-text">
+          I created this page to implement the features that i would've liked to
+          have in a homepage, while also using it as a bit of a challenge.
+          <br />
+          I tried to avoid using as many extra libraries as possible purely to
+          make me learn new things.
+          <br />I hope you like it! and if you have feedback, or you're
+          interested in hiring me, don't hesitate to contact me.
+        </p>
+      </div>
       {/* TODO: maybe make this an <address> tag */}
       <div className="hire-me-links">
         <div className="hire-me-link">
