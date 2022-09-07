@@ -86,7 +86,7 @@ export default function HireMe() {
           Email:
         </label>
         <LinkWithCopy
-          id="link-to-email skip-navigation-target"
+          id="skip-navigation-target"
           text="santiagoesmeral@hotmail.com"
           href="mailto:santiagoesmeral@hotmail.com"
           title="Send email to santiagoesmeral@hotmail.com"
