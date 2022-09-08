@@ -1,35 +1,39 @@
-import { useState, Fragment, useEffect, useRef } from "react";
+import { useState, Fragment, useEffect } from "react";
 import "./Header.scss";
 
 export default function Header() {
-  //i could do css shenanigans instead of state, but it will complicate things for what i have in mind for mobile
-  //todo: close menu when page is no longer active
-  //todo: close menu when clicking outside of it (not entirely sure about this one)
+  //i could do css shenanigans instead of state for the popup menu, but it will complicate things for what i have in mind for mobile
+
   //todo: dont show "hire me" button if already in /hire_me
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [
+    shouldFocusOnMenuButtonAfterKeyInput,
+    setShouldFocusOnMenuButtonAfterKeyInput,
+  ] = useState(false);
 
-  // R.I.P. componentDidUpdate(), this is a workaround
+  // todo: events and typescript dont seem to get along very well...
+  const handleSetIsMenuOpen = (event: any, newIsMenuOpen: boolean) => {
+    //if the user uses the keyboard to navigate, i want to automatically focus on the open/close button. But if he clicks, i dont want to do that.
+    setIsMenuOpen(newIsMenuOpen);
+    if (event.detail === 0) {
+      // event.detail = 0 means that the user used a keyboard to interact. event.detail = 1 means that the user clicked on the button.
+      setShouldFocusOnMenuButtonAfterKeyInput(true);
+    }
+  };
+
   /*
-  TODO: autofocusing on the open-close buttons should only happen when not clicking
-  There doesnt seem to be a proper way to do this, one solution would be to listen on enter inputs and if there's an enter input while the user has the close/open button selected, then autofocus on the useEffect. Seems doable but annoying to implement for such a small bug
+    Since useState functions are async, we cant just call a function right afterwards and have a guarantee that it is executed after the state is set.
+    So we have to use a useEffect and state just for this small thing...
   */
-  const isFirstRender = useRef(true);
   useEffect(() => {
-    /*  
-      In theory, useEffect runs after every render. So, rather than creating a whole new component which can be annoying with typescript, i can instead some logic for the opening and closing of the menu here
-    */
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
+    if (shouldFocusOnMenuButtonAfterKeyInput) {
+      if (isMenuOpen)
+        document.getElementById("header-close-nav-button")?.focus();
+      else document.getElementById("header-open-nav-button")?.focus();
+
+      setShouldFocusOnMenuButtonAfterKeyInput(false);
     }
-    if (isMenuOpen) {
-      document.getElementById("header-nav-link-0")?.focus();
-    } else {
-      //when the menu is closed, focus on the open menu button
-      document.getElementById("header-open-nav-button")?.focus();
-    }
-    //when the menu gets opened, set the focus on the first button
-  }, [isMenuOpen]);
+  }, [isMenuOpen, shouldFocusOnMenuButtonAfterKeyInput]);
 
   const onSkipNavigation = () => {
     document.getElementById("skip-navigation-target")?.focus();
@@ -41,10 +45,10 @@ export default function Header() {
       return (
         <nav className="header-nav">
           <button
-            id="header-nav-link-0"
+            id="header-close-nav-button"
             title="Close Navigation"
             className="header-button header-close-navigation-button"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={(event) => handleSetIsMenuOpen(event, false)}
           >
             Close Menu
           </button>
@@ -105,7 +109,7 @@ export default function Header() {
             id="header-open-nav-button"
             title="Open Navigation"
             className="header-button header-open-navigation-button"
-            onClick={() => setIsMenuOpen(true)}
+            onClick={(event) => handleSetIsMenuOpen(event, true)}
             aria-haspopup
           >
             ☰
