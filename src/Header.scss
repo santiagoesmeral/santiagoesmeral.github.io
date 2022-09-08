@@ -123,7 +123,7 @@
   min-width: max-content;
   width: max-content;
   padding: 1rem;
-  margin: 0 1rem 0 auto;
+  margin: 0 1rem 0 1rem;
 }
 
 .header-button.header-open-navigation-button,
@@ -142,7 +142,7 @@
 .header-button.hidden-button {
   min-width: min-content;
   opacity: 0;
-  margin-right: 1rem;
+  margin: 0 auto 0 1rem;
   cursor: default;
   pointer-events: none;
   &:focus,

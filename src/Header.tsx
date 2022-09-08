@@ -52,14 +52,16 @@ export default function Header() {
           >
             Close Menu
           </button>
-          <a
-            id="header-nav-link-1"
-            href="/hire_me"
-            className="header-button"
-            title="Hire Me"
-          >
-            Hire Me
-          </a>
+          {window.location.pathname !== "/hire_me" && (
+            <a
+              id="header-nav-link-1"
+              href="/hire_me"
+              className="header-button"
+              title="Hire Me"
+            >
+              Hire Me
+            </a>
+          )}
           <a
             id="header-nav-link-2"
             href="https://github.com/santiagoesmeral"
@@ -97,14 +99,16 @@ export default function Header() {
     } else
       return (
         <Fragment>
-          <a
-            id="header-hire-me-button"
-            href="/hire_me"
-            className="header-button hire-me-quick-access-button"
-            title="Hire Me"
-          >
-            Hire Me
-          </a>
+          {window.location.pathname !== "/hire_me" && (
+            <a
+              id="header-hire-me-button"
+              href="/hire_me"
+              className="header-button hire-me-quick-access-button"
+              title="Hire Me"
+            >
+              Hire Me
+            </a>
+          )}
           <button
             id="header-open-nav-button"
             title="Open Navigation"
@@ -124,7 +128,12 @@ export default function Header() {
   */
   return (
     <header className="header">
-      <a id="header-homepage-link" className="header-title" href="/">
+      <a
+        id="header-homepage-link"
+        className="header-title"
+        title="homepage"
+        href="/"
+      >
         Santiago Esmeral
       </a>
       <button
