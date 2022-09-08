@@ -53,18 +53,6 @@ function LinkWithCopy({
   );
 }
 export default function HireMe() {
-  /*
-    The idea for the address: 
-    implement a list of buttons, each with a direct redirect and a copy to clipboard small button inside.
-
-    here's a rough concept of the layout:
-    where-button-goes: [direct-link | copy]
-
-    and have a list of all of those.
-    Some of the buttons wont have a copy and will instead be a direct redirect, so keep that in mind.
-
-    TODO: add skip navigation id
-  */
   return (
     <section className="hire-me take-remaining-space-in-page">
       <h1 className="hire-me-title">Thank you for visiting my page!</h1>
@@ -79,7 +67,7 @@ export default function HireMe() {
           interested in hiring me, don't hesitate to contact me.
         </p>
       </div>
-      {/* TODO: maybe make this an <address> tag */}
+      {/* TODO: maybe make this an <address> tag ? not sure*/}
       <div className="hire-me-links">
         <label>
           {/* turns out, <a> tags are incompatible with labels. So adding a for tag wont make too much sense. */}

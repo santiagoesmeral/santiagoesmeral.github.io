@@ -9,6 +9,10 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // R.I.P. componentDidUpdate(), this is a workaround
+  /*
+  TODO: autofocusing on the open-close buttons should only happen when not clicking
+  There doesnt seem to be a proper way to do this, one solution would be to listen on enter inputs and if there's an enter input while the user has the close/open button selected, then autofocus on the useEffect. Seems doable but annoying to implement for such a small bug
+  */
   const isFirstRender = useRef(true);
   useEffect(() => {
     /*  
@@ -33,15 +37,6 @@ export default function Header() {
   };
 
   const menu = () => {
-    //TODO: continue this
-    /*
-      choose buttons for this menu: 
-      a) https://codepen.io/version1/pen/zYvWYEB
-      b) https://codepen.io/letitcode/pen/veEvpd
-
-      great resource to read: https://www.smashingmagazine.com/2017/11/building-accessible-menu-systems/#navigation-menu-buttons
-      tl-dr: for accesibility purposes, we really want a simple menu that toggles between opened and closed
-    */
     if (isMenuOpen) {
       return (
         <nav className="header-nav">

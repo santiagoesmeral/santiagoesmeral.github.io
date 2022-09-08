@@ -1,4 +1,4 @@
-# TODO:
+# old TODO:
 
 - **everything in the about me page**
 - **rename about_me to hire_me, move that link to outside the dropdown**
@@ -148,7 +148,11 @@
   -links to icon providers
   -404 page
   -test on other browsers
-  -check css not loading correctly on first load
+  -check css not loading correctly on first load warning
   -and host!
 
   sidenote: there's some CSS loading bugs going on. Gotta test that.
+
+- 7/9/22
+  Guess what, we got the hire me page working! and now its called hire me, no longer about me. I am done with all the main features!
+  now just gotta go through the TODOs and get it up and rocking.

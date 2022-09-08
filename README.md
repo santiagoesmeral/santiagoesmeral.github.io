@@ -1,8 +1,11 @@
 # Welcome!
 
-This is my test repo, and also my portfolio. I want to make this repo as clean as i can possibly make it, as easy to understand, yet also i'll use it as my testing grounds for anything i may want to try out as far as frontend goes. I've decided to make a basic homepage, with some interesting features like the typewriter dynamic text and other things. WIP!
+This is my portfolio page. I've been working on it for a long time, undecided as to what i wanted to do. I ended up settling for creating a homepage that i would like to use myself. In the future i intend on adding mobile support, and in fact make this project a react native one. For now, its just a simple page that i can work on whenever i have some free time.
 
 # COMMANDS!
+
+to just run the project:
+npm start
 
 to run a new container with the name portfolio:
 in bash
