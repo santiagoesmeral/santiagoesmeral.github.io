@@ -64,6 +64,8 @@
   padding: 1.5rem;
   background-color: var(--header-color);
   border: 0.1rem solid var(--text-color);
+
+  z-index: 1;
 }
 
 .header-button {

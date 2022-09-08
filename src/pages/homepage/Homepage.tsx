@@ -199,6 +199,10 @@ export default function Homepage() {
         })}
       </ul>
       <TheFunBox />
+      <span className="homepage-icon-creator-links">
+        Icons from https://fontawesome.com/, https://icons8.com/ and
+        https://icon-icons.com/
+      </span>
     </section>
   );
 }
