@@ -3,7 +3,6 @@ import HireMe from "./pages/hire_me/HireMe";
 import Header from "./Header";
 import "./App.scss";
 
-//TODO: remove all the unnecesary import React from "react"; calls throughout the app, as they are no longer needed in v18
 function App() {
   const pageToReturn = () => {
     /*

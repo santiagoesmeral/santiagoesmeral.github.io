@@ -93,8 +93,12 @@ export default function Homepage() {
   const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
-    //TODO: change :any into a more appropiate type. :event is not the right one apparently
-    function RedirectOnNumpadNumberInput(event: any) {
+    console.log(
+      "%cHey there, console user. If you have any improvements for the layout or CSS of this page, let me know, ok? n.n",
+      "color:magenta;font-family:system-ui;font-size:2rem;-webkit-text-stroke: 1px black;font-weight:bold"
+    );
+
+    function RedirectOnNumpadNumberInput(event: KeyboardEvent) {
       /*
         Explanation: 
           Since all the codes for numpad inputs are like this: NumpadX (X being either the number, or stuff like NumpadAdd), we can use the first 5 characters of the code to know if we're using the numpad. We can then map it on the linklist, and if the reminding string after "Numpad" matches an Id, we redirect to that page. Otherwise, we ignore it.
@@ -129,7 +133,7 @@ export default function Homepage() {
           window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; //gottem
         }
         // negated isNaN seems to be the best way to check if a string is a number
-        if (!isNaN(numpadInput)) {
+        if (!isNaN(Number(numpadInput))) {
           const urlToRedirect = ListOfLinks.find(
             (link) => link.id === numpadInput
           )?.url;

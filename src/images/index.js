@@ -18,8 +18,6 @@ import { ReactComponent as DeeplLogo } from "./deepl_logo_icon.svg";
     -Icon-icons https://icon-icons.com/license
 */
 
-// TODO: delete unused icons if any
-
 export {
   Heart,
   Search,

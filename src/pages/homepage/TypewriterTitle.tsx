@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./TypewriterTitle.scss";
 
 /* in order to avoid typescript errors, i've added a new interace which accepts the "--var" format */

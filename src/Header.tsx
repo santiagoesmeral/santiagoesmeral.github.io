@@ -1,18 +1,19 @@
-import { useState, Fragment, useEffect } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import "./Header.scss";
 
 export default function Header() {
   //i could do css shenanigans instead of state for the popup menu, but it will complicate things for what i have in mind for mobile
 
-  //todo: dont show "hire me" button if already in /hire_me
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [
     shouldFocusOnMenuButtonAfterKeyInput,
     setShouldFocusOnMenuButtonAfterKeyInput,
   ] = useState(false);
 
-  // todo: events and typescript dont seem to get along very well...
-  const handleSetIsMenuOpen = (event: any, newIsMenuOpen: boolean) => {
+  const handleSetIsMenuOpen = (
+    event: React.MouseEvent,
+    newIsMenuOpen: boolean
+  ) => {
     //if the user uses the keyboard to navigate, i want to automatically focus on the open/close button. But if he clicks, i dont want to do that.
     setIsMenuOpen(newIsMenuOpen);
     if (event.detail === 0) {
@@ -78,6 +79,14 @@ export default function Header() {
           >
             My LinkedIn Profile
           </a>
+          <a
+            id="header-nav-link-5"
+            className="header-button"
+            title="Preview my CV (.pdf)"
+            href="https://drive.google.com/file/d/1gEPawyT0Mc3keyUzhIISF3YxlmXFT8ju/view?usp=sharing"
+          >
+            Get my CV
+          </a>
           <button
             id="header-nav-link-4"
             className="header-button"
@@ -85,14 +94,6 @@ export default function Header() {
             disabled
           >
             My Codepen
-          </button>
-          <button
-            id="header-nav-link-5"
-            className="header-button"
-            title="Download my CV (coming soon)"
-            disabled
-          >
-            Download my CV
           </button>
         </nav>
       );

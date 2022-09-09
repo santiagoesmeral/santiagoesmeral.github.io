@@ -1,4 +1,3 @@
-import React from "react";
 import "./Signature.scss";
 
 const Signature = () => {

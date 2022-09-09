@@ -67,10 +67,9 @@ export default function HireMe() {
           interested in hiring me, don't hesitate to contact me.
         </p>
       </div>
-      {/* TODO: maybe make this an <address> tag ? not sure*/}
       <div className="hire-me-links">
         <label>
-          {/* turns out, <a> tags are incompatible with labels. So adding a for tag wont make too much sense. */}
+          {/* turns out, <a> tags are incompatible with labels. So adding the for="" tag wont make too much sense. */}
           Email:
         </label>
         <LinkWithCopy
@@ -110,6 +109,14 @@ export default function HireMe() {
         >
           My LinkedIn Profile
         </a>
+        <label>Curriculum:</label>
+        <a
+          id="CV Preview"
+          title="Preview my CV (.pdf)"
+          href="https://drive.google.com/file/d/1gEPawyT0Mc3keyUzhIISF3YxlmXFT8ju/view?usp=sharing"
+        >
+          Download
+        </a>
         <label>Codepen:</label>
         <button
           id="link-to-codepen"
@@ -117,10 +124,6 @@ export default function HireMe() {
           disabled
         >
           My Codepen
-        </button>
-        <label>Curriculum</label>
-        <button id="CV Download" title="Download my CV (coming soon)" disabled>
-          Download
         </button>
       </div>
     </section>
