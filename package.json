@@ -21,7 +21,6 @@
   },
   "//": "the -s in serve is important. It redirects all 404s to index.html, otherwise single page apps wont work.",
   "scripts": {
-    "predeploy": "npm run build",
     "deploy": "gh-pages -b prod -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
