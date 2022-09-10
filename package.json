@@ -19,11 +19,12 @@
     "typescript": "^4.5.4",
     "web-vitals": "^1.1.2"
   },
-  "//": "the -s in serve is important. It redirects all 404s to index.html, otherwise single page apps wont work.",
+  "//": "the -s in serve is important. It redirects all 404s to index.html, otherwise single page apps wont work. gh-pages on the otherhand, doesnt have that. So as a workaround (suggested by the gh-pages dev team mind you) until they add the feature, we'll copy index.html as 404.html ¯|_(ツ)_|¯ ",
   "scripts": {
+    "predeploy": "npm run build",
     "deploy": "gh-pages -b prod -d build",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && cp build/index.html build/404.html",
     "serve": "serve -s build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
