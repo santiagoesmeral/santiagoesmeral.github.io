@@ -19,11 +19,13 @@
     "typescript": "^4.5.4",
     "web-vitals": "^1.1.2"
   },
+  "//": "the -s in serve is important. It redirects all 404s to index.html, otherwise single page apps wont work.",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -b prod -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "serve": "serve -s build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

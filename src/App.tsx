@@ -8,6 +8,16 @@ function App() {
     /*
       I could implement react-router or another library, but it seems like a massive overkill for such a simple project. 
       I dont need dynamic routes or anything complex. And i'm only gonna have a couple of paths.
+
+      todo: in the future, create custom link elements that prevent default and use the history npm package and all. 
+      For now though, i just want to get this rolling as simple as possible. MVP and stuff
+
+      Just so we're clear on the problem:
+      A single page app is not meant to get refreshed on every url change.
+      But normal links by default will request the file in each new url to the server. 
+      Meaning that it does a refresh even if the server returns index.html always.
+      There are ways of changing the history of the page without redirecting, without using a big library like react-router. 
+      So take a look at that. For now though, for this simple page, this will suffice.
     */
     switch (window.location.pathname) {
       /* note: since we're returning, we dont need to break after each case */
