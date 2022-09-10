@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a0b0ac52.css",
+    "main.js": "/static/js/main.db8c10f3.js",
+    "static/media/icons8-duckduckgo.svg": "/static/media/icons8-duckduckgo.f60833e20237e460a9c7f68d7b68eab8.svg",
+    "static/media/icons8-github.svg": "/static/media/icons8-github.c36321dabc39b16d5fbf31e87a17d5ae.svg",
+    "static/media/deepl_logo_icon.svg": "/static/media/deepl_logo_icon.b441f69b0e49e852631974cd9fa1fd39.svg",
+    "static/media/icons8-microsoft-outlook.svg": "/static/media/icons8-microsoft-outlook.d2447f6733b269281dde8018591b6f1d.svg",
+    "static/media/icons8-google-maps.svg": "/static/media/icons8-google-maps.381dfed625661eae5484716f3c27af37.svg",
+    "index.html": "/index.html",
+    "static/media/icons8-gmail.svg": "/static/media/icons8-gmail.317024cb2024c5d906f457088e70dabe.svg",
+    "static/media/search-solid.svg": "/static/media/search-solid.cc51b702c98798cd916ea5a3a8ca8b54.svg",
+    "static/media/icons8-linkedin.svg": "/static/media/icons8-linkedin.a71feba792127107ecf537a94d8e269d.svg",
+    "static/media/icons8-google-keep.svg": "/static/media/icons8-google-keep.39e772b9841424b2c868042fb8f8e06d.svg",
+    "static/media/heart-solid.svg": "/static/media/heart-solid.70b72c45739e60e9fb16359db455a441.svg",
+    "static/media/icons8-youtube.svg": "/static/media/icons8-youtube.dc268c97a4b07d61bf0db30b238e7f1f.svg",
+    "static/media/icons8-google-drive.svg": "/static/media/icons8-google-drive.4e45def1a812c265cece401dec3cede6.svg",
+    "main.a0b0ac52.css.map": "/static/css/main.a0b0ac52.css.map",
+    "main.db8c10f3.js.map": "/static/js/main.db8c10f3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a0b0ac52.css",
+    "static/js/main.db8c10f3.js"
+  ]
+}
