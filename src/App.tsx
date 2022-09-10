@@ -1,14 +1,12 @@
 import Homepage from "./pages/homepage/Homepage";
 import HireMe from "./pages/hire_me/HireMe";
 import Header from "./Header";
+import { CustomRouterProvider } from "./CustomRouter";
 import "./App.scss";
 
+//TODO: create new favicon.ico in public
 function App() {
   const pageToReturn = () => {
-    /*
-      I could implement react-router or another library, but it seems like a massive overkill for such a simple project. 
-      I dont need dynamic routes or anything complex. And i'm only gonna have a couple of paths.
-    */
     switch (window.location.pathname) {
       /* note: since we're returning, we dont need to break after each case */
       case "/hire_me":
@@ -25,8 +23,10 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      {pageToReturn()}
+      <CustomRouterProvider>
+        <Header />
+        {pageToReturn()}
+      </CustomRouterProvider>
     </div>
   );
 }
