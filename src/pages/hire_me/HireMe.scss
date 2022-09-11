@@ -110,8 +110,9 @@
       border-left-width: calc(var(--button-border-width) / 2);
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
-      width: min-content;
-      max-width: min-content;
+      width: 5ch;
+      padding: 0;
+      aspect-ratio: 1;
     }
   }
 }
