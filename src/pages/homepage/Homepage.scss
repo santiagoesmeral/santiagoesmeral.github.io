@@ -39,6 +39,7 @@
   box-sizing: border-box;
   transition: 0.1s ease;
   font-family: var(--font-family-retro);
+  text-overflow: ellipsis;
   &:hover,
   &:focus,
   &:focus-visible,
