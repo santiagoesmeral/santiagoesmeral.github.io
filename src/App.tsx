@@ -1,9 +1,23 @@
+import { useEffect, useState } from "react";
 import Homepage from "./pages/homepage/Homepage";
 import HireMe from "./pages/hire_me/HireMe";
 import Header from "./Header";
 import "./App.scss";
 
 function App() {
+  // if the config gets complicated, it may be worth it to move it to a useContext. For now though, it should be simple enough to implement
+  /*
+    TODO:
+      -implement the 3 buttons in the fun box
+      -only show the buttons that dont require hover if this config is set to true.
+
+  */
+  const [appConfig, setAppConfig] = useState({
+    userCanHover: window.matchMedia("(hover: hover)").matches,
+  });
+  useEffect(() => {
+    console.log("User can hover? -> " + appConfig.userCanHover);
+  });
   const pageToReturn = () => {
     /*
       I could implement react-router or another library, but it seems like a massive overkill for such a simple project. 
@@ -27,7 +41,7 @@ function App() {
       case "/":
       case "#":
       case "":
-        return <Homepage />;
+        return <Homepage appConfig={appConfig} />;
       default: //TODO: make a 404 page
         return <Homepage />;
     }

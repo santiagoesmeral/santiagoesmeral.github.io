@@ -89,7 +89,8 @@ const ListOfLinks = [
   },
 ];
 
-export default function Homepage() {
+//todo: typescript interface
+export default function Homepage({ appConfig }: any) {
   const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
@@ -113,6 +114,7 @@ export default function Homepage() {
           event.preventDefault();
           /*
             for some reason, i cant use searchValue. It appears like the value doesn't get set as its typing, for some reason.
+            todo: bug detected, it should always open a new tab, not open one and then keep overwriting it after consecutive uses.
           */
           window.open(
             "https://duckduckgo.com/?q=" +
@@ -202,7 +204,7 @@ export default function Homepage() {
           );
         })}
       </ul>
-      <TheFunBox />
+      <TheFunBox userCanHover={appConfig.userCanHover} />
       <span className="homepage-icon-creator-links">
         Icons from https://fontawesome.com/, https://icons8.com/ and
         https://icon-icons.com/

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import randomFromArray from "../../usefulFunctions/randomFromArray";
 import useInterval from "../../usefulFunctions/useInterval";
 import "./TheFunBox.scss";
 /*
@@ -8,8 +9,21 @@ import "./TheFunBox.scss";
     If they are selecting those, then instead show the user a cheatsheet with some useful info
 */
 
-export default function TheFunBox() {
+//todo: typescript interface
+export default function TheFunBox({ userCanHover }: any) {
   const [currentStatus, setCurrentStatus] = useState("");
+  const currentGames = ["unclickableButton", "speedrunButton", "angryButton"];
+
+  const chooseNextGame = () => {
+    if (userCanHover) {
+      return randomFromArray(currentGames);
+    } else {
+      //gotta exclude unclickableButton when the device cant easily hover. For now since its a hardcoded array and we know its the first element, we just remove that.
+      return randomFromArray(
+        currentGames.filter((elem) => elem !== "unclickableButton")
+      );
+    }
+  };
 
   function handleCurrentHoverOrFocusElement() {
     /*
@@ -60,7 +74,11 @@ export default function TheFunBox() {
       if (currentStatus !== "numpadCheatsheet") {
         setCurrentStatus("numpadCheatsheet");
       }
-    } else setCurrentStatus("unclickableButton");
+    } else {
+      if (!currentGames.includes(currentStatus)) {
+        setCurrentStatus(chooseNextGame());
+      }
+    }
   }
   useInterval(handleCurrentHoverOrFocusElement, 300);
 
@@ -108,6 +126,12 @@ export default function TheFunBox() {
         );
       case "unclickableButton":
         return <UnclickableButton />;
+      //todo: 3 button ideas: a button that changes text and gets angry at the user clicking it, a "click as many times as you can in 10 seconds", and the unclickable button.
+      //unclickable button only appears when the user is detected to be ablet o hover.
+      case "speedrunButton":
+        return <div>speedrun! wip</div>;
+      case "angryButton":
+        return <div>angry! wip</div>;
       case "nothing":
         return "";
       default:
@@ -173,7 +197,7 @@ function UnclickableButton() {
       onMouseOver={() => newRandomState()}
       onClick={() => setRandomState(["center", "center", "You won!!"])}
       tabIndex={-1}
-      title="a silly button that runs away"
+      title="a silly button that runs away from the mouse"
     >
       {randomState[2]}
     </button>
