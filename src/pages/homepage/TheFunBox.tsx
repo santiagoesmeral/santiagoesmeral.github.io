@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import randomFromArray from "../../usefulFunctions/randomFromArray";
 import useInterval from "../../usefulFunctions/useInterval";
 import "./TheFunBox.scss";
@@ -12,7 +12,7 @@ import "./TheFunBox.scss";
 //todo: typescript interface
 export default function TheFunBox({ userCanHover }: any) {
   const [currentStatus, setCurrentStatus] = useState("");
-  const currentGames = ["unclickableButton", "speedrunButton", "angryButton"];
+  const currentGames = ["unclickableButton", "speedrunButton"];
 
   const chooseNextGame = () => {
     if (userCanHover) {
@@ -129,7 +129,7 @@ export default function TheFunBox({ userCanHover }: any) {
       //todo: 3 button ideas: a button that changes text and gets angry at the user clicking it, a "click as many times as you can in 10 seconds", and the unclickable button.
       //unclickable button only appears when the user is detected to be ablet o hover.
       case "speedrunButton":
-        return <div>speedrun! wip</div>;
+        return <SpeedrunButton />;
       case "angryButton":
         return <div>angry! wip</div>;
       case "nothing":
@@ -150,6 +150,127 @@ export default function TheFunBox({ userCanHover }: any) {
     >
       {elementToRender()}
     </div>
+  );
+}
+
+function SpeedrunButton() {
+  const [buttonState, setButtonState] = useState({
+    text: "Click me!",
+    clickCount: 0,
+    posX: "center",
+    posY: "center",
+  });
+
+  const [timeLeft, setTimeLeft] = useState(-1);
+
+  let currentTimeout: NodeJS.Timeout;
+  useEffect(() => {
+    /*
+      timeLeft === -1 => special state, game hasn't started
+      timeLeft === 0 => show end game screen
+      timeLeft > 0 =>  count down!
+    */
+    let currentTime = timeLeft; //to avoid shenanigans when passing it to the setTimeout
+    if (currentTime > 0) {
+      currentTimeout = setTimeout(() => {
+        setTimeLeft(currentTime - 1);
+      }, 1000);
+    }
+    return () => {
+      clearTimeout(currentTimeout);
+    };
+  }, [timeLeft]);
+
+  const possibleEmojis = [
+    "",
+    "",
+    "",
+    "",
+    "🤣",
+    "😂",
+    "🗿",
+    "🧐",
+    "💀",
+    "👾",
+    "🤖",
+    "🙈",
+    "🙉",
+    "🙊",
+    "🐒",
+    "🐎",
+    "🦄",
+    "🚂",
+    "🚗",
+    "🏎",
+  ];
+  const possiblePositions = ["start", "center", "end"];
+
+  const handleButtonClick = () => {
+    if (timeLeft <= 0) {
+      setTimeLeft(10);
+    }
+    setButtonState({
+      ...buttonState,
+      text:
+        randomFromArray(possibleEmojis) +
+        (buttonState.clickCount + 1) +
+        randomFromArray(possibleEmojis),
+      clickCount: buttonState.clickCount + 1,
+      posX: possiblePositions.filter((elem) => elem !== buttonState.posX)[
+        Math.floor(Math.random() * 2)
+      ],
+      posY: possiblePositions.filter((elem) => elem !== buttonState.posY)[
+        Math.floor(Math.random() * 2)
+      ],
+    });
+  };
+  return timeLeft === 0 ? (
+    <>
+      <div className="tfb-speedrun-button-background" data-time-left={timeLeft}>
+        {timeLeft || ""}
+      </div>
+      <p className="tfb-speedrun-endscreen">
+        And that's it folks!
+        <br />
+        you clicked the button {buttonState.clickCount}{" "}
+        {buttonState.clickCount === 1 ? "time" : "times"}!
+        <br />
+        <button
+          className="tfb-button"
+          tabIndex={-1}
+          title="a button that challenges you to click it"
+          onClick={() => {
+            setButtonState({
+              text: "Click me!",
+              clickCount: 1,
+              posX: "center",
+              posY: "center",
+            });
+            setTimeLeft(10);
+          }}
+        >
+          Try again!
+        </button>
+      </p>
+    </>
+  ) : (
+    <>
+      <div className="tfb-speedrun-button-background" data-time-left={timeLeft}>
+        {timeLeft || ""}
+      </div>
+      <button
+        className={
+          "tfb-button tfb-speedrun-button" +
+          " tfb-button-justify-" +
+          buttonState.posX +
+          " tfb-button-align-" +
+          buttonState.posY
+        }
+        onClick={() => handleButtonClick()}
+      >
+        {buttonState.text}
+      </button>
+    </>
   );
 }
 
@@ -188,10 +309,10 @@ function UnclickableButton() {
   return (
     <button
       className={
-        "tfb-unclickable-button" +
-        " tfb-unclickable-button-justify-" +
+        "tfb-button tfb-unclickable-button" +
+        " tfb-button-justify-" +
         randomState[0] +
-        " tfb-unclickable-button-align-" +
+        " tfb-button-align-" +
         randomState[1]
       }
       onMouseOver={() => newRandomState()}
