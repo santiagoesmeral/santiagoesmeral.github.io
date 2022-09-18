@@ -167,6 +167,7 @@ export default function Homepage({ appConfig }: any) {
 
     window.addEventListener("resize", OnScreenSizeChange);
     document.body.addEventListener("keydown", RedirectOnNumpadNumberInput);
+    OnScreenSizeChange();
     return () => {
       document.body.removeEventListener("keydown", RedirectOnNumpadNumberInput);
       window.removeEventListener("resize", OnScreenSizeChange);

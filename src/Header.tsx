@@ -53,6 +53,7 @@ export default function Header() {
       }
     }
     window.addEventListener("resize", OnHeaderSizeChange);
+    OnHeaderSizeChange();
     return () => {
       window?.removeEventListener("resize", OnHeaderSizeChange);
     };

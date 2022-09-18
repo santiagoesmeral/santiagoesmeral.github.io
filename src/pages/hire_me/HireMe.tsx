@@ -9,6 +9,8 @@ interface LinkWithCopyInterface {
   copyToClipboardFunction: () => any;
 }
 
+//todo: mobile integration of this page
+
 function LinkWithCopy({
   id,
   text,
