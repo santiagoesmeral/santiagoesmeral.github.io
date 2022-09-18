@@ -1,3 +1,5 @@
+// @ts-nocheck
+//todo: remove nocheck. Its caused by the event listener in the screen size
 import React, { useState, Fragment, useEffect } from "react";
 import "./Header.scss";
 
@@ -9,6 +11,7 @@ export default function Header() {
     shouldFocusOnMenuButtonAfterKeyInput,
     setShouldFocusOnMenuButtonAfterKeyInput,
   ] = useState(false);
+  const [linkToHomepageIsTooBig, setLinkToHomepageIsTooBig] = useState(false);
 
   const handleSetIsMenuOpen = (
     event: React.MouseEvent,
@@ -35,6 +38,25 @@ export default function Header() {
       setShouldFocusOnMenuButtonAfterKeyInput(false);
     }
   }, [isMenuOpen, shouldFocusOnMenuButtonAfterKeyInput]);
+
+  useEffect(() => {
+    function OnHeaderSizeChange(event: any) {
+      if (
+        document.getElementById("header-homepage-link") &&
+        document.getElementById("header-homepage-link")?.offsetWidth >
+          document.getElementsByTagName("html")[0].offsetWidth * (49 / 100)
+      ) {
+        //translation into english: if the link to the homepage has rendered and its width is more than 49% of the current viewport (why 49%? idk, just testing, seems about right)
+        setLinkToHomepageIsTooBig(true);
+      } else {
+        setLinkToHomepageIsTooBig(false);
+      }
+    }
+    window.addEventListener("resize", OnHeaderSizeChange);
+    return () => {
+      window?.removeEventListener("resize", OnHeaderSizeChange);
+    };
+  }, []);
 
   const onSkipNavigation = () => {
     document.getElementById("skip-navigation-target")?.focus();
@@ -100,7 +122,7 @@ export default function Header() {
     } else
       return (
         <Fragment>
-          {window.location.pathname !== "/hire_me" && (
+          {window.location.pathname !== "/hire_me" && !linkToHomepageIsTooBig && (
             <a
               id="header-hire-me-button"
               href="/hire_me"
@@ -128,7 +150,10 @@ export default function Header() {
     I dont need a fancy routing system here, i'll have a couple of static links. So for now, it will stay here. If i needed a more complex routing system i'd probably go for a library like react-router instead
   */
   return (
-    <header className="header">
+    <header
+      className={"header" + (linkToHomepageIsTooBig ? " space-between" : "")}
+      id="header"
+    >
       <a
         id="header-homepage-link"
         className="header-title"
@@ -139,7 +164,10 @@ export default function Header() {
       </a>
       <button
         id="header-skip-nav-button"
-        className="header-button hidden-button"
+        className={
+          "header-button hidden-button" +
+          (linkToHomepageIsTooBig ? " position-fixed" : "")
+        }
         onClick={() => onSkipNavigation()}
       >
         Skip Navigation

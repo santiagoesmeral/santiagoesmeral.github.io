@@ -1,4 +1,5 @@
 // @ts-nocheck
+//todo: remove nocheck. Its caused by the event listener in the screen size
 import { useState, useEffect } from "react";
 import {
   Search,
@@ -94,10 +95,6 @@ const ListOfLinks = [
 export default function Homepage({ appConfig }: any) {
   const [searchValue, setSearchValue] = useState("");
   const [listOfLinksIsOver35vw, setListOfLinksIsOver35vw] = useState(false);
-
-  useEffect(() => {
-    console.log(listOfLinksIsOver35vw);
-  }, [listOfLinksIsOver35vw]);
 
   useEffect(() => {
     console.log(

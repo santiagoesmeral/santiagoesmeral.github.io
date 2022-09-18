@@ -28,9 +28,13 @@
   overflow-x: auto;
 }
 
+.header.space-between {
+  justify-content: space-between;
+}
+
 .header-title {
   color: inherit;
-  min-width: fit-content;
+  min-width: max-content;
   padding: 0 0.5rem;
   font-size: 1.5rem;
   transition: outline-offset 0.1s ease;
@@ -152,6 +156,14 @@
     cursor: pointer;
     pointer-events: unset;
   }
+}
+
+.header-button.hidden-button.position-fixed {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translateX(-50%);
 }
 
 .header-button:disabled {
