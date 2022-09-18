@@ -1,5 +1,3 @@
-// @ts-nocheck
-//todo: remove nocheck. Its caused by the event listener in the screen size
 import React, { useState, Fragment, useEffect } from "react";
 import "./Header.scss";
 
@@ -40,11 +38,11 @@ export default function Header() {
   }, [isMenuOpen, shouldFocusOnMenuButtonAfterKeyInput]);
 
   useEffect(() => {
-    function OnHeaderSizeChange(event: any) {
+    function OnHeaderSizeChange() {
       if (
         document.getElementById("header-homepage-link") &&
-        document.getElementById("header-homepage-link")?.offsetWidth >
-          document.getElementsByTagName("html")[0].offsetWidth * (49 / 100)
+        (document.getElementById("header-homepage-link")?.offsetWidth ?? 400) >
+          window.innerWidth * (49 / 100)
       ) {
         //translation into english: if the link to the homepage has rendered and its width is more than 49% of the current viewport (why 49%? idk, just testing, seems about right)
         setLinkToHomepageIsTooBig(true);

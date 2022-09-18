@@ -1,5 +1,3 @@
-// @ts-nocheck
-//todo: remove nocheck. Its caused by the event listener in the screen size
 import { useState, useEffect } from "react";
 import {
   Search,
@@ -149,15 +147,13 @@ export default function Homepage({ appConfig }: any) {
       }
     }
 
-    function OnScreenSizeChange(event: any) {
-      //optimization wise: this function takes about .1ms to run, except when the first if statement is true, in which case its 20ms but just once. I'll call that good enough
+    function OnScreenSizeChange() {
       if (
         document.getElementById("homepage-list-of-links") &&
-        document.getElementsByTagName("html")[0] &&
-        document.getElementById("homepage-list-of-links")?.offsetWidth >
-          document.getElementsByTagName("html")[0].offsetWidth * (35 / 100)
+        (document.getElementById("homepage-list-of-links")?.offsetWidth ??
+          310) >
+          window.innerWidth * (35 / 100)
       ) {
-        //translation into english: if the list of links has rendered and the width of the list of links is more than 35% of the current viewport
         setListOfLinksIsOver35vw(true);
       } else {
         //if the list is smaller or equal to 35vw
