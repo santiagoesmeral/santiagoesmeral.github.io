@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect } from "react";
 import {
   Search,
@@ -92,6 +93,11 @@ const ListOfLinks = [
 //todo: typescript interface
 export default function Homepage({ appConfig }: any) {
   const [searchValue, setSearchValue] = useState("");
+  const [listOfLinksIsOver35vw, setListOfLinksIsOver35vw] = useState(false);
+
+  useEffect(() => {
+    console.log(listOfLinksIsOver35vw);
+  }, [listOfLinksIsOver35vw]);
 
   useEffect(() => {
     console.log(
@@ -146,9 +152,27 @@ export default function Homepage({ appConfig }: any) {
       }
     }
 
+    function OnScreenSizeChange(event: any) {
+      //optimization wise: this function takes about .1ms to run, except when the first if statement is true, in which case its 20ms but just once. I'll call that good enough
+      if (
+        document.getElementById("homepage-list-of-links") &&
+        document.getElementsByTagName("html")[0] &&
+        document.getElementById("homepage-list-of-links")?.offsetWidth >
+          document.getElementsByTagName("html")[0].offsetWidth * (35 / 100)
+      ) {
+        //translation into english: if the list of links has rendered and the width of the list of links is more than 35% of the current viewport
+        setListOfLinksIsOver35vw(true);
+      } else {
+        //if the list is smaller or equal to 35vw
+        setListOfLinksIsOver35vw(false);
+      }
+    }
+
+    window.addEventListener("resize", OnScreenSizeChange);
     document.body.addEventListener("keydown", RedirectOnNumpadNumberInput);
     return () => {
       document.body.removeEventListener("keydown", RedirectOnNumpadNumberInput);
+      window.removeEventListener("resize", OnScreenSizeChange);
     };
   }, []);
 
@@ -161,8 +185,14 @@ export default function Homepage({ appConfig }: any) {
     }
     return <DuckDuckGoLogo />;
   };
+
   return (
-    <section className="homepage take-remaining-space-in-page">
+    <section
+      className={
+        "homepage take-remaining-space-in-page" +
+        (listOfLinksIsOver35vw ? " vertical-mode" : "")
+      }
+    >
       <form
         method="get"
         id="ddgSearch"
@@ -204,7 +234,9 @@ export default function Homepage({ appConfig }: any) {
           );
         })}
       </ul>
-      <TheFunBox userCanHover={appConfig.userCanHover} />
+      {!listOfLinksIsOver35vw && (
+        <TheFunBox userCanHover={appConfig.userCanHover} />
+      )}
       <span className="homepage-icon-creator-links">
         Icons from https://fontawesome.com/, https://icons8.com/ and
         https://icon-icons.com/

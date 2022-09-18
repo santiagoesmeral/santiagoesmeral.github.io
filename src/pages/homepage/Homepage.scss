@@ -11,6 +11,12 @@
   gap: 2rem;
   align-items: center;
   justify-content: center;
+  &.vertical-mode {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15vh;
+  }
 }
 
 .homepage-search-form {
@@ -25,6 +31,10 @@
   &:focus-within {
     width: 100%;
   }
+}
+
+.vertical-mode .homepage-search-form {
+  width: fit-content;
 }
 
 .homepage-searchbar {
@@ -47,6 +57,17 @@
     outline-width: 0.5rem;
   }
 }
+
+.vertical-mode .homepage-search-form .homepage-searchbar {
+  width: 85vw;
+  &:hover,
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    width: 90vw;
+  }
+}
+
 .homepage-search-submit {
   --square-size: 3rem;
   width: var(--square-size);
