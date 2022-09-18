@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.ac85e6df.css",
+    "main.css": "/static/css/main.06a41c06.css",
     "main.js": "/static/js/main.c51e8d3d.js",
     "static/media/icons8-duckduckgo.svg": "/static/media/icons8-duckduckgo.f60833e20237e460a9c7f68d7b68eab8.svg",
     "static/media/icons8-github.svg": "/static/media/icons8-github.c36321dabc39b16d5fbf31e87a17d5ae.svg",
@@ -15,11 +15,11 @@
     "static/media/heart-solid.svg": "/static/media/heart-solid.70b72c45739e60e9fb16359db455a441.svg",
     "static/media/icons8-youtube.svg": "/static/media/icons8-youtube.dc268c97a4b07d61bf0db30b238e7f1f.svg",
     "static/media/icons8-google-drive.svg": "/static/media/icons8-google-drive.4e45def1a812c265cece401dec3cede6.svg",
-    "main.ac85e6df.css.map": "/static/css/main.ac85e6df.css.map",
+    "main.06a41c06.css.map": "/static/css/main.06a41c06.css.map",
     "main.c51e8d3d.js.map": "/static/js/main.c51e8d3d.js.map"
   },
   "entrypoints": [
-    "static/css/main.ac85e6df.css",
+    "static/css/main.06a41c06.css",
     "static/js/main.c51e8d3d.js"
   ]
 }
