@@ -9,7 +9,7 @@ export default function Header() {
     shouldFocusOnMenuButtonAfterKeyInput,
     setShouldFocusOnMenuButtonAfterKeyInput,
   ] = useState(false);
-  const [linkToHomepageIsTooBig, setLinkToHomepageIsTooBig] = useState(false);
+  const [smallViewportMode, setSmallViewportMode] = useState(false);
 
   const handleSetIsMenuOpen = (
     event: React.MouseEvent,
@@ -38,22 +38,30 @@ export default function Header() {
   }, [isMenuOpen, shouldFocusOnMenuButtonAfterKeyInput]);
 
   useEffect(() => {
-    function OnHeaderSizeChange() {
-      if (
-        document.getElementById("header-homepage-link") &&
-        (document.getElementById("header-homepage-link")?.offsetWidth ?? 400) >
-          window.innerWidth * (49 / 100)
-      ) {
-        //translation into english: if the link to the homepage has rendered and its width is more than 49% of the current viewport (why 49%? idk, just testing, seems about right)
-        setLinkToHomepageIsTooBig(true);
+    /*
+      Width of homepage link/title: 400px
+      if 400px is 50% of the screen
+      then x is 100% of the screen
+      x = (400 * 100)/50 = 800px => our breakpoint for when to swap to small mode
+      edit: +10px to avoid a small frame that was annoying me where overflow would happen.
+      */
+    const mediaQuerySmallViewport = window.matchMedia(`(max-width: ${810}px)`);
+
+    //todo: find what the right event type is here
+    function handleMediaQueryChange(mediaEvent: any) {
+      if (mediaEvent.matches) {
+        setSmallViewportMode(true);
       } else {
-        setLinkToHomepageIsTooBig(false);
+        setSmallViewportMode(false);
       }
     }
-    window.addEventListener("resize", OnHeaderSizeChange);
-    OnHeaderSizeChange();
+    mediaQuerySmallViewport.addEventListener("change", handleMediaQueryChange);
+    handleMediaQueryChange(mediaQuerySmallViewport);
     return () => {
-      window?.removeEventListener("resize", OnHeaderSizeChange);
+      mediaQuerySmallViewport.removeEventListener(
+        "change",
+        handleMediaQueryChange
+      );
     };
   }, []);
 
@@ -121,7 +129,7 @@ export default function Header() {
     } else
       return (
         <Fragment>
-          {window.location.pathname !== "/hire_me" && !linkToHomepageIsTooBig && (
+          {window.location.pathname !== "/hire_me" && !smallViewportMode && (
             <a
               id="header-hire-me-button"
               href="/hire_me"
@@ -150,12 +158,15 @@ export default function Header() {
   */
   return (
     <header
-      className={"header" + (linkToHomepageIsTooBig ? " space-between" : "")}
+      className={"header" + (smallViewportMode ? " space-between" : "")}
       id="header"
     >
       <a
         id="header-homepage-link"
-        className="header-title"
+        className={
+          "header-title" +
+          (smallViewportMode ? " header-small-viewport-title" : "")
+        }
         title="homepage"
         href="/"
       >
@@ -165,7 +176,7 @@ export default function Header() {
         id="header-skip-nav-button"
         className={
           "header-button hidden-button" +
-          (linkToHomepageIsTooBig ? " position-fixed" : "")
+          (smallViewportMode ? " position-fixed" : "")
         }
         onClick={() => onSkipNavigation()}
       >

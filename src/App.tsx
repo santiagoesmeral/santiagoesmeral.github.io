@@ -15,9 +15,6 @@ function App() {
   const [appConfig, setAppConfig] = useState({
     userCanHover: window.matchMedia("(hover: hover)").matches,
   });
-  useEffect(() => {
-    console.log("User can hover? -> " + appConfig.userCanHover);
-  });
   const pageToReturn = () => {
     /*
       I could implement react-router or another library, but it seems like a massive overkill for such a simple project. 

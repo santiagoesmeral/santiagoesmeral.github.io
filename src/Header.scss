@@ -18,14 +18,8 @@
   align-items: center;
   justify-content: flex-start;
 
-  /*
-    Things to improve on really small screens (aka mobile)
-      -1 move the skip nav to a fixed position on the screen
-      -2 use JS to remove the render of the hire me button as soon as an overflow is detected
-
-    will probably be part of the overhaul whenever i get around making this a react-native project, as i'll need it for mobile support anyways.
-  */
   overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .header.space-between {
@@ -35,12 +29,11 @@
 .header-title {
   color: inherit;
   min-width: max-content;
-  padding: 0 0.5rem;
-  font-size: 1.5rem;
+  font-size: 3rem;
   transition: outline-offset 0.1s ease;
   padding: 0.5rem;
   text-decoration: none;
-  font-size: clamp(2rem, 6vw, 3rem);
+  box-sizing: border-box;
   &:hover,
   &:focus,
   &:focus-visible {
@@ -52,6 +45,11 @@
     outline-offset: -0.5rem;
     outline: 0.1rem solid white;
     color: white;
+  }
+  &.header-small-viewport-title {
+    min-width: min-content;
+    font-size: 2rem;
+    width: min-content;
   }
 }
 

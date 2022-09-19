@@ -103,12 +103,20 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   gap: 2rem;
-  height: fit-content;
-  width: fit-content;
+
+  /*
+    We could leave it undefined but its actually important to specify it as it will now be how the media query is known. 
+
+    Essentially, when the width of this component occupies 35% of the screen horizontally (35vh), we swap to small viewport mode.
+
+    The reason we define this here is to make sure that nothing funky happens with the size. 
+  */
+  width: 20rem;
 }
 
 .homepage-icon-creator-links {
   position: fixed;
+  font-size: 0.5rem;
   bottom: 1rem;
   right: 1rem;
   color: var(--text-color-opaque);

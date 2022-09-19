@@ -28,6 +28,8 @@ import "./Homepage.scss";
 
   My approach: immediately give up since this list is hardcoded anyways. Just manually order the list. I would have to go through the spaghetti headache of implementing the above solution if it was dynamic though. A story for another day.
 
+  edit: having thought of it a bit its not that bad. Just order from 0 to 1, then swap the [0] with the [2], the [3] with the [5], and the [6] with the [8]
+
   Also, just to note: if we were using flexbox, i think it would be as easy as setting flex-direction: reverse-row and flex-wrap: wrap-reverse. Didnt test it though, and since we want this to have exactly 3 columns and 3 rows, it makes sense to use grid instead. (Also, doing this approach would probably screw the tab index like my last attempt at fixing it using a defined grid template area corresponding to the id of each link)
 */
 
@@ -92,7 +94,7 @@ const ListOfLinks = [
 //todo: typescript interface
 export default function Homepage({ appConfig }: any) {
   const [searchValue, setSearchValue] = useState("");
-  const [listOfLinksIsOver35vw, setListOfLinksIsOver35vw] = useState(false);
+  const [smallViewportMode, setSmallViewportMode] = useState(false);
 
   useEffect(() => {
     console.log(
@@ -100,7 +102,7 @@ export default function Homepage({ appConfig }: any) {
       "color:magenta;font-family:system-ui;font-size:2rem;-webkit-text-stroke: 1px black;font-weight:bold"
     );
 
-    function RedirectOnNumpadNumberInput(event: KeyboardEvent) {
+    function redirectOnNumpadNumberInput(event: KeyboardEvent) {
       /*
         Explanation: 
           Since all the codes for numpad inputs are like this: NumpadX (X being either the number, or stuff like NumpadAdd), we can use the first 5 characters of the code to know if we're using the numpad. We can then map it on the linklist, and if the reminding string after "Numpad" matches an Id, we redirect to that page. Otherwise, we ignore it.
@@ -146,27 +148,34 @@ export default function Homepage({ appConfig }: any) {
         }
       }
     }
+    /*
+      Width of list of links: 20rem. mediaqueries always take default width, and we're using default width anyways, which is 16px = 1rem
+      20rem = 320px
+      if 320px is 35% of the screen
+      then x is 100% of the screen
+      x = (320 * 100)/35 =~ 915 => our breakpoint for when to swap to small mode
+      */
+    const mediaQuerySmallViewport = window.matchMedia(`(max-width: ${915}px)`);
 
-    function OnScreenSizeChange() {
-      if (
-        document.getElementById("homepage-list-of-links") &&
-        (document.getElementById("homepage-list-of-links")?.offsetWidth ??
-          310) >
-          window.innerWidth * (35 / 100)
-      ) {
-        setListOfLinksIsOver35vw(true);
+    //todo: find what the right event type is here
+    function handleMediaQueryChange(mediaEvent: any) {
+      if (mediaEvent.matches) {
+        setSmallViewportMode(true);
       } else {
-        //if the list is smaller or equal to 35vw
-        setListOfLinksIsOver35vw(false);
+        setSmallViewportMode(false);
       }
     }
 
-    window.addEventListener("resize", OnScreenSizeChange);
-    document.body.addEventListener("keydown", RedirectOnNumpadNumberInput);
-    OnScreenSizeChange();
+    mediaQuerySmallViewport.addEventListener("change", handleMediaQueryChange);
+    handleMediaQueryChange(mediaQuerySmallViewport);
+
+    document.body.addEventListener("keydown", redirectOnNumpadNumberInput);
     return () => {
-      document.body.removeEventListener("keydown", RedirectOnNumpadNumberInput);
-      window.removeEventListener("resize", OnScreenSizeChange);
+      document.body.removeEventListener("keydown", redirectOnNumpadNumberInput);
+      mediaQuerySmallViewport.removeEventListener(
+        "change",
+        handleMediaQueryChange
+      );
     };
   }, []);
 
@@ -184,7 +193,7 @@ export default function Homepage({ appConfig }: any) {
     <section
       className={
         "homepage take-remaining-space-in-page" +
-        (listOfLinksIsOver35vw ? " vertical-mode" : "")
+        (smallViewportMode ? " vertical-mode" : "")
       }
     >
       <form
@@ -228,7 +237,7 @@ export default function Homepage({ appConfig }: any) {
           );
         })}
       </ul>
-      {!listOfLinksIsOver35vw && (
+      {!smallViewportMode && (
         <TheFunBox userCanHover={appConfig.userCanHover} />
       )}
       <span className="homepage-icon-creator-links">
