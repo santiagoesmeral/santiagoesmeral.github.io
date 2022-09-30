@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./HireMe.scss";
 
 interface LinkWithCopyInterface {
@@ -55,6 +55,20 @@ function LinkWithCopy({
   );
 }
 export default function HireMe() {
+  useEffect(() => {
+    const currentOrientation = window.matchMedia("(orientation:landscape)");
+    const handleOrientationChange = (event: any) => {
+      if (event.matches) {
+        console.log("Now in landscape orientation");
+      } else {
+        console.log("Now in portrait orientation");
+      }
+    };
+    currentOrientation.addEventListener("change", handleOrientationChange);
+    return () => {
+      currentOrientation.removeEventListener("change", handleOrientationChange);
+    };
+  }, []);
   return (
     <section className="hire-me take-remaining-space-in-page">
       <h1 className="hire-me-title">Thank you for visiting my page!</h1>

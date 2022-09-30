@@ -154,6 +154,9 @@ export default function Homepage({ appConfig }: any) {
       if 320px is 35% of the screen
       then x is 100% of the screen
       x = (320 * 100)/35 =~ 915 => our breakpoint for when to swap to small mode
+
+      TODO: broken on mobile devices flipped sideways...
+      TODO: when small screen size gets cut in half vertically (i.e.: opening a keyboard to type in the searchbar on a phone) searchbar disappears
       */
     const mediaQuerySmallViewport = window.matchMedia(`(max-width: ${915}px)`);
 
