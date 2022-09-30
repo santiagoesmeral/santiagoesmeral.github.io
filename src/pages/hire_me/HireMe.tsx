@@ -57,6 +57,7 @@ function LinkWithCopy({
 export default function HireMe() {
   useEffect(() => {
     const currentOrientation = window.matchMedia("(orientation:landscape)");
+    //! useless, will move logic to App.tsx
     const handleOrientationChange = (event: any) => {
       if (event.matches) {
         console.log("Now in landscape orientation");

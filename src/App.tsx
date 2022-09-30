@@ -8,9 +8,9 @@ function App() {
   // if the config gets complicated, it may be worth it to move it to a useContext. For now though, it should be simple enough to implement
   /*
     TODO:
-      -implement the 3 buttons in the fun box
-      -only show the buttons that dont require hover if this config is set to true.
-
+    move the landscape vs portrait thing here. Make it an app config.
+    design a menu using an "apps" button. (maybe only show it when screen is too small vertically). This menu would pop up and show the numpad links. Could even do something similar for the fun buttons maybe...
+    
   */
   const [appConfig, setAppConfig] = useState({
     userCanHover: window.matchMedia("(hover: hover)").matches,

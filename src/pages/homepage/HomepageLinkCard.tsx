@@ -21,6 +21,7 @@ export default function HomepageLinkCard({
         className="homepage-link-card"
         href={url}
         data-pseudoelem-content={content}
+        data-numpad-number={id}
         title={content}
         id={"homepage-link-card-number-" + id}
       >
