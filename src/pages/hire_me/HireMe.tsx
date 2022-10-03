@@ -1,4 +1,11 @@
-import { useEffect, useState } from "react";
+import { ReactElement, useState } from "react";
+import {
+  GithubLogo,
+  GmailLogo,
+  LinkedInLogo,
+  TelegramLogo,
+  File,
+} from "../../images";
 import "./HireMe.scss";
 
 interface LinkWithCopyInterface {
@@ -6,16 +13,16 @@ interface LinkWithCopyInterface {
   text?: string;
   title?: string;
   href?: string;
+  icon?: ReactElement;
   copyToClipboardFunction: () => any;
 }
-
-//todo: mobile integration of this page
 
 function LinkWithCopy({
   id,
   text,
   href,
   title,
+  icon,
   copyToClipboardFunction,
 }: LinkWithCopyInterface) {
   /*
@@ -42,6 +49,7 @@ function LinkWithCopy({
         title={title || "Oops, forgot a title"}
         href={href || ""}
       >
+        {icon}
         {text || "button"}
       </a>
       <button
@@ -55,21 +63,6 @@ function LinkWithCopy({
   );
 }
 export default function HireMe() {
-  useEffect(() => {
-    const currentOrientation = window.matchMedia("(orientation:landscape)");
-    //! useless, will move logic to App.tsx
-    const handleOrientationChange = (event: any) => {
-      if (event.matches) {
-        console.log("Now in landscape orientation");
-      } else {
-        console.log("Now in portrait orientation");
-      }
-    };
-    currentOrientation.addEventListener("change", handleOrientationChange);
-    return () => {
-      currentOrientation.removeEventListener("change", handleOrientationChange);
-    };
-  }, []);
   return (
     <section className="hire-me take-remaining-space-in-page">
       <h1 className="hire-me-title">Thank you for visiting my page!</h1>
@@ -85,10 +78,6 @@ export default function HireMe() {
         </p>
       </div>
       <div className="hire-me-links">
-        <label>
-          {/* turns out, <a> tags are incompatible with labels. So adding the for="" tag wont make too much sense. */}
-          Email:
-        </label>
         <LinkWithCopy
           id="skip-navigation-target"
           text="santiagoesmeral@hotmail.com"
@@ -99,48 +88,47 @@ export default function HireMe() {
           }
         />
 
-        <label>Telegram: </label>
         <LinkWithCopy
           id="link-to-telegram"
           text="@santiago_esmeral"
           href="https://t.me/santiago_esmeral"
           title="Send message via Telegram"
+          icon={<TelegramLogo />}
           copyToClipboardFunction={() =>
             navigator.clipboard.writeText("@santiago_esmeral")
           }
         />
 
-        <label>Github:</label>
         <a
           id="link-to-github"
           href="https://github.com/santiagoesmeral"
           title="Santiago Esmeral's Github profile"
         >
+          <GithubLogo className="set-icon-to-white" />
           My Github Profile
         </a>
-        <label>LinkedIn:</label>
         <a
           id="link-to-linkedin"
           href="https://www.linkedin.com/in/santiago-alfredo-esmeral-albarracin-37250516b/"
           title="Santiago Esmeral's LinkedIn profile"
         >
+          <LinkedInLogo />
           My LinkedIn Profile
         </a>
-        <label>Curriculum:</label>
         <a
           id="CV Preview"
           title="Preview my CV (.pdf)"
           href="https://drive.google.com/file/d/1gEPawyT0Mc3keyUzhIISF3YxlmXFT8ju/view?usp=sharing"
         >
+          <File className="set-icon-to-white" />
           Download
         </a>
-        <label>Codepen:</label>
         <button
           id="link-to-codepen"
           title="Santiago Esmeral's Codepen (coming soon)"
           disabled
         >
-          My Codepen
+          My Codepen (coming soon)
         </button>
       </div>
     </section>

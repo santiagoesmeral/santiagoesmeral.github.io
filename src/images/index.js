@@ -10,6 +10,8 @@ import { ReactComponent as LinkedInLogo } from "./icons8-linkedin.svg";
 import { ReactComponent as MicrosoftOutlookLogo } from "./icons8-microsoft-outlook.svg";
 import { ReactComponent as YoutubeLogo } from "./icons8-youtube.svg";
 import { ReactComponent as DeeplLogo } from "./deepl_logo_icon.svg";
+import { ReactComponent as TelegramLogo } from "./icons8-telegram-app.svg";
+import { ReactComponent as File } from "./icons8-file.svg";
 
 /*
     Icons taken from 
@@ -31,4 +33,6 @@ export {
   YoutubeLogo,
   LinkedInLogo,
   DeeplLogo,
+  TelegramLogo,
+  File,
 };
