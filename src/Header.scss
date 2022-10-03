@@ -34,6 +34,7 @@
   padding: 0.5rem;
   text-decoration: none;
   box-sizing: border-box;
+  margin: 0 auto 0 1rem;
   &:hover,
   &:focus,
   &:focus-visible {
@@ -45,11 +46,6 @@
     outline-offset: -0.5rem;
     outline: 0.1rem solid white;
     color: white;
-  }
-  &.header-small-viewport-title {
-    min-width: min-content;
-    font-size: 2rem;
-    width: min-content;
   }
 }
 
@@ -145,7 +141,7 @@
 .header-button.hidden-button {
   min-width: min-content;
   opacity: 0;
-  margin: 0 auto 0 1rem;
+  margin: 0 1rem 0 1rem;
   cursor: default;
   pointer-events: none;
   &:focus,
@@ -156,14 +152,6 @@
   }
 }
 
-.header-button.hidden-button.position-fixed {
-  position: fixed;
-  top: 1rem;
-  left: 50%;
-  /* bring your own prefixes */
-  transform: translateX(-50%);
-}
-
 .header-button:disabled {
   background-color: var(--header-color);
   color: var(--text-color-opaque);
@@ -171,4 +159,29 @@
   border-color: gray;
   outline: none;
   cursor: default;
+}
+
+// The mediaqueries were manually selected to avoid overflows
+
+@media screen and (max-width: 57rem) {
+  .header-button.hidden-button {
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media screen and (max-width: 40rem) {
+  .header-button.hire-me-quick-access-button {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 31rem) {
+  .header-title {
+    min-width: min-content;
+    font-size: 2rem;
+    width: min-content;
+  }
 }

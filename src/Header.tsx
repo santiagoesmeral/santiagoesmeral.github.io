@@ -9,7 +9,6 @@ export default function Header() {
     shouldFocusOnMenuButtonAfterKeyInput,
     setShouldFocusOnMenuButtonAfterKeyInput,
   ] = useState(false);
-  const [smallViewportMode, setSmallViewportMode] = useState(false);
 
   const handleSetIsMenuOpen = (
     event: React.MouseEvent,
@@ -36,34 +35,6 @@ export default function Header() {
       setShouldFocusOnMenuButtonAfterKeyInput(false);
     }
   }, [isMenuOpen, shouldFocusOnMenuButtonAfterKeyInput]);
-
-  useEffect(() => {
-    /*
-      Width of homepage link/title: 400px
-      if 400px is 50% of the screen
-      then x is 100% of the screen
-      x = (400 * 100)/50 = 800px => our breakpoint for when to swap to small mode
-      edit: +10px to avoid a small frame that was annoying me where overflow would happen.
-      */
-    const mediaQuerySmallViewport = window.matchMedia(`(max-width: ${810}px)`);
-
-    //todo: find what the right event type is here
-    function handleMediaQueryChange(mediaEvent: any) {
-      if (mediaEvent.matches) {
-        setSmallViewportMode(true);
-      } else {
-        setSmallViewportMode(false);
-      }
-    }
-    mediaQuerySmallViewport.addEventListener("change", handleMediaQueryChange);
-    handleMediaQueryChange(mediaQuerySmallViewport);
-    return () => {
-      mediaQuerySmallViewport.removeEventListener(
-        "change",
-        handleMediaQueryChange
-      );
-    };
-  }, []);
 
   const onSkipNavigation = () => {
     document.getElementById("skip-navigation-target")?.focus();
@@ -129,16 +100,14 @@ export default function Header() {
     } else
       return (
         <Fragment>
-          {window.location.pathname !== "/hire_me" && !smallViewportMode && (
-            <a
-              id="header-hire-me-button"
-              href="/hire_me"
-              className="header-button hire-me-quick-access-button"
-              title="Hire Me"
-            >
-              Hire Me
-            </a>
-          )}
+          <a
+            id="header-hire-me-button"
+            href="/hire_me"
+            className="header-button hire-me-quick-access-button"
+            title="Hire Me"
+          >
+            Hire Me
+          </a>
           <button
             id="header-open-nav-button"
             title="Open Navigation"
@@ -157,16 +126,10 @@ export default function Header() {
     I dont need a fancy routing system here, i'll have a couple of static links. So for now, it will stay here. If i needed a more complex routing system i'd probably go for a library like react-router instead
   */
   return (
-    <header
-      className={"header" + (smallViewportMode ? " space-between" : "")}
-      id="header"
-    >
+    <header className="header" id="header">
       <a
         id="header-homepage-link"
-        className={
-          "header-title" +
-          (smallViewportMode ? " header-small-viewport-title" : "")
-        }
+        className="header-title"
         title="homepage"
         href="/"
       >
@@ -174,10 +137,7 @@ export default function Header() {
       </a>
       <button
         id="header-skip-nav-button"
-        className={
-          "header-button hidden-button" +
-          (smallViewportMode ? " position-fixed" : "")
-        }
+        className="header-button hidden-button"
         onClick={() => onSkipNavigation()}
       >
         Skip Navigation
