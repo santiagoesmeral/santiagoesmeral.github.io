@@ -73,6 +73,12 @@
       outline: calc(var(--button-border-width) / 2) solid white;
       /* for some reason, the buttons inside of the button-with-copy-container dont need this written here, but the ones that are just buttons do? */
       font-family: var(--font-family-retro);
+      .fake-email-icon {
+        margin: 0;
+        padding: 0;
+        font-size: 2rem;
+      }
+      .fake-email-icon,
       svg {
         box-sizing: border-box;
         width: 2rem;

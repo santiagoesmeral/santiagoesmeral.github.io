@@ -83,6 +83,7 @@ export default function HireMe() {
           text="santiagoesmeral@hotmail.com"
           href="mailto:santiagoesmeral@hotmail.com"
           title="Send email to santiagoesmeral@hotmail.com"
+          icon={<p className="fake-email-icon">✉</p>}
           copyToClipboardFunction={() =>
             navigator.clipboard.writeText("santiagoesmeral@hotmail.com")
           }
