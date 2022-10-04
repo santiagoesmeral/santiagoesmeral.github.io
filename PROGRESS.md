@@ -1,27 +1,3 @@
-# old TODO:
-
-- **everything in the about me page**
-- **rename about_me to hire_me, move that link to outside the dropdown**
-- **change the button from the ascii bar code to "More"**
-- **404 page**
-- **add link to downloadable CV**
-  - update CV
-  - find somewhere to host it (already have it on microsoft office online)
-- **add link to icon providers in the bottom of the screen or something**
-  -change icons so we only depend on one library. Or less if even possible. I hate copyright
-- **update all libraries** (done, but check again in the future)
-- **test on other browsers**
-- **host it**
-
-# NICE TO HAVE:
-
-- **add keyboard icons to the links, like this https://dev.to/afif/the-css-scrabble-writer-the-next-gen-typewriter-fbi**
-- **disable animations if the user's settings request it**
-- **add translation into spanish, french, portuguese and italian**
-  -see if there is any good api's for translating all this stuff
-- **go over all the TODOs scattered across the app and fix them**
-- **tests? i hate tests...**
-
 # personal FAQ for when i forget stuff:
 
 1? WHY DO I HAVE TO TYPE SUDO ALL THE TIME JESUS CHRIST
@@ -77,7 +53,7 @@
   Also, take a look at Extension: Remote - Containers
 
 - 28/1/22
-  webpage looks like something that can work! now, look in TODO for stuff to do
+  webpage looks like something that can work! now, look in TO DO for stuff to do
 
 - 31/1/22
   added a searchbar to duckduckgo, though no autocomplete.
@@ -87,7 +63,7 @@
   tried adding the search icon. Things i've learned:
   1- font-awesome is a pain in the ass to install, and near impossible to import it on css
   2- you CANNOT use pseudoelements on inputs
-  todo: move this part into react. Maybe make the button interactive while you're at it, have it be the search button. Why not!, and change the icon between a search icon while its empty, and an arrow while you can search
+  to do: move this part into react. Maybe make the button interactive while you're at it, have it be the search button. Why not!, and change the icon between a search icon while its empty, and an arrow while you can search
 
 - 11/2/22
   rather than doing the useful part, i added the title that changes! currently need to figure out how to make the priority text work
@@ -132,7 +108,7 @@
   I've been adding all the features i wanted to add. The redirect to links on numpad presses, the fun box minigame thing, and i am now working on making a new menu with links (so i can add even more liks, like a direct CV download and links to codepens), as well as the about me page.
 
   I am close to done!
-  just to recap, the todo to MVP:
+  just to recap, the to do to MVP:
   -about me page
   -dropdown menu with multiple links
   -open search in new page if you use the numpad enter (optional)
@@ -143,7 +119,7 @@
 - 1/9/22
   listen, i had a couple of rough 2 days. In any case, i just sat down and got the menu working as well as the redirect on new page.
 
-  Current todo:
+  Current to do list:
   -about me page
   -links to icon providers
   -404 page
@@ -155,4 +131,10 @@
 
 - 7/9/22
   Guess what, we got the hire me page working! and now its called hire me, no longer about me. I am done with all the main features!
-  now just gotta go through the TODOs and get it up and rocking.
+  now just gotta go through the TO DOs and get it up and rocking.
+
+- 4/10/22
+  I haven't been afk, i just forgot to add progress here.
+  Basically, i've been massively polishing the page ever since last time. I've also had a long period of pause due to "life" reasons. Wont go into detail.
+  Mobile fully works! and the page is also fully deployed and usable from https://santiagoesmeral.github.io/
+  Currently i'm just polishing it up. Changing things which dont make too much sense and all, you know?

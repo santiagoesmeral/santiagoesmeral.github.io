@@ -28,7 +28,7 @@ import "./Homepage.scss";
 
   My approach: immediately give up since this list is hardcoded anyways. Just manually order the list. I would have to go through the spaghetti headache of implementing the above solution if it was dynamic though. A story for another day.
 
-  edit: having thought of it a bit its not that bad. Just order from 0 to 1, then swap the [0] with the [2], the [3] with the [5], and the [6] with the [8]
+  edit: having thought of it a bit its not that bad. Just order from 9 to 0, then swap the [0] with the [2], the [3] with the [5], and the [6] with the [8]
 
   Also, just to note: if we were using flexbox, i think it would be as easy as setting flex-direction: reverse-row and flex-wrap: wrap-reverse. Didnt test it though, and since we want this to have exactly 3 columns and 3 rows, it makes sense to use grid instead. (Also, doing this approach would probably screw the tab index like my last attempt at fixing it using a defined grid template area corresponding to the id of each link)
 */
@@ -98,7 +98,7 @@ export default function Homepage({ appConfig }: any) {
 
   useEffect(() => {
     console.log(
-      "%cHey there, console user. If you have any improvements for the layout or CSS of this page, let me know, ok? n.n",
+      "%cWhat brings such a handsome person to snoop around this console? ;)",
       "color:magenta;font-family:system-ui;font-size:2rem;-webkit-text-stroke: 1px black;font-weight:bold"
     );
 
@@ -148,17 +148,8 @@ export default function Homepage({ appConfig }: any) {
         }
       }
     }
-    /*
-      Width of list of links: 20rem. mediaqueries always take default width, and we're using default width anyways, which is 16px = 1rem
-      20rem = 320px
-      if 320px is 35% of the screen
-      then x is 100% of the screen
-      x = (320 * 100)/35 =~ 915 => our breakpoint for when to swap to small mode
-      !broken, needs overhaul (breaks when user opens keyboard in phones and when user uses phone in landscape mode)
-      */
     const mediaQuerySmallViewport = window.matchMedia(`(max-width: ${915}px)`);
 
-    //todo: find what the right event type is here
     function handleMediaQueryChange(mediaEvent: any) {
       if (mediaEvent.matches) {
         setSmallViewportMode(true);

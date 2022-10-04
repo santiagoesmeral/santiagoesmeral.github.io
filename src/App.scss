@@ -7,20 +7,7 @@ body,
 
   font-family: "Unifont", monospace;
 
-  /*
-    todo: i found a way that seems good-enough to implement mobile
-    screen.orientation.type
-    will return portrait if the device is portrait (vertical), or landscape if the device is landscape(horizontal).
-
-    This will, of course, make a couple of problems: mainly that the page will default to the normal website if the phone is put on landscape mode (flipped horizontally)
-    This is also a problem for tablets. So i need to test and implement the necessary fixes to make the website more suited for those devices.
-
-    1- rework the button game a bit. Maybe only show the "click me if you can" if the screen isnt touch. And if it is, add a new game about clicking as soon as you can.
-    2- rework the whole thing about the hints. They wont work well for mobile or tablet users (cant hover over things if there's no mouse). Maybe a button with a popup? not sure.
-    3- when on portrait mode, remove the fun box, and adjust the grid, as well as adjusting the hire me page
-  */
-
-  //todo: after the nth time reworking the styling in this page, the old var names make no sense, i really need to re-do all the css variables here
+  //todo: after the nth time reworking the styling in this page, the old var names make little to no sense, i really need to re-do all the css variables here
   --header-height: 5rem;
   --header-color: #202020;
   --bg-color: black;

@@ -27,16 +27,21 @@ export default function TheFunBox({ userCanHover }: any) {
 
   function handleCurrentHoverOrFocusElement() {
     /*
-    !I am not sure if this code is worth optimizing too much
-    At the time of writing, i tested execution time on the interval function.
-    The longest time reported, which is a rare occasion, shows 20ms of execution time. 
+      TODO: read comment below
     
-    ...that is 0.02 seconds.
-    
-    If this was code that i would put in a business project i would be worried, but to be fair, its not that bad. 
-    I dont think its worth neither the effort nor the inevitable code mess it will become due to trying to optimize it.
-    
-    TODO: test on other browsers and intentionally reduce the speed of the browser to make sure its still ok
+      i now realize how stupid it is to be using the whole "use event listeners and display when user is on focus" method. 
+      it slows performance, it doesnt allow the user to copypaste very easily, etc. 
+
+      So, instead, we're gonna do the following: 
+      1- add a very small menu to the funbox. Two buttons: change game, and "show tips"
+      2- when tips are being shown, show slide cards with the info previously hidden behind this whole section
+      
+      unfortunately i dont see how i would get rid of the mediaquery in js (for Homepage.tsx). We still dont want to render the funbox on mobile. 
+      And since we're gonna be adding the tips section, i'd like a way for the user to access that information. 
+      So we'll probably have a conditional render. 
+      This will in turn need two components. 
+      1- the tips cards that will be displayed inside TheFunBox (kinda like this? https://css-tricks.com/video-screencasts/171-movable-stacked-card-row-in-css/)
+      2- the tips cards that will be shown on mobile (dunno what to do yet)
     */
 
     //dont wanna be calling this if the page isnt currently active

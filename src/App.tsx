@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Homepage from "./pages/homepage/Homepage";
 import HireMe from "./pages/hire_me/HireMe";
 import Header from "./Header";
@@ -6,15 +6,11 @@ import "./App.scss";
 
 function App() {
   // if the config gets complicated, it may be worth it to move it to a useContext. For now though, it should be simple enough to implement
-  /*
-    TODO:
-    move the landscape vs portrait thing here. Make it an app config.
-    design a menu using an "apps" button. (maybe only show it when screen is too small vertically). This menu would pop up and show the numpad links. Could even do something similar for the fun buttons maybe...
-    
-  */
-  const [appConfig, setAppConfig] = useState({
+  const [appConfig, _] = useState({
     userCanHover: window.matchMedia("(hover: hover)").matches,
   });
+  //why keep it in state? honestly because in case in the future i want to add more functionality, because i'm used to it, and because a single useState statement wont destroy the app's performance.
+
   const pageToReturn = () => {
     /*
       I could implement react-router or another library, but it seems like a massive overkill for such a simple project. 

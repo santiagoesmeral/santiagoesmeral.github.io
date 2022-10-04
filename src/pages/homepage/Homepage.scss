@@ -112,6 +112,8 @@
     The reason we define this here is to make sure that nothing funky happens with the size. 
   */
   width: 20rem;
+  height: 20rem;
+  min-height: 0; //needed to avoid flexbox overflow shenanigans
 }
 
 .homepage-icon-creator-links {

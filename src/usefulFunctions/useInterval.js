@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-//TODO: convert to tsx
+//todo: convert to tsx
 //https://overreacted.io/making-setinterval-declarative-with-react-hooks/
 export default function useInterval(callback, delay) {
   const savedCallback = useRef();
