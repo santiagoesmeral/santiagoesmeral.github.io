@@ -63,6 +63,17 @@ export default function Header() {
               Hire Me
             </a>
           )}
+          {(window.location.pathname === "/hire_me" ||
+            window.location.pathname === "/404") && (
+            <a
+              id="header-nav-link-1"
+              href="/"
+              className="header-button"
+              title="Home"
+            >
+              Home
+            </a>
+          )}
           <a
             id="header-nav-link-2"
             href="https://github.com/santiagoesmeral"
