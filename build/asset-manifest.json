@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.23222f38.css",
-    "main.js": "/static/js/main.e7ea88c0.js",
+    "main.css": "/static/css/main.c62fb427.css",
+    "main.js": "/static/js/main.c1083283.js",
     "static/media/icons8-duckduckgo.svg": "/static/media/icons8-duckduckgo.f60833e20237e460a9c7f68d7b68eab8.svg",
     "static/media/icons8-github.svg": "/static/media/icons8-github.e0b795c5e403cb44bd54546b886c2494.svg",
     "static/media/deepl_logo_icon.svg": "/static/media/deepl_logo_icon.b441f69b0e49e852631974cd9fa1fd39.svg",
@@ -17,11 +17,11 @@
     "static/media/icons8-youtube.svg": "/static/media/icons8-youtube.dc268c97a4b07d61bf0db30b238e7f1f.svg",
     "static/media/icons8-google-drive.svg": "/static/media/icons8-google-drive.4e45def1a812c265cece401dec3cede6.svg",
     "static/media/icons8-file.svg": "/static/media/icons8-file.995ed77d9750b497b760e90537836cd9.svg",
-    "main.23222f38.css.map": "/static/css/main.23222f38.css.map",
-    "main.e7ea88c0.js.map": "/static/js/main.e7ea88c0.js.map"
+    "main.c62fb427.css.map": "/static/css/main.c62fb427.css.map",
+    "main.c1083283.js.map": "/static/js/main.c1083283.js.map"
   },
   "entrypoints": [
-    "static/css/main.23222f38.css",
-    "static/js/main.e7ea88c0.js"
+    "static/css/main.c62fb427.css",
+    "static/js/main.c1083283.js"
   ]
 }
