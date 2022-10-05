@@ -122,6 +122,23 @@
       width: 5ch;
       padding: 0;
       aspect-ratio: 1;
+      overflow: visible;
+      &.show-copy-feedback {
+        outline-color: green;
+        border-color: green;
+        color: green;
+        &::before {
+          content: "Copied!";
+          position: absolute;
+          left: 1rem;
+          top: -0.5rem;
+          font-size: 1rem;
+          font-weight: bold;
+          color: white;
+          transform: rotate(32deg);
+          background: black;
+        }
+      }
     }
   }
 }

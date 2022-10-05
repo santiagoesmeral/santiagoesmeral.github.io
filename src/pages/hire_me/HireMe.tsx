@@ -35,11 +35,11 @@ function LinkWithCopy({
 
     To remember: a lot of people have problems clicking on small buttons. Dont do the Zoom button thing! buttons should be fat and big. And with labels if possible.
   */
-  const [copyButtonIcon, setCopyButtonIcon] = useState("📋");
+  const [didCopy, setDidCopy] = useState(false);
   const handleCopyButton = () => {
     copyToClipboardFunction();
-    setCopyButtonIcon("✔");
-    setTimeout(() => setCopyButtonIcon("📋"), 1337);
+    setDidCopy(true);
+    setTimeout(() => setDidCopy(false), 1337);
   };
   return (
     <div className={"button-with-copy-container"}>
@@ -53,11 +53,13 @@ function LinkWithCopy({
         {text || "button"}
       </a>
       <button
-        className="button-with-copy-secondary"
+        className={
+          "button-with-copy-secondary" + (didCopy ? " show-copy-feedback" : "")
+        }
         title="Copy to Clipboard"
         onClick={() => handleCopyButton()}
       >
-        {copyButtonIcon}
+        {didCopy ? "✔" : "📋"}
       </button>
     </div>
   );
