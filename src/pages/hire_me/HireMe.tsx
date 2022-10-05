@@ -124,7 +124,7 @@ export default function HireMe() {
           href="https://drive.google.com/file/d/1gEPawyT0Mc3keyUzhIISF3YxlmXFT8ju/view?usp=sharing"
         >
           <File className="set-icon-to-white" />
-          Download
+          Get my CV
         </a>
         <button
           id="link-to-codepen"
