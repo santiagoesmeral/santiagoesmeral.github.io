@@ -129,6 +129,7 @@
 @media screen and (max-width: 70rem) {
   //sass and media queries dont get along very well
   .hire-me {
+    padding: 2rem;
     grid-template-columns: 1fr;
     grid-template-rows: min-content min-content max-content;
     grid-template-areas: "title" "text" "links";
