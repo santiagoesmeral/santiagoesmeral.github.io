@@ -10,12 +10,6 @@
   position: relative;
 }
 
-//todo: i dont remember the logic that made me create this selector, but i should double check it and simplify it
-.the-fun-box.the-fun-box-align-center {
-  align-content: center;
-  justify-content: center;
-}
-
 /*
   You might think that these names are too long for a css selector and i should shorten them. 
   Something like .cheatsheet
@@ -30,33 +24,53 @@
   (yes i am fully aware that i am making this project with the specific intent of avoiding any extra libraries. Its just common practice for me)
 */
 
-.tfb-cheatsheet {
-  height: min-content;
-  font-size: 1.5rem;
-}
-
-.tfb-cheatsheet-decription {
-  font-size: 1.2rem;
-  max-width: 70ch;
-  line-height: 2rem;
-  text-align: center;
-  sup {
-    font-style: italic;
-    text-align: right;
-  }
-}
-
-.tfb-cheatsheet-list-of-searchbangs {
+.tfb-control-menu {
+  position: absolute;
+  right: -2rem;
+  top: -2.5rem;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  kbd {
-    outline: 1px solid white;
-    font-size: 1.2rem;
-    padding: 0.5rem;
-    cursor: help;
+  gap: 0.5rem;
+}
+
+.tfb-control-button,
+.tfb-tips-container-close,
+.tfb-tips-container-next-tip {
+  background-color: var(--header-color);
+  padding: 0.5rem;
+  border: 0.1rem solid var(--text-color);
+  color: var(--text-color);
+  transition: 0.1s ease;
+  cursor: pointer;
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    outline: 0.1rem solid white;
+    outline-offset: 0.25rem;
+    color: white;
   }
+  &:active {
+    outline-offset: 0;
+    outline: 0.1rem solid white;
+    color: white;
+  }
+}
+
+.tfb-tips-container {
+  border: 1px solid var(--text-color-opaque);
+  height: 100%;
+  width: 100%;
+}
+
+.tfb-tips-container-close {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+}
+
+.tfb-tips-container-next-tip {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 1rem;
 }
 
 .tfb-button {

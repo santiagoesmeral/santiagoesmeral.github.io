@@ -41,6 +41,11 @@ export default function Header() {
     return;
   };
 
+  /*
+    TODO: 
+    1- make a "pop up" animation for the menu
+    2- when on mobile, center the menu on the screen, and add a opaque background while disabling inputs. User shouldnt be able to interact with the page when menu is open on mobile
+  */
   const menu = () => {
     if (isMenuOpen) {
       return (
