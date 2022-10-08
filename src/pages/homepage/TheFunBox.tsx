@@ -222,14 +222,22 @@ function SearchbangTips() {
             )?.description
           : "Click a bang above to see what it does"}
       </p>
-      <p className="tfb-tips-bangs-example">
-        {currentlySelectedBang
-          ? "Example: " +
-            listOfSearchBangs.find(
-              (bang) => bang.bang === currentlySelectedBang
-            )?.example
-          : ""}
-      </p>
+      <div className="tfb-tips-bangs-example">
+        {currentlySelectedBang ? (
+          <>
+            <p>Example: </p>
+            <p>
+              {
+                listOfSearchBangs.find(
+                  (bang) => bang.bang === currentlySelectedBang
+                )?.example
+              }
+            </p>
+          </>
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 }
@@ -244,6 +252,7 @@ function SpeedrunButton() {
 
   const [timeLeft, setTimeLeft] = useState(-1);
 
+  //TODO: store this in a ref
   let currentTimeout: NodeJS.Timeout;
   useEffect(() => {
     /*

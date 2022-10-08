@@ -7,7 +7,10 @@
     "linkpad fun-box";
   grid-template-columns: min-content 3fr;
   grid-template-rows: min-content 1fr;
-  padding: 5vw;
+  /*
+    todo: figure out why i cant use a 5vw
+  */
+  padding: 5vh 5vw;
   gap: 2rem;
   align-items: center;
   justify-content: center;

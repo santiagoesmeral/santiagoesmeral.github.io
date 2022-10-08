@@ -8,6 +8,7 @@
   display: grid;
   transition: 0.8s ease;
   position: relative;
+  box-sizing: border-box;
 }
 
 /*
@@ -60,6 +61,7 @@
   border: 1px solid var(--text-color-opaque);
   height: 100%;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .tfb-tips-container-close {
@@ -80,6 +82,8 @@
   grid-template-areas: "title title" "paragraph list" "paragraph description" "paragraph example";
   grid-template-rows: min-content min-content min-content 1fr;
   gap: 0.5rem;
+  box-sizing: border-box;
+  height: 100%;
 }
 
 .tfb-tips-bangs-title,
@@ -132,18 +136,28 @@
   padding: 0 0.5rem;
 }
 .tfb-tips-bang {
-  padding: 0.5rem 1rem;
+  padding: 1rem;
 }
 .tfb-tips-bangs-description {
   grid-area: description;
   font-size: 1rem;
-  padding: 1rem;
+  padding: 0 1rem;
 }
 
 .tfb-tips-bangs-example {
   grid-area: example;
   justify-self: center;
-  padding: 1rem;
+  padding: 0 1rem;
+  //i'm gonna break my naming convention here purely out of laziness. One day i may or may not come back to fix this.
+  p {
+    padding: 0;
+    margin: 0;
+  }
+  p:last-child {
+    background-color: var(--header-color);
+    padding: 0.5rem;
+    outline: 0.1rem solid var(--text-color-opaque);
+  }
 }
 
 .tfb-simple-tips {
