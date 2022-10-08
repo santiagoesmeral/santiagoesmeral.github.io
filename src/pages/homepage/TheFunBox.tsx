@@ -101,13 +101,41 @@ function Tips({ onClose }: TipsProps) {
   const tipToRender = () => {
     switch (listOfTips[currentListOfTipsIndex]) {
       case "searchbangs":
-        return <div>DuckDuckGo has a feature called searchbangs</div>;
+        return <SearchbangTips />;
       case "redirectToNewPageWithNumpadEnter":
-        return <div>redirect to new page with numpad enter</div>;
+        return (
+          <div className="tfb-simple-tips">
+            <h2 className="tfb-simple-tips-title">
+              🢤 See those numbers in the links over there in the left?
+            </h2>
+            <p className="tfb-simple-tips-text">
+              They're mapped to the numbers in the numpad! try pressing one. (if
+              you have a keyboard). There may even be a surprise :)
+            </p>
+          </div>
+        );
       case "drinkWater":
-        return <div>wotor</div>;
+        return (
+          <div className="tfb-simple-tips">
+            <h2 className="tfb-simple-tips-title">Drink water.</h2>
+            <p className="tfb-simple-tips-text">
+              No seriously, go drink water right now. And stand up for 1 minute
+              while you're at it, stretch if you can. You'll thank me later.
+            </p>
+          </div>
+        );
       case "numpadButtonsLinkedWithExternalPageLinks":
-        return <div>use numpad to redirect to links</div>;
+        return (
+          <div className="tfb-simple-tips">
+            <h2 className="tfb-simple-tips-title">
+              Wanna search something but don't want to close this page?
+            </h2>
+            <p className="tfb-simple-tips-text">
+              You can open your search in a new page by using the numpad enter
+              rather than the normal one! (if you have a keyboard that is...)
+            </p>
+          </div>
+        );
       default:
         return "";
     }
@@ -129,6 +157,79 @@ function Tips({ onClose }: TipsProps) {
       >
         Next Tip ➤
       </button>
+    </div>
+  );
+}
+
+function SearchbangTips() {
+  const [currentlySelectedBang, setCurrentlySelectedBang] = useState("");
+  const listOfSearchBangs = [
+    {
+      bang: "!",
+      description: "Automatically enters the first search result",
+      example: "instagram !",
+    },
+    {
+      bang: "!yt",
+      description: "Searches on YouTube",
+      example: "bohemian rhapsody !yt",
+    },
+    {
+      bang: "!w",
+      description: "Searches on Wikipedia",
+      example: "alexithymia !w",
+    },
+    {
+      bang: "!gm",
+      description: "Searches on Google Maps",
+      example: "giant causeway !gm",
+    },
+  ];
+  return (
+    <div className="tfb-tips-bangs-grid">
+      <h2 className="tfb-tips-bangs-title">!bangs</h2>
+      <p className="tfb-tips-bangs-paragraph">
+        DuckDuckGo has an awesome feature called !bangs. It allows you to
+        redirect the search to another site by adding !bangs to your search.
+        <br />
+        <a
+          href="https://duckduckgo.com/bang"
+          title="https://duckduckgo.com/bang"
+          className="tfb-tips-bangs-link"
+        >
+          Here's a link
+        </a>{" "}
+        to see all the available !bangs.
+      </p>
+      <div className="tfb-tips-bangs">
+        {listOfSearchBangs.map((bang) => {
+          return (
+            <button
+              title={bang.description}
+              onClick={() => setCurrentlySelectedBang(bang.bang)}
+              className="tfb-tips-bang"
+              key={bang.bang}
+            >
+              {bang.bang}
+            </button>
+          );
+        })}
+      </div>
+      <p className="tfb-tips-bangs-description">
+        {currentlySelectedBang
+          ? listOfSearchBangs.find(
+              (bang) => bang.bang === currentlySelectedBang
+            )?.description
+          : "Click a bang above to see what it does"}
+      </p>
+      <p className="tfb-tips-bangs-example">
+        {currentlySelectedBang
+          ? "Example: " +
+            listOfSearchBangs.find(
+              (bang) => bang.bang === currentlySelectedBang
+            )?.example
+          : ""}
+      </p>
     </div>
   );
 }

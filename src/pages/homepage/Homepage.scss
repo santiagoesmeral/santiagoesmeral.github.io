@@ -29,7 +29,8 @@
   position: relative;
   transition: 0.3s ease;
   &:focus-within {
-    width: 100%;
+    // width: 100%; haven't quite decided which one i preffer...
+    width: calc(100% - 10rem);
   }
 }
 
