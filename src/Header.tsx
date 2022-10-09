@@ -45,6 +45,7 @@ export default function Header() {
     TODO: 
     1- make a "pop up" animation for the menu
     2- when on mobile, center the menu on the screen, and add a opaque background while disabling inputs. User shouldnt be able to interact with the page when menu is open on mobile
+      note on 2: i tried, its gonna require me to add a div, because you cant change the z-index of pseudoelements :)  
   */
   const menu = () => {
     if (isMenuOpen) {
