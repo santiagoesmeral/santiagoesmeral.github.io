@@ -59,17 +59,17 @@ export default function Header() {
           >
             Close Menu
           </button>
-          {window.location.pathname !== "/hire_me" && (
+          {window.location.pathname !== "/contact_me" && (
             <a
               id="header-nav-link-1"
-              href="/hire_me"
+              href="/contact_me"
               className="header-button"
-              title="Hire Me"
+              title="Contact me"
             >
-              Hire Me
+              Contact me
             </a>
           )}
-          {(window.location.pathname === "/hire_me" ||
+          {(window.location.pathname === "/contact_me" ||
             window.location.pathname === "/404") && (
             <a
               id="header-nav-link-1"
@@ -117,14 +117,16 @@ export default function Header() {
     } else
       return (
         <Fragment>
-          <a
-            id="header-hire-me-button"
-            href="/hire_me"
-            className="header-button hire-me-quick-access-button"
-            title="Hire Me"
-          >
-            Hire Me
-          </a>
+          {window.location.pathname !== "/contact_me" && (
+            <a
+              id="header-hire-me-button"
+              href="/contact_me"
+              className="header-button hire-me-quick-access-button"
+              title="Contact me"
+            >
+              Contact me
+            </a>
+          )}
           <button
             id="header-open-nav-button"
             title="Open Navigation"

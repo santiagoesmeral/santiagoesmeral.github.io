@@ -1,12 +1,6 @@
 import { ReactElement, useState } from "react";
-import {
-  GithubLogo,
-  GmailLogo,
-  LinkedInLogo,
-  TelegramLogo,
-  File,
-} from "../../images";
-import "./HireMe.scss";
+import { GithubLogo, LinkedInLogo, TelegramLogo, File } from "../../images";
+import "./ContactMe.scss";
 
 interface LinkWithCopyInterface {
   id?: string;
@@ -64,12 +58,12 @@ function LinkWithCopy({
     </div>
   );
 }
-export default function HireMe() {
+export default function ContactMe() {
   return (
-    <section className="hire-me take-remaining-space-in-page">
-      <h1 className="hire-me-title">Thank you for visiting my page!</h1>
-      <div className="hire-me-text-container">
-        <p className="hire-me-text">
+    <section className="contact-me take-remaining-space-in-page">
+      <h1 className="contact-me-title">Thank you for visiting my page!</h1>
+      <div className="contact-me-text-container">
+        <p className="contact-me-text">
           I created this page to implement the features that i would've liked to
           have in a homepage, while also using it as a bit of a challenge.
           <br />
@@ -79,7 +73,7 @@ export default function HireMe() {
           interested in hiring me, don't hesitate to contact me.
         </p>
       </div>
-      <div className="hire-me-links">
+      <div className="contact-me-links">
         <LinkWithCopy
           id="skip-navigation-target"
           text="santiagoesmeral@hotmail.com"

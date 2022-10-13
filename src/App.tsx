@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Homepage from "./pages/homepage/Homepage";
-import HireMe from "./pages/hire_me/HireMe";
+import ContactMe from "./pages/contact_me/ContactMe";
 import Header from "./Header";
 import "./App.scss";
 
@@ -28,15 +28,15 @@ function App() {
     */
     switch (window.location.pathname) {
       /* note: since we're returning, we dont need to break after each case */
-      case "/hire_me":
-        return <HireMe />;
+      case "/contact_me":
+        return <ContactMe />;
       /* fall through sequence checking for empty string, "/", and "#" to redirect to homepage (https://stackoverflow.com/a/6514571/6749456) */
       case "/":
       case "#":
       case "":
         return <Homepage appConfig={appConfig} />;
       default: //TODO: make a 404 page
-        return <Homepage />;
+        return <Homepage appConfig={appConfig} />;
     }
   };
 
