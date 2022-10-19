@@ -113,6 +113,7 @@ export default function Homepage({ appConfig }: any) {
       //skip-navigation-target, in the homepage, represent the searchbar. Dont wanna redirect the user while they search something.
       if (document.activeElement?.id === "skip-navigation-target") {
         //numpad enter redirects on new tab feature!!
+        // * i could totally do a rework here to store a variable and use the normal enter + shift rather than F9. Maybe in the future
         if (event.code === "NumpadEnter" || event.code === "F9") {
           event.preventDefault();
           /*

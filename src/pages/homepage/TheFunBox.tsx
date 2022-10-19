@@ -109,8 +109,8 @@ function Tips({ onClose }: TipsProps) {
               🢤 See those numbers in the links over there in the left?
             </h2>
             <p className="tfb-simple-tips-text">
-              They're mapped to the numbers in the numpad! try pressing one. (if
-              you have a keyboard). There may even be a surprise :)
+              They're mapped to the numbers in the keyboard! If you have a
+              keyboard, try pressing a number!. There may even be a surprise :)
             </p>
           </div>
         );
@@ -132,7 +132,9 @@ function Tips({ onClose }: TipsProps) {
             </h2>
             <p className="tfb-simple-tips-text">
               You can open your search in a new page by using the numpad enter
-              rather than the normal one! (if you have a keyboard that is...)
+              rather than the normal one! It also works with the F9 key as long
+              as the searchabar is selected, for those of you that don't have a
+              numpad.
             </p>
           </div>
         );
