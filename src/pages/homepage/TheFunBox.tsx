@@ -110,7 +110,7 @@ function Tips({ onClose }: TipsProps) {
             </h2>
             <p className="tfb-simple-tips-text">
               They're mapped to the numbers in the keyboard! If you have a
-              keyboard, try pressing a number!. There may even be a surprise :)
+              keyboard, try pressing a number! There may even be a surprise :)
             </p>
           </div>
         );
