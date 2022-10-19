@@ -113,7 +113,7 @@ export default function Homepage({ appConfig }: any) {
       //skip-navigation-target, in the homepage, represent the searchbar. Dont wanna redirect the user while they search something.
       if (document.activeElement?.id === "skip-navigation-target") {
         //numpad enter redirects on new tab feature!!
-        if (event.code === "NumpadEnter") {
+        if (event.code === "NumpadEnter" || event.code === "F9") {
           event.preventDefault();
           /*
             for some reason, i cant use searchValue. It appears like the value doesn't get set as its typing, for some reason.
@@ -129,6 +129,7 @@ export default function Homepage({ appConfig }: any) {
             "blank"
           );
         }
+
         return;
       }
 
