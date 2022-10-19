@@ -134,15 +134,23 @@ export default function Homepage({ appConfig }: any) {
         return;
       }
 
-      if (event.code.includes("Numpad")) {
-        let numpadInput = event.code.slice(6); //Remove the "Numpad" from the string
-        if (numpadInput === "0") {
+      let keyCode = event.code;
+
+      if (keyCode.includes("Numpad") || keyCode.includes("Digit")) {
+        if (keyCode.includes("Numpad")) {
+          keyCode = keyCode.slice(6); //Remove the "Numpad" from the string
+        }
+        if (keyCode.includes("Digit")) {
+          keyCode = keyCode.slice(5); //Remove the "Digit" from the string
+        }
+
+        if (keyCode === "0") {
           window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; //gottem
         }
         // negated isNaN seems to be the best way to check if a string is a number
-        if (!isNaN(Number(numpadInput))) {
+        if (!isNaN(Number(keyCode))) {
           const urlToRedirect = ListOfLinks.find(
-            (link) => link.id === numpadInput
+            (link) => link.id === keyCode
           )?.url;
           if (urlToRedirect) {
             window.location.href = urlToRedirect;
