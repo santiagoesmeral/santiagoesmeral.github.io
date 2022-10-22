@@ -138,3 +138,11 @@
   Basically, i've been massively polishing the page ever since last time. I've also had a long period of pause due to "life" reasons. Wont go into detail.
   Mobile fully works! and the page is also fully deployed and usable from https://santiagoesmeral.github.io/
   Currently i'm just polishing it up. Changing things which dont make too much sense and all, you know?
+
+- 22/10/22
+  For the most part, the project is done. I find a few things to change here and there though. 
+  On my list of "i should get this fixed" stuff: 
+  1- current keymappings do not follow WCAG standards. I must provide a way to turn off the feature.
+  2- probably a good idea to add a way to stop the animation in the button of the fun box
+  1 and 2- a small options menu looks like a good choice here
+  3- a skip links button for tab-navigation on the list of links?
