@@ -1,8 +1,12 @@
-# Welcome!
+# NOTE:
+This is an extremely out-of-date project that I'm actively working to replace with something better. So please, take it with a grain of salt, as a snapshot of how i used to be some time ago. A lot has changed since then.
+
+-----------------------------------------------------------------
+###  Welcome!
 
 This is my portfolio page. I've been working on it for a long time, undecided as to what i wanted to do. I ended up settling for creating a homepage that i would like to use myself. In the future i intend on adding mobile support, and in fact make this project a react native one. For now, its just a simple page that i can work on whenever i have some free time.
 
-# COMMANDS!
+### COMMANDS!
 
 to just run the project:
 npm start
